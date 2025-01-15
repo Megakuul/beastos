@@ -42,6 +42,12 @@
 (use-package go-mode
   :ensure t)
 
+(use-package nix-mode
+  :ensure t)
+
+(use-package sudo-edit
+  :ensure t)
+
 (use-package company
   :ensure t
   :config
