@@ -50,6 +50,7 @@
     home.shellAliases = {
       ll = "ls -al";
       s = "sudo";
+      sc = "grim -g \"$(slurp)\" - | wl-copy";
       sysmacs = "sudo emacs -nw --no-init-file --load ~/.emacs /etc/nixos/configuration.nix";
     };
 
@@ -59,16 +60,13 @@
     gtk = {
       enable = true;
       theme = {
-        name = "Breeze-Dark";
-      	package = pkgs.libsForQt5.breeze-gtk;
+        name = "WhiteSur";
+      	package = pkgs.whitesur-gtk-theme;
       };
     
       iconTheme = {
-        name = "Papirus-Dark";
-	      package = pkgs.catppuccin-papirus-folders.override {
-	        flavor = "mocha";
-	        accent = "lavender";
-	      };
+        name = "WhiteSur";
+	      package = pkgs.whitesur-icon-theme;
       };
     
       gtk3 = {
@@ -78,7 +76,7 @@
 
     dconf.settings = {
       "org/gnome/desktop/interface" = {
-        gtk-theme = "Breeze-Dark";
+        gtk-theme = "WhiteSur";
 	      color-scheme = "prefer-dark";
       };
     };
@@ -112,12 +110,22 @@
     gh
     fastfetch
     starship
+    cmake
+    gnumake
+    gtkmm3
+    pkg-config
+    gcc14
 
     waybar
     mako
     libnotify
     hyprpaper
     rofi-wayland
+    slurp
+    grim
+    wl-clipboard
+    whitesur-gtk-theme
+    whitesur-icon-theme
     matcha-gtk-theme
     papirus-icon-theme
   ];
