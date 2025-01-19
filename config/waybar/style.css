@@ -1,0 +1,143 @@
+* {
+    font-family: "Inter", "FiraCode Nerd Font";
+    font-size: 12px;
+}
+
+#waybar {
+    border-bottom: 2px solid transparent;
+    border-image-slice: 1;
+    background-color: rgba(30,33,36,0.9);
+    animation: slide-background 4s ease infinite;
+}
+
+@keyframes slide-background {
+    0% {
+        border-image: linear-gradient(to right, rgba(128, 0, 0, 0.8), rgba(255, 128, 0, 0.8));
+    }
+    50% {
+        border-image: linear-gradient(to right, rgba(255, 128, 0, 0.8), rgba(128, 0, 0, 0.8));
+    }
+    100% {
+        border-image: linear-gradient(to right, rgba(128, 0, 0, 0.8), rgba(255, 128, 0, 0.8));
+    }
+}
+
+#workspaces button {
+    background-color: #2e3440;
+    color: #eceff4;
+    transition: all ease 1s;
+    margin: 6px;
+    opacity: 0.6;
+}
+
+#workspaces button.active {
+    font-weight: bold;
+    opacity: 1;
+}
+
+#workspaces button.empty {
+    opacity: 0.3;
+}
+
+#workspaces button.urgent {
+    background-color: #b55a03;
+    opacity: 1;
+}
+
+#pulseaudio {
+    margin: 6px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all ease 1s;
+}
+
+#pulseaudio:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#custom-track {
+    margin: 6px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all ease 1s;
+    padding-right: 4px;
+    padding-left: 2px;
+}
+
+#custom-track:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#custom-track.playing {
+}
+
+#custom-track.paused {
+    animation: pause 2s linear 0s infinite;
+}
+
+@keyframes pause {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#custom-track.stopped {   
+}
+
+#clock {
+    font-weight: bold;
+    margin: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all ease 1s;
+}
+
+#clock:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#cpu {
+    margin: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all ease 1s;
+}
+
+#cpu:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#memory {
+    margin: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all ease 1s;
+}
+
+#memory:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#tray {
+    min-width: 40px;
+    margin: 6px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all ease 1s;
+}
+
+#tray:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}

@@ -27,8 +27,12 @@
   services.xserver.xkb.layout = "ch";
   console.useXkbConfig = true;
 
-  hardware.pulseaudio.enable = true;
-  services.pipewire.enable = false;
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
 
   users.users.linus = {
     initialPassword = "letmecook";
@@ -43,8 +47,15 @@
       source = ./config/hypr;
       recursive = true;
     };
+    home.file.".config/waybar/" = {
+      source = ./config/waybar;
+      recursive = true;
+    };
+    home.file.".config/sys64/menu/" = {
+      source = ./config/sysmenu;
+      recursive = true;
+    };
     home.file.".config/rofi/config.rasi".source = ./config/rofi/config.rasi;
-    home.file.".config/waybar/style.css".source = ./config/waybar/style.css;
     home.file.".config/starship.toml".source = ./config/starship/config.toml;
 
     home.shellAliases = {
@@ -60,41 +71,36 @@
     gtk = {
       enable = true;
       theme = {
-        name = "WhiteSur";
-      	package = pkgs.whitesur-gtk-theme;
+        name = "Yaru-dark";
+        package = pkgs.yaru-theme;
       };
     
       iconTheme = {
-        name = "WhiteSur";
+        name = "WhiteSur-dark";
 	      package = pkgs.whitesur-icon-theme;
-      };
-    
-      gtk3 = {
-        extraConfig.gtk-application-prefer-dark-theme = true;
-      };
-    };
-
-    dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        gtk-theme = "WhiteSur";
-	      color-scheme = "prefer-dark";
       };
     };
 
     qt = {
       enable = true;
-      platformTheme = "gtk";
-      style = {
-        name = "gtk2";
-      	package = pkgs.libsForQt5.breeze-qt5;
-      };
+      platformTheme.name = "qt5ct";
     };
   };
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
   fonts.packages = with pkgs; [
     iosevka
+    nerdfonts
+    font-awesome
+    inter
   ];
 
   environment.systemPackages = with pkgs; [
@@ -103,9 +109,10 @@
     brave
     discord
     steam
-    dolphin
     wget
     curl
+    vscode
+    nautilus
     kitty
     gh
     fastfetch
@@ -115,19 +122,22 @@
     gtkmm3
     pkg-config
     gcc14
+    clang-tools
+    gtkmm3
+    gtkmm4
+    jq
 
-    waybar
+    pavucontrol
     mako
     libnotify
     hyprpaper
-    rofi-wayland
     slurp
     grim
     wl-clipboard
-    whitesur-gtk-theme
-    whitesur-icon-theme
-    matcha-gtk-theme
-    papirus-icon-theme
+    sysmenu
+    waybar
+    playerctl
+    pamixer
   ];
 
   programs.hyprland.enable = true;

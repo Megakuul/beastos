@@ -80,7 +80,7 @@
 (setq-default tab-width 2)
 (setq-default standard-indent 2)
 
-(setq explicit-shell-file-name "/bin/bash")
+(setq explicit-shell-file-name "bash")
 
 ;; Wraps words instead of letters
 (global-visual-line-mode 1)
@@ -148,6 +148,7 @@
 
 (global-set-key (kbd "C-c C-x") 'mark-fullword)
 (global-set-key (kbd "C-c C-f") 'mark-defun)
+(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
 (defun force-kill-buffer ()
   (interactive)
@@ -174,7 +175,7 @@
         (default-directory (or (buffer-local-value 'default-directory (current-buffer))
                                default-directory)))
     (select-window new-window)
-    (eat)))
+    (eat "bash")))
 
 (add-hook 'eat-mode-hook (lambda () (display-line-numbers-mode -1)))
 
@@ -184,6 +185,7 @@
 ;; Visual configuration
 
 (set-frame-font "Iosevka Medium-12" nil t)
+(set-fontset-font t 'unicode "Nerd Font Mono" nil 'prepend)
 (scroll-bar-mode -1)
 
 (prefer-coding-system 'utf-8)

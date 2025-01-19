@@ -1,12 +1,12 @@
 * {
     font:   "Montserrat 12";
 
-    bg0:     #F5F5F5BF;
-    bg1:     #e6e6e6;
-    bg2:     #0860F2E6;
+    bg0:     #FFFFFFCC;
+    bg1:     #F5F5F5CC;
+    bg2:     #F5F5F5CC;
 
-    fg0:     #242424;
-    fg1:     #FFFFFF;
+    fg0:     #242424FF;
+    fg1:     #FFFFFFFF;
     fg2:     #24242480;
 
     background-color:   transparent;

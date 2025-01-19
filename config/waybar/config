@@ -1,0 +1,54 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["hyprland/workspaces", "pulseaudio", "custom/track"],
+  "modules-center": ["clock"],
+  "modules-right": ["battery", "cpu", "memory", "tray"],
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true,
+  },
+  "pulseaudio": {
+    "format": "     {volume}% ",
+    "format-muted": "     {volume}% ",
+    "scroll-step": 5,
+    "on-click": "pamixer --toggle-mute",
+    "on-scroll-up": "pamixer --increase 5",
+    "on-scroll-down": "pamixer --decrease 5"
+  },
+  "custom/track": {
+    "exec": "bash ~/.config/waybar/scripts/media-status.sh",
+    "on-click": "playerctl play-pause",
+    "interval": 5,
+    "tooltip": true,
+    "return-type": "json",
+    "max-length": 20
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%Y-%m-%d %H:%M}"
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "good": 90,
+      "warning": 30,
+      "critical": 5
+    },
+    "format": " 󰁹 {capacity}%",
+    "format-charging": " 󰂄 {capacity}%",
+    "format-plugged": " 󱟢 {capacity}%",
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "    {usage}%"
+  },
+  "memory": {
+    "interval": 10,
+    "format": "    {percentage}%"
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  }
+}
