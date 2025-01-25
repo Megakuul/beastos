@@ -33,7 +33,7 @@
   users.users.linus = {
     initialPassword = "letmecook";
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "libvirtd" ];
   };
 
   home-manager.users.linus = {
@@ -93,6 +93,24 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
+  };
+
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMFFull.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })
+        ];
+      };
+    };
   };
 
   fonts.packages = with pkgs; [
