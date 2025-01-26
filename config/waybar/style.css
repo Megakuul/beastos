@@ -133,6 +133,7 @@
 #tray {
     min-width: 40px;
     margin: 6px;
+    padding: 4px;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.1);
     transition: all ease 1s;

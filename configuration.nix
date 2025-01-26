@@ -40,6 +40,7 @@
     extraGroups = [ "wheel" ];
   };
 
+
   home-manager.users.linus = {
     home.stateVersion = "24.11";
     home.file.".emacs".source = ./emacs.el;
@@ -105,9 +106,11 @@
 
   environment.systemPackages = with pkgs; [
     emacs
+    go
+    gopls
     git
     brave
-    discord
+    webcord
     steam
     wget
     curl
