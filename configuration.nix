@@ -11,9 +11,10 @@
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
-    device = "nodev";    
+    device = "nodev";
+    efiInstallAsRemovable = true;
+    splashImage = "/etc/nixos/boot-splash-image.jpg";
   };
-  boot.loader.grub.efiInstallAsRemovable = true;
 
   networking.hostName = "beast";
 
@@ -132,8 +133,8 @@
     nautilus
     kitty
     gh
-    qemu
-    virt-viewer
+    go
+    gopls
     fastfetch
     starship
     cmake
