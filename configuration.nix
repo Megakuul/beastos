@@ -17,6 +17,9 @@
   };
 
   networking.hostName = "beast";
+  networking.extraHosts = ''
+    192.168.122.10 srvprodpodctpub01.local
+  '';
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -36,7 +39,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "libvirtd" ];
   };
-
 
   home-manager.users.linus = {
     home.stateVersion = "24.11";
@@ -142,13 +144,14 @@
     starship
     cmake
     gnumake
-    gtkmm3
     pkg-config
     gcc14
     clang-tools
     gtkmm3
     gtkmm4
     jq
+    asciidoctor
+    rofi-wayland
 
     pavucontrol
     mako

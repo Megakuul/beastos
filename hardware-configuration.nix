@@ -18,6 +18,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/disk" =
+    { device = "/dev/disk/by-label/NIXDISK";
+      fsType = "ext4";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";

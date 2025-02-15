@@ -1,96 +1,212 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun,window,filebrowser,run";
+    show-icons:                 true;
+    display-drun:               "APPS";
+    display-window:             "WINDOW";
+    display-filebrowser:        "FILES";
+    display-run:                "RUN";
+	drun-display-format:        "{name}";
+	window-format:              "{w} {c}";
+  kb-element-next: "";
+  kb-element-prev: "";
+  kb-mode-next:               "Tab";
+}
+
+/*****----- Global Properties -----*****/
 * {
-    font:   "Montserrat 12";
-
-    bg0:     #FFFFFFCC;
-    bg1:     #F5F5F5CC;
-    bg2:     #F5F5F5CC;
-
-    fg0:     #242424FF;
-    fg1:     #FFFFFFFF;
-    fg2:     #24242480;
-
-    background-color:   transparent;
-    text-color:         @fg0;
-
-    margin:     0;
-    padding:    0;
-    spacing:    0;
+    font:                        "JetBrains Mono Nerd Font 10";
+    background:                  #101010;
+    background-alt:              #252525;
+    foreground:                  #FFFFFF;
+    selected:                    #505050;
+    active:                      #909090;
+    urgent:                      #707070;
 }
 
+/*****----- Main Window -----*****/
 window {
-    background-color:   @bg0;
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       1000px;
+    x-offset:                    0px;
+    y-offset:                    0px;
 
-    location:       center;
-    width:          640;
-    border-radius:  8;
+    /* properties for all widgets */
+    enabled:                     true;
+    border-radius:               15px;
+    cursor:                      "default";
+    background-color:            @background;
 }
 
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listbox" ];
+}
+
+imagebox {
+    padding:                     20px;
+    background-color:            transparent;
+    background-image:            url("~/.config/rofi/images/g.png", height);
+    orientation:                 vertical;
+    children:                    [ "inputbar", "dummy", "mode-switcher" ];
+}
+
+listbox {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+/*****----- Inputbar -----*****/
 inputbar {
-    font:       "Montserrat 20";
-    padding:    12px;
-    spacing:    12px;
-    children:   [ icon-search, entry ];
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    children:                    [ "textbox-prompt-colon", "entry" ];
 }
-
-icon-search {
-    expand:     false;
-    filename:   "search";
-    size: 28px;
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "  ";
+    background-color:            inherit;
+    text-color:                  inherit;
 }
-
-icon-search, entry, element-icon, element-text {
-    vertical-align: 0.5;
-}
-
 entry {
-    font:   inherit;
-
-    placeholder         : "Search";
-    placeholder-color   : @fg2;
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
 }
 
-message {
-    border:             2px 0 0;
-    border-color:       @bg1;
-    background-color:   @bg1;
+/*****----- Mode Switcher -----*****/
+mode-switcher{
+    enabled:                     true;
+    spacing:                     20px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+button {
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+button selected {
+    background-color:            @selected;
+    text-color:                  @foreground;
 }
 
-textbox {
-    padding:    8px 24px;
-}
-
+/*****----- Listview -----*****/
 listview {
-    lines:      10;
-    columns:    1;
-
-    fixed-height:   false;
-    border:         1px 0 0;
-    border-color:   @bg1;
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
 }
 
+/*****----- Elements -----*****/
 element {
-    padding:            8px 16px;
-    spacing:            16px;
-    background-color:   transparent;
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     8px;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
 }
-
-element normal active {
-    text-color: @bg2;
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
 }
-
-element alternate active {
-    text-color: @bg2;
+element normal.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
 }
-
-element selected normal, element selected active {
-    background-color:   @bg2;
-    text-color:         @fg1;
+element normal.active {
+    background-color:            @active;
+    text-color:                  @foreground;
 }
-
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @foreground;
+}
+element selected.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element selected.active {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
 element-icon {
-    size:   1em;
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        32px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
 
-element-text {
-    text-color: inherit;
+/*****----- Message -----*****/
+message {
+    background-color:            transparent;
+}
+textbox {
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    padding:                     15px;
+    border-radius:               20px;
+    background-color:            @background;
+    text-color:                  @foreground;
 }
