@@ -51,11 +51,10 @@
       source = ./config/waybar;
       recursive = true;
     };
-    home.file.".config/sys64/menu/" = {
-      source = ./config/sysmenu;
+    home.file.".config/rofi/" = {
+      source = ./config/rofi;
       recursive = true;
     };
-    home.file.".config/rofi/config.rasi".source = ./config/rofi/config.rasi;
     home.file.".config/starship.toml".source = ./config/starship/config.toml;
 
     home.shellAliases = {
