@@ -75,6 +75,12 @@
 (use-package rust-mode
   :hook (rust-mode . lsp-deferred))
 
+(use-package yaml-mode
+  :ensure t)
+
+(use-package adoc-mode
+  :ensure t)
+
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
