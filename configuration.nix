@@ -84,6 +84,7 @@
     _1password-gui
     mission-center
     python39
+    asciidoctor
 
     emacsPackages.vterm
     libvterm # required for vterm in emacs
