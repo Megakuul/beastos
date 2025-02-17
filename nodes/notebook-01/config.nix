@@ -38,6 +38,6 @@
     ];
   };
 
-  home-manager.users.linus.home.shellAliases.unleash = "sudo nixos-rebuild switch --flake /etc/nixos#notebook-01";
+  home-manager.users.linus.home.shellAliases.unleash = "sudo nixos-rebuild switch --flake path:/etc/nixos#notebook-01";
   home-manager.users.linus.home.file.".config/hypr/monitors.conf".source = ./monitors.conf;
 }

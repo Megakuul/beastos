@@ -21,6 +21,6 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  home-manager.users.linus.home.shellAliases.unleash = "sudo nixos-rebuild switch --flake /etc/nixos#desktop-01";
+  home-manager.users.linus.home.shellAliases.unleash = "sudo nixos-rebuild switch --flake path:/etc/nixos#desktop-01";
   home-manager.users.linus.home.file.".config/hypr/monitors.conf".source = ./monitors.conf;
 }
