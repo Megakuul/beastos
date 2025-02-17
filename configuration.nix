@@ -85,6 +85,7 @@
     mission-center
     python39
 
+    emacsPackages.vterm
     libvterm # required for vterm in emacs
     libtool # required for vterm compilation in emacs
     
