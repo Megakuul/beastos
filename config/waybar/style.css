@@ -1,33 +1,32 @@
 * {
-    font-family: "Inter", "FiraCode Nerd Font";
+    font-family: "JetBrainsMono Nerd Font", "Inter", "FiraCode Nerd Font";
     font-size: 12px;
+    color: #2e3440;
+}
+
+tooltip * {
+    color: #FEFEFE;
 }
 
 #waybar {
-    border-bottom: 2px solid transparent;
-    border-image-slice: 1;
-    background-color: rgba(30,33,36,0.9);
-    animation: slide-background 4s ease infinite;
-}
-
-@keyframes slide-background {
-    0% {
-        border-image: linear-gradient(to right, rgba(128, 0, 0, 0.8), rgba(255, 128, 0, 0.8));
-    }
-    50% {
-        border-image: linear-gradient(to right, rgba(255, 128, 0, 0.8), rgba(128, 0, 0, 0.8));
-    }
-    100% {
-        border-image: linear-gradient(to right, rgba(128, 0, 0, 0.8), rgba(255, 128, 0, 0.8));
-    }
+    background-color: transparent;
 }
 
 #workspaces button {
-    background-color: #2e3440;
-    color: #eceff4;
+    background-color: #FEFEFE;
+    color: #2e3440;
     transition: all ease 1s;
     margin: 6px;
     opacity: 0.6;
+}
+
+#workspaces button:hover {
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    background-color: #FEFEFE;
+    color: #2e3440;
+    opacity: 0.8;
 }
 
 #workspaces button.active {
@@ -44,28 +43,35 @@
     opacity: 1;
 }
 
-#pulseaudio {
+#tray {
     margin: 6px;
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: all ease 1s;
+    background-color: #FAFAFA;
 }
 
-#pulseaudio:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+#status {
+    min-width: 40px;
+    margin: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    background-color: #FAFAFA;
+}
+
+#util {
+    margin: 6px;
+    border-radius: 8px;
+    background-color: #FAFAFA;
+}
+
+#pulseaudio {
+    transition: all ease 1s;
 }
 
 #custom-track {
-    margin: 6px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
     transition: all ease 1s;
     padding-right: 4px;
     padding-left: 2px;
-}
-
-#custom-track:hover {
-    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #custom-track.playing {
@@ -91,54 +97,25 @@
 }
 
 #clock {
+    font-size: 14px;
     font-weight: bold;
-    margin: 6px;
-    padding-left: 25px;
-    padding-right: 25px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: all ease 1s;
-}
-
-#clock:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #cpu {
-    margin: 6px;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: all ease 1s;
-}
-
-#cpu:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
 }
 
 #memory {
-    margin: 6px;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: all ease 1s;
+    font-weight: bold;
 }
 
-#memory:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+#battery {
+    font-weight: bold;
 }
 
 #tray {
     min-width: 40px;
-    margin: 6px;
-    padding: 4px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: all ease 1s;
-}
-
-#tray:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1px;
 }

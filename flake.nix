@@ -10,27 +10,18 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
       {
         nixosConfigurations = {
-          desktop = nixpkgs.lib.nixosSystem {
+          desktop-01 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
               home-manager.nixosModules.home-manager
-              ./configuration.nix
+              ./nodes/desktop-01/config.nix
             ];
           };
-          desktop-nvidia = nixpkgs.lib.nixosSystem {
+          notebook-01 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
               home-manager.nixosModules.home-manager
-              ./configuration.nix
-              ./modules/nvidia.nix
-            ];
-          };
-          notebook = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              home-manager.nixosModules.home-manager
-              ./configuration.nix
-              ./modules/notebook.nix
+              ./nodes/notebook-01/config.nix
             ];
           };
         };

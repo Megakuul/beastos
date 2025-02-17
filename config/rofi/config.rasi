@@ -61,9 +61,9 @@ mainbox {
 }
 
 imagebox {
-    padding:                     20px;
+    padding:                     40px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/background.jpg", height);
+    background-image:            url("~/.config/rofi/icon.png", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }

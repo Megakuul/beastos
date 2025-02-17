@@ -1,16 +1,36 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": ["hyprland/workspaces", "pulseaudio", "custom/track"],
-  "modules-center": ["clock"],
-  "modules-right": ["battery", "cpu", "memory", "tray"],
+  "modules-left": ["group/workspaces", "group/status"],
+  "modules-right": ["group/tray", "group/util"],
+  "group/tray": {
+    "orientation": "horizontal",
+    "modules": ["tray"]
+  },
+  "group/status": {
+    "orientation": "horizontal",
+        "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true,
+    },
+    "modules": ["clock", "battery", "cpu", "memory", "tray"]
+  },
+  "group/util": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio", "custom/track"]
+  },
+  "group/workspaces": {
+    "orientation": "horizontal",
+    "modules": ["hyprland/workspaces"]
+  },
   "hyprland/workspaces": {
     "format": "{name}",
     "disable-scroll": true,
+    "cursor": true,
   },
   "pulseaudio": {
-    "format": "     {volume}% ",
-    "format-muted": "     {volume}% ",
+    "format": "   {volume}% ",
+    "format-muted": "   {volume}% ",
     "scroll-step": 5,
     "on-click": "pamixer --toggle-mute",
     "on-scroll-up": "pamixer --increase 5",
@@ -25,8 +45,9 @@
     "max-length": 20
   },
   "clock": {
-    "format": "{:%H:%M}",
-    "tooltip-format": "{:%Y-%m-%d %H:%M}"
+    "format": "{:%H %M}",
+    "tooltip-format": "{:%Y-%m-%d %H:%M}",
+    "cursor": true
   },
   "battery": {
     "bat": "BAT0",
@@ -35,17 +56,20 @@
       "warning": 30,
       "critical": 5
     },
-    "format": " 󰁹 {capacity}%",
-    "format-charging": " 󰂄 {capacity}%",
-    "format-plugged": " 󱟢 {capacity}%",
+    "format": " 󰁹 {capacity}% ",
+    "format-charging": " 󰂄 {capacity}% ",
+    "format-plugged": " 󱟢 {capacity}% ",
+    "cursor": true
   },
   "cpu": {
     "interval": 10,
-    "format": "    {usage}%"
+    "format": "   {usage}%  ",
+    "cursor": true
   },
   "memory": {
     "interval": 10,
-    "format": "    {percentage}%"
+    "format": "   {percentage}%  ",
+    "cursor": true
   },
   "tray": {
     "icon-size": 20,
