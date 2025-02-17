@@ -3,10 +3,6 @@
   "position": "top",
   "modules-left": ["group/workspaces", "group/status"],
   "modules-right": ["group/tray", "group/util"],
-  "group/tray": {
-    "orientation": "horizontal",
-    "modules": ["tray"]
-  },
   "group/status": {
     "orientation": "horizontal",
         "drawer": {

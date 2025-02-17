@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager ... }:
+{ config, lib, pkgs, home-manager, ... }:
 
 {
   users.users.linus = {
@@ -9,7 +9,7 @@
 
   home-manager.users.linus = {
     home.stateVersion = "24.11";
-    home.file.".emacs".source = ./emacs.el;
+    home.file.".emacs".source = ../emacs.el;
     home.file.".config/starship.toml".source = ../config/starship/config.toml;
     home.file.".config/hypr/" = {
       source = ../config/hypr;

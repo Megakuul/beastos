@@ -13,40 +13,35 @@ tooltip * {
 }
 
 #workspaces button {
-    background-color: #FEFEFE;
+    background-color: #DDDDDD;
     color: #2e3440;
     transition: all ease 1s;
     margin: 6px;
-    opacity: 0.6;
+    opacity: 1;
 }
 
 #workspaces button:hover {
     background: none;
     box-shadow: none;
     text-shadow: none;
-    background-color: #FEFEFE;
+    background-color: #BDBDBD;
     color: #2e3440;
     opacity: 0.8;
 }
 
 #workspaces button.active {
+    background-color: #FEFEFE;
     font-weight: bold;
     opacity: 1;
 }
 
 #workspaces button.empty {
-    opacity: 0.3;
+    background-color: #BDBDBD;
 }
 
 #workspaces button.urgent {
     background-color: #b55a03;
     opacity: 1;
-}
-
-#tray {
-    margin: 6px;
-    border-radius: 8px;
-    background-color: #FAFAFA;
 }
 
 #status {
@@ -118,4 +113,8 @@ tooltip * {
 #tray {
     min-width: 40px;
     padding: 1px;
+}
+
+#tray menu * {
+    color: #FEFEFE;
 }
