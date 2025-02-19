@@ -89,7 +89,8 @@
     emacsPackages.vterm
     libvterm # required for vterm in emacs
     libtool # required for vterm compilation in emacs
-    
+
+    wpa_supplicant_gui
     pavucontrol
     mako
     libnotify
