@@ -24,6 +24,15 @@
             ];
             specialArgs = { inherit pkgs-unstable; };
           };
+          desktop-02 = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [
+	            impermanence.nixosModules.impermanence
+              home-manager.nixosModules.home-manager
+              ./nodes/desktop-02/config.nix
+            ];
+            specialArgs = { inherit pkgs-unstable; };
+          };
           notebook-01 = nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
