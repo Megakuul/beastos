@@ -17,11 +17,15 @@
   services.xserver.xkb.layout = "ch";
   console.useXkbConfig = true;
 
+  networking.networkmanager.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
-  services.gnome.gnome-keyring.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
+
+  programs.nm-applet.enable = true;
+  programs.nm-applet.indicator = true;
 
   hardware.pulseaudio.enable = false;
   services.pipewire = {
@@ -90,9 +94,9 @@
     libvterm # required for vterm in emacs
     libtool # required for vterm compilation in emacs
 
-    wpa_supplicant_gui
     pavucontrol
-    mako
+    networkmanagerapplet
+    swaynotificationcenter
     libnotify
     hyprpaper
     slurp

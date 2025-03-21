@@ -10,9 +10,9 @@
     ];
 
   networking.hostName = "beast";
-  networking.useDHCP = false;
-  networking.bridges.br0.interfaces = [ "enp3s0" ];
-  networking.interfaces.br0.useDHCP = true;
+  # networking.useDHCP = false;
+  # networking.bridges.br0.interfaces = [ "enp3s0" ];
+  # networking.interfaces.br0.useDHCP = true;
 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {

@@ -9,6 +9,16 @@
 
   home-manager.users.linus = {
     home.stateVersion = "24.11";
+
+    home.activation = {
+      createMonitorConfig = ''
+        if [ ! -f "$HOME/monitors.conf" ]; then
+          cp "$HOME/.config/hypr/monitors.conf" "$HOME/monitors.conf"
+          chmod u+w "$HOME/monitors.conf"
+        fi
+      '';      
+    };
+    
     home.file.".emacs".source = ../emacs.el;
     home.file.".config/starship.toml".source = ../config/starship/config.toml;
     home.file.".config/hypr/" = {
