@@ -6,7 +6,6 @@
     [
       ./hardware-configuration.nix
       ../../configuration.nix
-      ../../users/linus.nix
     ];
 
   networking.hostName = "beast";
@@ -29,7 +28,7 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   };
-
-  home-manager.users.linus.home.shellAliases.unleash = "sudo nixos-rebuild switch --flake path:/etc/nixos#desktop-02";
-  home-manager.users.linus.home.file.".config/hypr/monitors.conf".source = ./monitors.conf;
+  programs.bash.shellAliases = {
+    snleash = "sudo nixos-rebuild switch --flake path:/etc/nixos#desktop-02";
+  };
 }

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, home-manager, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -34,6 +34,13 @@
     pulse.enable = true;
   };
 
+  users.users.linus = {
+    initialPassword = "letmecook";
+    isNormalUser = true;
+    extraGroups = [ "wheel" "libvirtd" ];
+  };
+  security.sudo.wheelNeedsPassword = false; # I am not in the operating system, I am the operating system
+
   programs.virt-manager.enable = true;
   virtualisation.libvirtd = {
     enable = true;
@@ -60,6 +67,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    neovim
+    vimPlugins.nvchad
+    home-manager
+
     emacs
     go
     gopls
@@ -90,10 +101,6 @@
     python39
     asciidoctor
 
-    emacsPackages.vterm
-    libvterm # required for vterm in emacs
-    libtool # required for vterm compilation in emacs
-
     pavucontrol
     networkmanagerapplet
     swaynotificationcenter
@@ -101,6 +108,7 @@
     hyprpaper
     slurp
     grim
+    ripgrep
     wl-clipboard
     rofi-wayland
     waybar

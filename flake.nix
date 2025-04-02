@@ -12,6 +12,8 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, impermanence, ... }@inputs:
     let
       system = "x86_64-linux";
+      username = "linus";
+      pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in {
         nixosConfigurations = {
@@ -30,6 +32,15 @@
 	            impermanence.nixosModules.impermanence
               home-manager.nixosModules.home-manager
               ./nodes/desktop-02/config.nix
+            ];
+            specialArgs = { inherit pkgs-unstable; };
+          };
+          desktop-03 = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [
+	            impermanence.nixosModules.impermanence
+              home-manager.nixosModules.home-manager
+              ./nodes/desktop-03/config.nix
             ];
             specialArgs = { inherit pkgs-unstable; };
           };
@@ -52,5 +63,15 @@
 	          specialArgs = { inherit pkgs-unstable; };
 	        };
         };
+	homeConfigurations = {
+	  linus = home-manager.lib.homeManagerConfiguration {
+	  inherit pkgs;
+	  extraSpecialArgs = { inherit inputs username; };
+	  modules = [
+	    ./users/linus.nix
+	  ];
+
+	  };
       };
+};
 }

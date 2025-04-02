@@ -1,19 +1,27 @@
-{ config, lib, pkgs, home-manager, ... }:
+{ pkgs, lib, config, inputs, username, ... }: 
 
 {
-  users.users.linus = {
-    initialPassword = "letmecook";
-    isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" ];
-  };
-
-  home-manager.users.linus = {
     home.stateVersion = "24.11";
 
     home.activation = {
       createMonitorConfig = ''
         if [ ! -f "$HOME/monitors.conf" ]; then
-          cp "$HOME/.config/hypr/monitors.conf" "$HOME/monitors.conf"
+	  echo "
+# Find your monitor names with: hyprctl monitors
+# Use <auto> instead of <0x0> to auto-detect
+
+# --- Side-by-Side ---
+# monitor = eDP-1, preferred, 0x0, 1 # center
+# monitor = DP-1, highres@highrr, -1920x0, 1 # left
+
+# --- Above/Below ---
+# monitor = eDP-1, preferred, 0x0, 1 # center
+# monitor = DP-1, highres@highrr, 0x1080, 1 # bottom
+
+# --- Mirrored (Mirror eDP-1 onto DP-1) ---
+# monitor = eDP-1, preferred, auto, 1
+# monitor = DP-1, preferred, auto, 1, mirror, eDP-1
+	  " > "$HOME/monitors.conf"
           chmod u+w "$HOME/monitors.conf"
         fi
       '';      
@@ -39,68 +47,11 @@
       s = "sudo";
       k = "kubectl";
       sc = "grim -g \"$(slurp)\" - | wl-copy";
-      sysmacs = "emacsclient -c -a '' -nw /sudo::/etc/nixos/configuration.nix";
+      unleash = "home-manager switch --flake path:/etc/nixos#linus";
     };
 
     programs.bash.enable = true; # required to make shellAliases work.
     programs.starship.enable = true; # required to fix bash, visually.
-
-    xdg.desktopEntries.emacs = {
-      name = "Emacs";
-      comment = "Unleash raw power";
-      exec = "emacsclient -c -a \"\" %F";
-      icon = "emacs";
-      terminal = false;
-      type = "Application";
-      categories = [ "Development" "TextEditor" ];
-      mimeType = [
-        "text/english"
-        "text/plain"
-        "text/x-go"
-        "text/x-makefile"
-        "text/x-c++hdr"
-        "text/x-c++src"
-        "text/x-chdr"
-        "text/x-csrc"
-        "text/x-java"
-        "text/x-moc"
-        "text/x-pascal"
-        "text/x-tcl"
-        "text/x-tex"
-        "application/x-shellscript"
-        "text/x-c"
-        "text/x-c++"
-        "x-scheme-handler/org-protocol"
-      ];
-    };
-
-    xdg.desktopEntries.emacsclient = {
-      name = "Emacs (Client)";
-      noDisplay = true;
-    };
-
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "text/english" = [ "emacs.desktop" ];
-        "text/x-go" = [ "emacs.desktop" ];
-        "text/plain" = [ "emacs.desktop" ];
-        "text/x-makefile" = [ "emacs.desktop" ];
-        "text/x-c++hdr" = [ "emacs.desktop" ];
-        "text/x-c++src" = [ "emacs.desktop" ];
-        "text/x-chdr" = [ "emacs.desktop" ];
-        "text/x-csrc" = [ "emacs.desktop" ];
-        "text/x-java" = [ "emacs.desktop" ];
-        "text/x-moc" = [ "emacs.desktop" ];
-        "text/x-pascal" = [ "emacs.desktop" ];
-        "text/x-tcl" = [ "emacs.desktop" ];
-        "text/x-tex" = [ "emacs.desktop" ];
-        "application/x-shellscript" = [ "emacs.desktop" ];
-        "text/x-c" = [ "emacs.desktop" ];
-        "text/x-c++" = [ "emacs.desktop" ];
-        "x-scheme-handler/org-protocol" = [ "emacs.desktop" ];
-      };
-    };
 
     gtk = {
       enable = true;
@@ -128,5 +79,4 @@
         };
       };
     };
-  };
 }
