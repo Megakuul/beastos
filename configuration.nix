@@ -100,6 +100,8 @@
     mission-center
     python39
     asciidoctor
+    unzip
+    nodejs_22
 
     pavucontrol
     networkmanagerapplet
