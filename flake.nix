@@ -12,7 +12,6 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, impermanence, ... }@inputs:
     let
       system = "x86_64-linux";
-      username = "linus";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in {
@@ -66,7 +65,7 @@
 	homeConfigurations = {
 	  linus = home-manager.lib.homeManagerConfiguration {
 	  inherit pkgs;
-	  extraSpecialArgs = { inherit inputs username; };
+	  extraSpecialArgs = { inherit inputs; };
 	  modules = [
 	    ./users/linus.nix
 	  ];

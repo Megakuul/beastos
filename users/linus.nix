@@ -1,8 +1,10 @@
-{ pkgs, lib, config, inputs, username, ... }: 
+{ pkgs, lib, config, inputs, ... }: 
 
 {
     home.stateVersion = "24.11";
 
+    home.username = "linus";
+    home.homeDirectory = "/home/linus";
     home.activation = {
       createMonitorConfig = ''
         if [ ! -f "$HOME/monitors.conf" ]; then
@@ -29,6 +31,10 @@
     
     home.file.".emacs".source = ../emacs.el;
     home.file.".config/starship.toml".source = ../config/starship/config.toml;
+    home.file.".config/nvim/" = {
+      source = ../config/nvim;
+      recursive = true;
+    };
     home.file.".config/hypr/" = {
       source = ../config/hypr;
       recursive = true;
