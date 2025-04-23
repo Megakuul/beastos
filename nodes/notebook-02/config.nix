@@ -7,7 +7,6 @@
       ./hardware-configuration.nix
       ../../configuration.nix
       ../../modules/notebook.nix
-      ../../users/linus.nix
     ];
 
   networking.hostName = "beast-notebook-02";
@@ -33,7 +32,7 @@
       "/var"
     ];
   };
-
-  home-manager.users.linus.home.shellAliases.unleash = "sudo nixos-rebuild switch --flake path:/etc/nixos#notebook-02";
-  home-manager.users.linus.home.file.".config/hypr/monitors.conf".source = ./monitors.conf;
+  programs.bash.shellAliases = {
+    snleash = "sudo nixos-rebuild switch --flake path:/etc/nixos#desktop-01";
+  };
 }
