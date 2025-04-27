@@ -59,6 +59,8 @@
     };
   };
 
+  virtualisation.docker.enable = true;
+
   fonts.packages = with pkgs; [
     iosevka
     nerdfonts
@@ -102,6 +104,7 @@
     asciidoctor
     unzip
     nodejs_22
+    buf
 
     pavucontrol
     networkmanagerapplet
