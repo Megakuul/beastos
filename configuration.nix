@@ -40,6 +40,7 @@
     extraGroups = [ "wheel" "libvirtd" ];
   };
   security.sudo.wheelNeedsPassword = false; # I am not in the operating system, I am the operating system
+  home-manager.backupFileExtension = "backup";
 
   programs.virt-manager.enable = true;
   virtualisation.libvirtd = {

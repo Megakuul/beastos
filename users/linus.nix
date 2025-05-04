@@ -53,7 +53,7 @@
       s = "sudo";
       k = "kubectl";
       sc = "grim -g \"$(slurp)\" - | wl-copy";
-      unleash = "home-manager switch --flake path:/etc/nixos#linus";
+      unleash = "home-manager switch -b backup --flake path:/etc/nixos#linus";
     };
 
     programs.bash.enable = true; # required to make shellAliases work.
