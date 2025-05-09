@@ -121,6 +121,7 @@
     playerctl
     pamixer
     pkgs-unstable.hyprlock
+    pkgs-unstable.signal-desktop
   ];
 
   programs.hyprland.enable = true;
