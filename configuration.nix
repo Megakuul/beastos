@@ -64,7 +64,8 @@
 
   fonts.packages = with pkgs; [
     iosevka
-    nerdfonts
+    nerd-fonts.fira-code
+    nerd-fonts.symbols-only
     font-awesome
     inter
   ];
@@ -86,8 +87,6 @@
     nautilus
     kitty
     gh
-    go
-    gopls
     fastfetch
     starship
     cmake
@@ -101,7 +100,7 @@
     remmina
     _1password-gui
     mission-center
-    python39
+    python314
     asciidoctor
     unzip
     nodejs_22
@@ -122,6 +121,8 @@
     pamixer
     pkgs-unstable.hyprlock
     pkgs-unstable.signal-desktop
+    pkgs-unstable.gopls
+    pkgs-unstable.go
   ];
 
   programs.hyprland.enable = true;
