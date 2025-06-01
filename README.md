@@ -14,7 +14,6 @@ Personalized and enhanced fork of [Frost-Phoenix/nixos-config](https://github.co
 -   [modules](modules) 🍱 modularized NixOS configurations
     -   [core](modules/core/) ⚙️ Core NixOS configuration
     -   [homes](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config
--   [pkgs](flake/pkgs) 📦 Packages Build from source
 -   [wallpapers](wallpapers/) 🌄 wallpapers collection
 
 # 🚀 Installation 

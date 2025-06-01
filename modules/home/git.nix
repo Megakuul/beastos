@@ -3,8 +3,8 @@
   programs.git = {
     enable = true;
 
-    userName = "Frost-Phoenix";
-    userEmail = "67cyril6767@gmail.com";
+    userName = "Megakuul";
+    userEmail = "linus.moser@megakuul.ch";
 
     extraConfig = {
       init.defaultBranch = "main";
@@ -12,13 +12,6 @@
       diff.colorMoved = "default";
       pull.ff = "only";
       color.ui = true;
-      url = {
-        "git@github.com:".insteadOf = [
-          "gh:"
-          "https://github.com/"
-        ];
-        "git@github.com:frost-phoenix/".insteadOf = "fp:";
-      };
       core.excludesFile = "/home/${username}/.config/git/.gitignore";
     };
 
