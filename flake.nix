@@ -1,76 +1,86 @@
 {
-  description = "BeastOS";
+  description = "FrostPhoenix's nixos configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    impermanence.url = "github:nix-community/impermanence";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hypr-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    };
+
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    };
+
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs = {
+        hyprgraphics.follows = "hyprland/hyprgraphics";
+        hyprlang.follows = "hyprland/hyprlang";
+        hyprutils.follows = "hyprland/hyprutils";
+        nixpkgs.follows = "hyprland/nixpkgs";
+        systems.follows = "hyprland/systems";
+      };
+    };
+
+    nur.url = "github:nix-community/NUR";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    ghostty.url = "github:ghostty-org/ghostty";
+
+    superfile.url = "github:yorukot/superfile";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, impermanence, ... }@inputs:
+  outputs =
+    { nixpkgs, self, ... }@inputs:
     let
+      username = "linus";
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-    in {
-        nixosConfigurations = {
-          desktop-01 = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-	            impermanence.nixosModules.impermanence
-              home-manager.nixosModules.home-manager
-              ./nodes/desktop-01/config.nix
-            ];
-            specialArgs = { inherit pkgs-unstable; };
-          };
-          desktop-02 = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-	            impermanence.nixosModules.impermanence
-              home-manager.nixosModules.home-manager
-              ./nodes/desktop-02/config.nix
-            ];
-            specialArgs = { inherit pkgs-unstable; };
-          };
-          desktop-03 = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-	            impermanence.nixosModules.impermanence
-              home-manager.nixosModules.home-manager
-              ./nodes/desktop-03/config.nix
-            ];
-            specialArgs = { inherit pkgs-unstable; };
-          };
-          notebook-01 = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-	            impermanence.nixosModules.impermanence
-              home-manager.nixosModules.home-manager
-              ./nodes/notebook-01/config.nix
-            ];
-            specialArgs = { inherit pkgs-unstable; };
-          };
-	        notebook-02 = nixpkgs.lib.nixosSystem {
-	          inherit system;
-	          modules = [
-		          impermanence.nixosModules.impermanence
-		          home-manager.nixosModules.home-manager
-		          ./nodes/notebook-02/config.nix
-	          ];
-	          specialArgs = { inherit pkgs-unstable; };
-	        };
-        };
-	homeConfigurations = {
-	  linus = home-manager.lib.homeManagerConfiguration {
-	  inherit pkgs;
-	  extraSpecialArgs = { inherit inputs; };
-	  modules = [
-	    ./users/linus.nix
-	  ];
-
-	  };
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
-};
+      lib = nixpkgs.lib;
+    in
+    {
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/desktop ];
+          specialArgs = {
+            host = "desktop";
+            inherit self inputs username;
+          };
+        };
+        laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/laptop ];
+          specialArgs = {
+            host = "laptop";
+            inherit self inputs username;
+          };
+        };
+        vm = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/vm ];
+          specialArgs = {
+            host = "vm";
+            inherit self inputs username;
+          };
+        };
+      };
+    };
 }
