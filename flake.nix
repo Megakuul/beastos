@@ -42,6 +42,8 @@
     ghostty.url = "github:ghostty-org/ghostty";
 
     superfile.url = "github:yorukot/superfile";
+
+    cthul.url = "path:/home/linus/Documents/repos/cthul";
   };
 
   outputs =
@@ -70,14 +72,6 @@
           modules = [ ./hosts/laptop ];
           specialArgs = {
             host = "laptop";
-            inherit self inputs username;
-          };
-        };
-        vm = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./hosts/vm ];
-          specialArgs = {
-            host = "vm";
             inherit self inputs username;
           };
         };
