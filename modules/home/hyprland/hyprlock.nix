@@ -83,6 +83,10 @@
         }
       ];
 
+      fingerprint = {
+        enabled = true;
+      };
+
       input-field = [
         {
           monitor = "";

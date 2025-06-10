@@ -54,6 +54,7 @@ in
         no_border_on_floating = false;
       };
 
+
       misc = {
         disable_autoreload = true;
         disable_hyprland_logo = true;
@@ -108,7 +109,6 @@ in
           color = "rgba(00000055)";
         };
       };
-
       animations = {
         enabled = true;
 
@@ -370,6 +370,10 @@ in
 
     extraConfig = "
       source = ~/.config/hypr/monitors.conf
+
+      gestures {
+        workspace_swipe = on
+      }
 
       xwayland {
         force_zero_scaling = true

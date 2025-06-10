@@ -7,7 +7,6 @@
     ./browser.nix                     # firefox based browser
     ./btop.nix                        # resouces monitor 
     ./cava.nix                        # audio visualizer
-    ./discord.nix                     # discord
     ./fastfetch.nix                   # fetch tool
     ./flow.nix                        # terminal text editor
     ./fzf.nix                         # fuzzy finder
@@ -21,12 +20,8 @@
     ./lazygit.nix
     ./nemo.nix                        # file manager
     ./nvim.nix                        # god editor
-    ./go.nix
     ./node.nix
-    ./obsidian.nix
     ./p10k/p10k.nix
-    ./packages                        # other packages
-    ./retroarch.nix  
     ./rofi.nix                        # launcher
     ./scripts/scripts.nix             # personal scripts
     ./ssh.nix                         # ssh config
@@ -39,6 +34,7 @@
     ./waybar                          # status bar
     ./waypaper.nix                    # GUI wallpaper picker
     ./xdg-mimes.nix                   # xdg config
+    ./packages/default.nix
     ./zsh                             # shell
     ./nwg-displays.nix
   ];
