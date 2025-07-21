@@ -25,6 +25,13 @@
       enable = true;
       # hidpi = true;
     };
+
+    plugins = [
+      inputs.hyprgrass.packages.${pkgs.system}.default
+
+      inputs.hyprgrass.packages.${pkgs.system}.hyprgrass-pulse
+    ];
+
     # enableNvidiaPatches = false;
     systemd.enable = true;
   };

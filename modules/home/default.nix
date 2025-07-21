@@ -37,5 +37,6 @@
     ./packages/default.nix
     ./zsh                             # shell
     ./nwg-displays.nix
+    ./swyx.nix
   ];
 }

@@ -10,6 +10,7 @@
     ];
     firewall = {
       enable = true;
+      trustedInterfaces = ["br0" "vnet0" "vnet1"];
       allowedTCPPorts = [
         22
         80

@@ -52,5 +52,10 @@ return {
         },
       })
     end,
+  },
+
+  {
+    "tpope/vim-abolish",
+    cmd = "S",
   }
 }

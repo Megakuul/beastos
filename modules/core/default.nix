@@ -16,5 +16,7 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
+    ./osquery.nix
+    ./shares.nix
   ];
 }

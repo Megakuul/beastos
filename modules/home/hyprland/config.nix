@@ -370,7 +370,9 @@ in
 
     extraConfig = "
       source = ~/.config/hypr/monitors.conf
-
+      
+      windowrulev2 = float, title:^(twinkle)$
+      windowrulev2 = workspace 1,class:^(twinkle)$
       gestures {
         workspace_swipe = on
       }

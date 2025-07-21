@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -11,6 +11,8 @@
     cpupower-gui
     powertop
   ];
+
+
 
   # security.pam.services.sudo.fprintAuth = true;
 

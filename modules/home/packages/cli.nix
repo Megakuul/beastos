@@ -1,6 +1,17 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    k9s
+    kubectl
+    talosctl
+    kubernetes-helm
+    linkerd
+    osslsigncode
+    openssl
+    dig
+    teleport
+    grafana-alloy
+
     ani-cli
     aoc-cli                           # Advent of Code command-line tool
     asciinema

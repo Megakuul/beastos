@@ -32,6 +32,11 @@
       };
     };
 
+    hyprgrass = {
+       url = "github:horriblename/hyprgrass";
+       inputs.hyprland.follows = "hyprland"; # IMPORTANT
+    };
+
     nur.url = "github:nix-community/NUR";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
@@ -42,6 +47,11 @@
     ghostty.url = "github:ghostty-org/ghostty";
 
     superfile.url = "github:yorukot/superfile";
+
+    twinkle = {
+      url = "path:/home/linus/Documents/repos/twinkle";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -29,6 +29,7 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    cifs-utils
   ];
 
   time.timeZone = "Europe/Paris";
