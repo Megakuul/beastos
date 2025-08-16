@@ -18,6 +18,16 @@
         identityFile = "~/.ssh/id_github";
         identitiesOnly = true;
       };
+      spider = {
+        host = "10.1.10.1*";
+        user = "localadmin";
+        port = 22;
+        identityFile = "~/.ssh/id_ed25519";
+        identitiesOnly = true;
+        extraOptions = {
+          SetEnv = "TERM=xterm-256color";
+        };
+      };
     };
   };
 

@@ -1,6 +1,17 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    awscli2
+    buf
+    wails
+    kubectl
+    kubernetes-helm
+    lens
+    step-cli
+    linkerd
+    simplescreenrecorder
+
+
     ani-cli
     aoc-cli                           # Advent of Code command-line tool
     asciinema

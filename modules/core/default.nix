@@ -16,6 +16,7 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
-    ./cthul.nix
+    ./printing.nix
+    # ./cthul.nix
   ];
 }

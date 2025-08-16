@@ -154,13 +154,12 @@ in
         "$mainMod, F, fullscreen, 0"
         "$mainMod, V, exec, toggle-float"
         "$mainMod, R, exec, rofi -show drun || pkill rofi"
-        "$mainMod, L, exec, swaylock"
+        "$mainMod, G, exec, swaylock"
         "$mainMod, P, pseudo,"
         "$mainMod, X, togglesplit,"
         "$mainMod, T, exec, toggle-oppacity"
         "$mainMod, E, exec, nemo"
         "$mainMod SHIFT, B, exec, toggle-waybar"
-        "$mainMod, H ,exec, hyprpicker -a"
 
         # screenshot
         ",Print, exec, screenshot --copy"
@@ -253,7 +252,7 @@ in
         "$mainMod, mouse_up, workspace, e+1"
 
         # clipboard manager
-        "$mainMod, G, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;} listview {columns: 1;}' | cliphist decode | wl-copy"
+        "$mainMod, M, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;} listview {columns: 1;}' | cliphist decode | wl-copy"
       ];
 
       # # binds active in lockscreen

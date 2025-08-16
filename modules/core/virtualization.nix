@@ -17,6 +17,9 @@
 
   # Manage the virtualisation services
   virtualisation = {
+    docker = {
+      enable = true;
+    };
     libvirtd = {
       enable = true;
       qemu = {

@@ -2,13 +2,20 @@
 {
   home.packages = with pkgs; [
     ## Multimedia
+    joplin-desktop
+    calibre
+    reaper
+    spotify
     audacity
-    gimp
+    godot
+    krita
     obs-studio
     pavucontrol
     pitivi # video editing
     soundwireserver
     vlc
+    wl-screenrec
+
 
     ## Office
     libreoffice

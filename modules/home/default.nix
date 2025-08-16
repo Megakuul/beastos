@@ -25,6 +25,7 @@
     ./node.nix
     ./obsidian.nix
     ./p10k/p10k.nix
+    ./packages
     ./retroarch.nix  
     ./rofi.nix                        # launcher
     ./scripts/scripts.nix             # personal scripts

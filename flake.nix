@@ -43,7 +43,7 @@
 
     superfile.url = "github:yorukot/superfile";
 
-    cthul.url = "path:/home/linus/Documents/repos/cthul";
+    # cthul.url = "path:/home/linus/Documents/repos/cthul";
   };
 
   outputs =
