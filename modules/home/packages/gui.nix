@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     ## Multimedia
+    hoppscotch
     joplin-desktop
     calibre
     reaper
@@ -15,7 +16,7 @@
     soundwireserver
     vlc
     wl-screenrec
-
+    rustdesk-flutter
 
     ## Office
     libreoffice
@@ -26,9 +27,5 @@
     gnome-disk-utility
     mission-center # GUI resources monitor
     zenity
-
-    ## Level editor
-    ldtk
-    tiled
   ];
 }

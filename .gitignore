@@ -1,0 +1,6 @@
+# Ignore Emacs backup and autosave files
+*~
+\#*\#
+.\#*
+
+hardware-configuration.nix

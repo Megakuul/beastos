@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    pulumi
+    pulumiPackages.pulumi-go
     awscli2
     buf
     wails
@@ -10,6 +12,8 @@
     step-cli
     linkerd
     simplescreenrecorder
+    postgresql
+    talosctl
 
 
     ani-cli

@@ -3,7 +3,7 @@ with lib;
 let
   defaultApps = {
     browser = [ "zen-beta.desktop" ];
-    text = [ "org.gnome.TextEditor.desktop" ];
+    text = [ "geany.desktop" ];
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
@@ -16,7 +16,16 @@ let
   };
 
   mimeMap = {
-    text = [ "text/plain" ];
+    text = [ 
+      "application/json"
+      "application/ld+json"
+      "text/json"
+      "application/x-yaml"
+      "text/yaml"
+      "application/toml"
+      "text/toml"
+      "text/plain"
+    ];
     image = [
       "image/bmp"
       "image/gif"

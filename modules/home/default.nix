@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./aseprite/aseprite.nix           # pixel art editor
     ./audacious.nix                   # music player
     ./bat.nix                         # better cat command
     ./browser.nix                     # firefox based browser
@@ -26,7 +25,6 @@
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages
-    ./retroarch.nix  
     ./rofi.nix                        # launcher
     ./scripts/scripts.nix             # personal scripts
     ./ssh.nix                         # ssh config
@@ -34,8 +32,9 @@
     ./swaylock.nix                    # lock screen
     ./swayosd.nix                     # brightness / volume wiget
     ./swaync/swaync.nix               # notification deamon
-    # ./viewnior.nix                    # image viewer
-    ./vscodium.nix                        # vscode fork
+    ./viewnior.nix                    # image viewer
+    ./vscodium.nix                    # vscode without microsoft
+    ./geany.nix                       # ultrafast texteditor for quickly consulting arbitary files
     ./waybar                          # status bar
     ./waypaper.nix                    # GUI wallpaper picker
     ./xdg-mimes.nix                   # xdg config
