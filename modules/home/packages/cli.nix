@@ -14,7 +14,7 @@
     simplescreenrecorder
     postgresql
     talosctl
-
+    k9s
 
     ani-cli
     aoc-cli                           # Advent of Code command-line tool

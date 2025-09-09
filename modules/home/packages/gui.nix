@@ -17,6 +17,7 @@
     vlc
     wl-screenrec
     rustdesk-flutter
+    brave
 
     ## Office
     libreoffice
