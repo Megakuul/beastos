@@ -109,7 +109,6 @@ in
     completion_drops_rest_of_word=false
     autocompletion_max_entries=30
     autocompletion_update_freq=250
-    color_scheme=
     scroll_lines_around_cursor=0
     mru_length=10
     disk_check_timeout=30
