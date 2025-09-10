@@ -16,6 +16,7 @@
     talosctl
     k9s
 
+    p7zip
     ani-cli
     aoc-cli                           # Advent of Code command-line tool
     asciinema

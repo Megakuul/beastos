@@ -278,6 +278,7 @@ in
 
       # windowrule
       windowrule = [
+        "float,class:^(peazip)$"
         "float,class:^(Viewnior)$"
         "float,class:^(imv)$"
         "float,class:^(mpv)$"
