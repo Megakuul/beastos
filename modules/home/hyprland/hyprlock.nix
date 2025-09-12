@@ -22,7 +22,7 @@
       background = [
         {
           monitor = "";
-          path = "${../../../wallpapers/otherWallpaper/gruvbox/forest_road.jpg}";
+          path = "${../../../wallpapers/forest_road.jpg}";
           blur_passes = 2;
           contrast = 0.8916;
           brightness = 0.8172;
