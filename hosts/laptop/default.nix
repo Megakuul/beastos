@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    ./jack-fix.nix
   ];
 
   environment.systemPackages = with pkgs; [
