@@ -1,6 +1,6 @@
 { ... }:
 let
-  browser = "zen-beta";
+  browser = "brave";
   terminal = "ghostty";
 in
 {
@@ -373,11 +373,6 @@ in
 
       xwayland {
         force_zero_scaling = true
-      }
-
-      gestures {
-        workspace_swipe = true
-        workspace_swipe_fingers = 3
       }
     ";
   };
