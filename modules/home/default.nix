@@ -11,6 +11,7 @@
     ./flow.nix                        # terminal text editor
     ./fzf.nix                         # fuzzy finder
     ./gaming.nix                      # packages related to gaming
+    ./orbstrike.nix
     ./ghostty.nix                     # terminal
     ./git.nix                         # version control
     ./gnome.nix                       # gnome apps

@@ -18,6 +18,10 @@
     wl-screenrec
     rustdesk-flutter
     brave
+    flutter
+    gradle
+    rustc
+    cargo
 
     ## Office
     libreoffice

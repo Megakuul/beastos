@@ -3,12 +3,6 @@
   programs.ssh = {
     enable = true;
 
-    addKeysToAgent = "1h";
-
-    controlMaster = "auto";
-    controlPath = "~/.ssh/control-%r@%h:%p";
-    controlPersist = "10m";
-
     matchBlocks = {
       github = {
         host = "github.com";

@@ -15,6 +15,7 @@
     postgresql
     talosctl
     k9s
+    jdk17
 
     p7zip
     ani-cli

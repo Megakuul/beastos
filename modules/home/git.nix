@@ -5,10 +5,9 @@
   programs.git = {
     enable = true;
 
-    userName = "Megakuul";
-    userEmail = "linus.moser@megakuul.ch";
-
-    extraConfig = {
+    settings = {
+      user.name = "Megakuul";
+      user.email = "linus.moser@megakuul.ch";
       init.defaultBranch = "main";
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
@@ -18,17 +17,17 @@
       credential.helper = "!${pkgs.gh}/bin/gh auth git-credential";
     };
 
-    delta = {
-      enable = true;
-      options = {
-        line-numbers = true;
-        side-by-side = false;
-        diff-so-fancy = true;
-        navigate = true;
-      };
+  };
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      line-numbers = true;
+      side-by-side = false;
+      diff-so-fancy = true;
+      navigate = true;
     };
   };
-
 
   xdg.configFile."git/.gitignore".text = ''
     .vscode

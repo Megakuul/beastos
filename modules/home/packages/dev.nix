@@ -13,6 +13,9 @@
     gnumake
     valgrind
     llvmPackages_20.clang-tools
+    flutter
+    gradle
+    android-tools
 
     # Python
     python3

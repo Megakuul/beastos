@@ -43,6 +43,9 @@
 
     superfile.url = "github:yorukot/superfile";
 
+    orbstrike.url = "github:megakuul/orbstrike";
+
+
     # cthul.url = "path:/home/linus/Documents/repos/cthul";
   };
 
