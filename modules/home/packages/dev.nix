@@ -1,43 +1,35 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # Nix
-    nixd                              # nix lsp
-    nixfmt-rfc-style                  # nix formatter
+    # api debugging
+    hoppscotch
 
-    # ocaml
-    ocaml
-    opam
-    dune_3
-    ocamlPackages.ocaml-lsp
-    ocamlformat_0_26_2
+    # container tooling
+    podman
+    podman-desktop
+    kubectl
+    k9s
+    kubernetes-helm
 
-    # Flutter
-    flutter
-    gradle
-
-    # Rust
-    rustc
-    cargo
-
-    # Database
+    # database tooling
+    postgres
     antares
 
+    # gRPC tooling
+    buf
+    protobuf_28 # legacy -> use buf
+    protoc-gen-go # legacy -> use buf
+    protoc-gen-go-grpc # legacy -> use buf
 
-    # C / C++
-    gcc
-    gdb
-    gef
-    cmake
-    gnumake
-    valgrind
-    llvmPackages_20.clang-tools
-    flutter
-    gradle
-    android-tools
+    # x509 and other crypto container tooling 
+    step-cli
+    openssl
 
-    # Python
-    python3
-    python312Packages.ipython
+    # IaC tooling
+    pulumi
+    pulumiPackages.pulumi-go
+    opentofu
+    awscli2
+    google-cloud-sdk
   ];
 }

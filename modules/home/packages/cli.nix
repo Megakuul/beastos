@@ -1,22 +1,16 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    pulumi
-    pulumiPackages.pulumi-go
-    awscli2
-    buf
     wails
     kubectl
-    kubernetes-helm
     lens
     step-cli
     linkerd
-    simplescreenrecorder
-    postgresql
     talosctl
-    k9s
     jdk17
     quickemu
+    teleport_18
+
 
     p7zip
     ani-cli

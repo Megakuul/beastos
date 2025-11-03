@@ -3,7 +3,22 @@ local lspconfig = require "lspconfig"
 
 nvlsp.defaults() -- loads nvchad's defaults
 
-local servers = { "html", "cssls", "gopls", "clangd", "svelte", "tailwindcss", "ocamllsp" }
+local servers = { 
+  "lua_ls",
+  "html", 
+  "cssls", 
+  "ts_ls",
+  "svelte", 
+  "tailwindcss", 
+  "templ",
+  "gopls", 
+  "clangd", 
+  "ocamllsp",
+  "nil_ls",
+  "yamlls",
+  "rust_analyzer",
+  "pyright"
+}
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do

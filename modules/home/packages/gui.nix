@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     ## Multimedia
-    hoppscotch
     joplin-desktop
     calibre
     reaper
@@ -31,5 +30,11 @@
     gnome-disk-utility
     mission-center # GUI resources monitor
     zenity
+
+
+    # remotemanagement tooling
+    remmina
+    electerm
+    astal.cava
   ];
 }

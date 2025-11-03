@@ -21,7 +21,6 @@
     ./lazygit.nix
     ./nemo.nix                        # file manager
     ./nvim.nix                        # god editor
-    ./go.nix
     ./node.nix
     ./obsidian.nix
     ./p10k/p10k.nix
