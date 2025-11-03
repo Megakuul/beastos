@@ -1,162 +1,161 @@
-{ inputs, ... }:
-{
+{...}: {
   programs.hyprpanel = {
-    enabled = true;
+    enable = true;
     settings = {
-  scalingPriority = "gdk";
+      scalingPriority = "gdk";
 
-  wallpaper = {
-    image = "/home/linus/Downloads/dino.svg";
-    pywal = false;
-  };
-
-  bar = {
-    launcher = {
-      icon = "";
-      autoDetectIcon = true;
-    };
-
-    clock = {
-      format = "%m-%d  %H:%M";
-      icon = "⏳";
-      showIcon = true;
-      showTime = true;
-    };
-
-    customModules = {
-      storage = {
-        paths = [ "/" ];
+      wallpaper = {
+        image = "/home/linus/Downloads/dino.svg";
+        pywal = false;
       };
-    };
 
-    systray = {
-      customIcons = {
-        "spotify-client" = {
-          icon = "󰓇";
-          color = "#94e2d5";
+      bar = {
+        launcher = {
+          icon = "";
+          autoDetectIcon = true;
         };
-      };
-    };
-  };
 
-  menus = {
-    transition = "crossfade";
-    transitionTime = 125;
-
-    clock = {
-      time = {
-        military = true;
-        hideSeconds = false;
-      };
-      weather = {
-        unit = "imperial";
-        enabled = false;
-      };
-    };
-
-    power = {
-      lowBatteryNotification = true;
-    };
-
-    dashboard = {
-      powermenu = {
-        avatar.image = "/home/linus/Downloads/dino.svg";
-      };
-
-      shortcuts.left = {
-        shortcut1 = {
-          command = "brave";
-          icon = "";
-          tooltip = "Brave Browser";
+        clock = {
+          format = "%m-%d  %H:%M";
+          icon = "⏳";
+          showIcon = true;
+          showTime = true;
         };
-        shortcut2 = {
-          command = "remmina";
-          icon = "";
-          tooltip = "A3";
-        };
-        shortcut3 = {
-          command = "code";
-          icon = "";
-          tooltip = "Codium";
-        };
-        shortcut4 = {
-          command = "podman-desktop";
-          icon = "";
-          tooltip = "Podman";
-        };
-      };
 
-      directories = {
-        left = {
-          directory2 = {
-            command = "bash -c \"xdg-open $HOME/Documents/\"";
-            label = "󱧶 Documents";
-          };
-          directory3 = {
-            command = "bash -c \"xdg-open $HOME/Pictures/\"";
-            label = "󰉏 Pictures";
+        customModules = {
+          storage = {
+            paths = ["/"];
           };
         };
-        right = {
-          directory1 = {
-            command = "bash -c \"xdg-open $HOME/\"";
-            label = "󱂵 Home";
-          };
-          directory2 = {
-            command = "bash -c \"xdg-open $HOME/Documents/repos\"";
-            label = "󰚝 Repos";
-          };
-          directory3 = {
-            command = "bash -c \"xdg-open $HOME/Videos/\"";
-            label = "󰉏 Videos";
-          };
-        };
-      };
-    };
-  };
-
-  theme = {
-    matugen = false;
-
-    bar = {
-      floating = false;
-      transparent = false;
-      opacity = 98;
-
-      menus = {
-        enableShadow = false;
-        opacity = 98;
-      };
-
-      buttons = {
-        opacity = 95;
-        background_opacity = 95;
-        background_hover_opacity = 95;
 
         systray = {
-          enableBorder = false;
-        };
-        dashboard = {
-          enableBorder = false;
+          customIcons = {
+            "spotify-client" = {
+              icon = "󰓇";
+              color = "#94e2d5";
+            };
+          };
         };
       };
-    };
 
-    font = {
-      name = "FiraCode Nerd Font Propo";
-      label = "FiraCode Nerd Font Propo";
-      weight = 500;
-    };
+      menus = {
+        transition = "crossfade";
+        transitionTime = 125;
 
-    notification = {
-      opacity = 98;
-    };
+        clock = {
+          time = {
+            military = true;
+            hideSeconds = false;
+          };
+          weather = {
+            unit = "imperial";
+            enabled = false;
+          };
+        };
 
-    osd = {
-      enable = true;
-      opacity = 98;
-    };
-  };
+        power = {
+          lowBatteryNotification = true;
+        };
+
+        dashboard = {
+          powermenu = {
+            avatar.image = "/home/linus/Downloads/dino.svg";
+          };
+
+          shortcuts.left = {
+            shortcut1 = {
+              command = "brave";
+              icon = "";
+              tooltip = "Brave Browser";
+            };
+            shortcut2 = {
+              command = "hyprctl dispatch exec 'remmina'";
+              icon = "";
+              tooltip = "A3";
+            };
+            shortcut3 = {
+              command = "hyprctl dispatch exec 'codium'";
+              icon = "";
+              tooltip = "Codium";
+            };
+            shortcut4 = {
+              command = "hyprctl dispatch exec 'podman-desktop'";
+              icon = "";
+              tooltip = "Podman";
+            };
+          };
+
+          directories = {
+            left = {
+              directory2 = {
+                command = "bash -c \"xdg-open $HOME/Documents/\"";
+                label = "󱧶 Documents";
+              };
+              directory3 = {
+                command = "bash -c \"xdg-open $HOME/Pictures/\"";
+                label = "󰉏 Pictures";
+              };
+            };
+            right = {
+              directory1 = {
+                command = "bash -c \"xdg-open $HOME/\"";
+                label = "󱂵 Home";
+              };
+              directory2 = {
+                command = "bash -c \"xdg-open $HOME/Documents/repos\"";
+                label = "󰚝 Repos";
+              };
+              directory3 = {
+                command = "bash -c \"xdg-open $HOME/Videos/\"";
+                label = "󰉏 Videos";
+              };
+            };
+          };
+        };
+      };
+
+      theme = {
+        matugen = false;
+
+        bar = {
+          floating = false;
+          transparent = false;
+          opacity = 98;
+
+          menus = {
+            enableShadow = false;
+            opacity = 98;
+          };
+
+          buttons = {
+            opacity = 95;
+            background_opacity = 95;
+            background_hover_opacity = 95;
+
+            systray = {
+              enableBorder = false;
+            };
+            dashboard = {
+              enableBorder = false;
+            };
+          };
+        };
+
+        font = {
+          name = "FiraCode Nerd Font Propo";
+          label = "FiraCode Nerd Font Propo";
+          weight = 500;
+        };
+
+        notification = {
+          opacity = 98;
+        };
+
+        osd = {
+          enable = true;
+          opacity = 98;
+        };
+      };
     };
   };
 }

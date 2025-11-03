@@ -12,12 +12,12 @@
     kubernetes-helm
 
     # database tooling
-    postgres
+    postgresql
     antares
 
     # gRPC tooling
     buf
-    protobuf_28 # legacy -> use buf
+    protobuf # legacy -> use buf
     protoc-gen-go # legacy -> use buf
     protoc-gen-go-grpc # legacy -> use buf
 

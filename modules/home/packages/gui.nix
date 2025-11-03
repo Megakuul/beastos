@@ -34,7 +34,6 @@
 
     # remotemanagement tooling
     remmina
-    electerm
     astal.cava
   ];
 }

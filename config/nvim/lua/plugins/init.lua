@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -25,7 +25,7 @@ return {
     lazy = false,
     config = function()
       require("oil").setup {
-        columns = {"icon"},
+        columns = { "icon" },
         keymaps = {
           ["<C-h>"] = false,
         },
@@ -33,7 +33,7 @@ return {
           show_hidden = true,
         },
       }
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     end,
   },
 
@@ -41,13 +41,13 @@ return {
     "windwp/nvim-ts-autotag",
     lazy = false,
     config = function()
-      require("nvim-ts-autotag").setup({
+      require("nvim-ts-autotag").setup {
         opts = {
           enable_close = true,
           enable_rename = true,
-          enable_close_on_slash = false
+          enable_close_on_slash = false,
         },
-      })
+      }
     end,
   },
 }

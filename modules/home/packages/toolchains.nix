@@ -49,7 +49,7 @@
     yaml-language-server
 
     # python
-    python312Full
+    python312
     ruff
   ];
 }
