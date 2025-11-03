@@ -18,14 +18,13 @@
     wl-screenrec
     rustdesk-flutter
     brave
-    flutter
-    gradle
-    rustc
-    cargo
 
     ## Office
     libreoffice
     gnome-calculator
+
+    # Passwords
+    bitwarden-desktop
 
     ## Utility
     dconf-editor

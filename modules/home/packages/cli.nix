@@ -16,6 +16,7 @@
     talosctl
     k9s
     jdk17
+    quickemu
 
     p7zip
     ani-cli
