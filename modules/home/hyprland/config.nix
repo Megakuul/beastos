@@ -1,9 +1,7 @@
-{ ... }:
-let
+{...}: let
   browser = "brave";
   terminal = "ghostty";
-in
-{
+in {
   wayland.windowManager.hyprland = {
     settings = {
       # autostart
@@ -16,16 +14,15 @@ in
         "poweralertd &"
         "wl-clip-persist --clipboard both &"
         "wl-paste --watch cliphist store &"
-        "waybar &"
+        "hyprpanel &"
         "swaync &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
 
         "hyprlock"
+        "podman-desktop &"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
-        "[workspace 1 silent] ${browser}"
-        "[workspace 2 silent] ${terminal}"
       ];
 
       input = {
