@@ -14,9 +14,8 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = "maintained",
-    },
+    lazy = false,
+    build = ":TSUpdate",
   },
 
   {
@@ -35,5 +34,16 @@ return {
       }
       vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     end,
+  },
+
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    "ghillb/cybu.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
   },
 }

@@ -1,3 +1,7 @@
+# Nixomaticon
+
+
+
 # BeastOS
 
 Personalized and enhanced fork of [Frost-Phoenix/nixos-config](https://github.com/Frost-Phoenix/nixos-config). 

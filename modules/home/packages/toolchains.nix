@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # lua
     lua
-    stylua 
+    stylua
     lua-language-server
 
     # ui tools (html, tailwind, ts, ...)

@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./bootloader.nix
     ./hardware.nix
@@ -17,6 +16,5 @@
     ./wayland.nix
     ./virtualization.nix
     ./printing.nix
-    # ./cthul.nix
   ];
 }

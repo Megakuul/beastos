@@ -38,9 +38,33 @@ end)
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   callback = function()
-    if require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-      and not require("luasnip").session.jump_active then
+    if
+      require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+      and not require("luasnip").session.jump_active
+    then
       require("luasnip").unlink_current()
     end
   end,
 })
+
+local harpoon = require "harpoon"
+harpoon:setup {}
+
+vim.keymap.set("n", "<C-t>", function()
+  harpoon:list():add()
+end)
+vim.keymap.set("n", "<C-e>", function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
+
+require("cybu").setup {
+  behavior = {
+    mode = {
+      last_used = {
+        switch = "immediate",
+      },
+    },
+  },
+  display_time = 0,
+}
+vim.keymap.set("n", "<C-q>", "<plug>(CybuLastusedNext)")
