@@ -6,19 +6,20 @@ in {
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
+        "hyprlock"
+
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
         "nm-applet &"
         "poweralertd &"
+        "hyprpanel &"
+
         "wl-clip-persist --clipboard both &"
         "wl-paste --watch cliphist store &"
-        "hyprpanel &"
-        "swaync &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
 
-        "hyprlock"
         "podman-desktop &"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
@@ -150,7 +151,7 @@ in {
         "$mainMod, F, fullscreen, 0"
         "$mainMod, V, exec, toggle-float"
         "$mainMod, R, exec, rofi -show drun || pkill rofi"
-        "$mainMod, G, exec, swaylock"
+        "$mainMod, G, exec, hyprlock"
         "$mainMod, P, pseudo,"
         "$mainMod, X, togglesplit,"
         "$mainMod, T, exec, toggle-oppacity"

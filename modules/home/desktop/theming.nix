@@ -41,7 +41,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "qt5ct";
+    platformTheme.name = "qtct";
     style = {
       name = "Dracula";
       package = pkgs.dracula-qt5-theme;

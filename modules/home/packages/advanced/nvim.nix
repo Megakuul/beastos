@@ -4,5 +4,5 @@
     with pkgs; [ neovim wl-clipboard ]
   );
 
-  xdg.configFile.nvim.source = ../../config/nvim;
+  xdg.configFile.nvim.source = ../../../../config/nvim;
 }

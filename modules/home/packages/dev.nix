@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # editors
+    vscodium
+
     # api debugging
     hoppscotch
 
