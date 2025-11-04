@@ -41,5 +41,6 @@
     ./xdg-mimes.nix                   # xdg config
     ./zsh                             # shell
     ./nwg-displays.nix
+    ./swyx.nix
   ];
 }

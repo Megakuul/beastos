@@ -6,6 +6,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    ntfs3g
     acpi
     brightnessctl
     cpupower-gui

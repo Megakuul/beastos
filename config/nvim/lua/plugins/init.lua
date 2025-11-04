@@ -13,6 +13,18 @@ return {
   },
 
   {
+    "nvimtools/none-ls.nvim",
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.diagnostics.golangci_lint,
+        },
+      })
+    end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
@@ -53,4 +65,15 @@ return {
       })
     end,
   },
+
+  {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" }
+  },
+
+  {
+      "ghillb/cybu.nvim",
+      dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+  }
 }

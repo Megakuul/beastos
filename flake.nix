@@ -43,7 +43,10 @@
 
     superfile.url = "github:yorukot/superfile";
 
-    # cthul.url = "path:/home/linus/Documents/repos/cthul";
+    twinkle = {
+      url = "github:linusmoser/twinkle/swyx-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

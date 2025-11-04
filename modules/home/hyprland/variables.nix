@@ -15,7 +15,7 @@
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     QT_QPA_PLATFORM = "xcb";
     QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_STYLE_OVERRIDE = "kvantum";
+    QT_STYLE_OVERRIDE = "Fusion";
     MOZ_ENABLE_WAYLAND = 1;
     WLR_BACKEND = "vulkan";
     WLR_RENDERER = "vulkan";

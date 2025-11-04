@@ -20,6 +20,7 @@ in
         "swaync &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
+        "twinkle &"
 
         "hyprlock"
 
@@ -373,6 +374,8 @@ in
       xwayland {
         force_zero_scaling = true
       }
+
+      gesture = 3, horizontal, workspace,
     ";
   };
 }

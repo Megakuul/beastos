@@ -19,6 +19,10 @@
           [ ./../home ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
+      home.sessionVariables = {
+        PATH = "$HOME/.local/bin:$PATH";
+        EDITOR = "nvim";
+      };
       home.stateVersion = "24.05";
       programs.home-manager.enable = true;
     };

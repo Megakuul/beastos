@@ -14,6 +14,9 @@
     valgrind
     llvmPackages_20.clang-tools
 
+    # Database
+    antares
+
     # Python
     python3
     python312Packages.ipython

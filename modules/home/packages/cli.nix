@@ -2,6 +2,8 @@
 {
   home.packages = with pkgs; [
     awscli2
+    google-cloud-sdk
+    cloudflared
     buf
     wails
     kubectl
@@ -10,8 +12,15 @@
     step-cli
     linkerd
     simplescreenrecorder
+    postgresql_16
+    protobuf
+    remmina
+    delve
+    gdlv
+    k9s
+    templ
 
-
+    lsof
     ani-cli
     aoc-cli                           # Advent of Code command-line tool
     asciinema
