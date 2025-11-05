@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.cava = {
     enable = true;
 
@@ -13,14 +12,14 @@
         gradient = 1;
         gradient_count = 8;
 
-        gradient_color_1 = "'#99991a'";
-        gradient_color_2 = "'#a28e00'";
-        gradient_color_3 = "'#ab8200'";
-        gradient_color_4 = "'#b37400'";
-        gradient_color_5 = "'#bb6600'";
-        gradient_color_6 = "'#c25400'";
-        gradient_color_7 = "'#c8400d'";
-        gradient_color_8 = "'#cd231d'";
+        gradient_color_1 = "'#4F4675'";
+        gradient_color_2 = "'#5C4E94'";
+        gradient_color_3 = "'#7159c1'";
+        gradient_color_4 = "'#8a4efc'";
+        gradient_color_5 = "'#9763F7'";
+        gradient_color_6 = "'#bd93f9'";
+        gradient_color_7 = "'#C9A3FF'";
+        gradient_color_8 = "'#D3B6FC'";
       };
     };
   };

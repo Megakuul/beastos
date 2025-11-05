@@ -1,130 +1,132 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [ rofi ];
-
-  xdg.configFile."rofi/theme.rasi".text = ''
-    * {
-      bg-col: #1D2021;
-      bg-col-light: #282828;
-      border-col: #A89984;
-      selected-col: #3C3836;
-      green: #98971A;
-      fg-col: #FBF1C7;
-      fg-col2: #EBDBB2;
-      grey: #BDAE93;
-      highlight: @green;
-    }
-  '';
-
+{pkgs, ...}: {
+  home.packages = with pkgs; [rofi];
   xdg.configFile."rofi/config.rasi".text = ''
-    configuration{
-      modi: "run,drun,window";
-      lines: 5;
-      cycle: false;
-      font: "Maple Mono Bold 16";
+    configuration {
+      modes: "window,drun,run,ssh";
+      font: "JetBrainsMono NF 18";
+      drun-display-format: "{name}";
       show-icons: true;
-      icon-theme: "Papirus-dark";
-      terminal: "ghostty";
-      drun-display-format: "{icon} {name}";
-      location: 0;
-      disable-history: true;
-      hide-scrollbar: true;
-      display-drun: " Apps ";
-      display-run: " Run ";
-      display-window: " Window ";
-      /* display-Network: " Network"; */
-      sidebar-mode: true;
-      sorting-method: "fzf";
+      display-drun: "Apps";
+      display-window: "Windows";
+      display-ssh: "SSH";
     }
 
-    @theme "theme"
+    * {
+      // general
+      bg: #282828;
+      bgt: #28282895;
+      t: transparent;
+      fg: #ACB5F2;
 
-    element-text, element-icon , mode-switcher {
-      background-color: inherit;
-      text-color:       inherit;
+      selected-bg: @fg;
+      selected-fg: @bg;
+
+      // for windows
+      active: #a9b665;
+      urgent: #fb4934;
     }
 
     window {
-      height: 530px;
-      width: 400px;
-      border: 2px;
-      border-color: @border-col;
-      background-color: @bg-col;
-    }
-
-    mainbox {
-      background-color: @bg-col;
-    }
-
-    inputbar {
-      children: [prompt,entry];
-      background-color: @bg-col-light;
-      border-radius: 5px;
-      padding: 0px;
-    }
-
-    prompt {
-      background-color: @green;
-      padding: 4px;
-      text-color: @bg-col-light;
-      border-radius: 3px;
-      margin: 10px 0px 10px 10px;
-    }
-
-    textbox-prompt-colon {
-      expand: false;
-      str: ":";
-    }
-
-    entry {
-      padding: 6px;
-      margin: 10px 10px 10px 5px;
-      text-color: @fg-col;
-      background-color: @bg-col;
-      border-radius: 3px;
+      fullscreen: true;
+      padding: 35% 30%;       // you might want to ajust these to resize rofi.
+      transparency: "real";
+      background-color: @bgt;
+      border-color: @t;
     }
 
     listview {
-      border: 0px 0px 0px;
-      padding: 6px 0px 0px;
-      margin: 10px 0px 0px 6px;
-      columns: 1;
-      background-color: @bg-col;
-      cycle: true;
+      border: 0 0 0 0;
+      padding: 23 0 0;
+      scrollbar: true;
+    }
+
+    scrollbar {
+        width:        4px;
+        border:       0;
+        handle-color: @fg;
+        handle-width: 8px;
+        padding:      0 5;
+    }
+
+    entry {
+        placeholder: "";
+    }
+
+    textbox {
+        text-color: @fg;
     }
 
     element {
-      padding: 8px;
-      margin: 0px 10px 4px 4px;
-      background-color: @bg-col;
-      text-color: @fg-col;
+        border:  0;
+        padding: 2px;
+    }
+    element.normal.normal {
+        background-color: @t;
+        text-color:       @fg;
+    }
+    element.normal.urgent {
+        background-color: @t;
+        text-color:       @urgent;
+    }
+    element.normal.active {
+        background-color: @t;
+        text-color:       @active;
+    }
+    element.selected.normal {
+        background-color: @selected-bg;
+        text-color:       @selected-fg;
+    }
+    element.selected.urgent {
+        background-color: @selected-bg;
+        text-color:       @urgent;
+    }
+    element.selected.active {
+        background-color: @selected-bg;
+        text-color:       @selected-fg;
+    }
+    element.alternate.normal {
+        background-color: @t;
+        text-color:       @fg;
+    }
+    element.alternate.urgent {
+        background-color: @t;
+        text-color:       @urgent;
+    }
+    element.alternate.active {
+        background-color: @t;
+        text-color:       @active;
     }
 
-    element-icon {
-      size: 28px;
+    sidebar {
+        border:       2px 0 0;
+        border-color: @fg;
     }
 
-    element selected {
-      background-color:  @selected-col ;
-      text-color: @fg-col2  ;
-      border-radius: 3px;
+    inputbar {
+        spacing:    0;
+        text-color: @fg;
+        padding:    2px;
+        children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
     }
 
-    mode-switcher {
-      spacing: 0;
-    }
-
+    case-indicator,
+    entry,
+    prompt,
     button {
-      padding: 10px;
-      background-color: @bg-col-light;
-      text-color: @grey;
-      vertical-align: 0.5;
-      horizontal-align: 0.5;
+        spacing:    0;
+        text-color: @fg;
     }
 
-    button selected {
-      background-color: @bg-col;
-      text-color: @green;
+    button.selected {
+        background-color: @bg;
+        text-color:       @fg;
+    }
+
+    textbox-prompt-sep {
+        expand:     false;
+        str:        ":";
+        text-color: @fg;
+        margin:     0 0.3em 0 0;
     }
   '';
 }
