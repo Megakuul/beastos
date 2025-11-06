@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # editors
     vscodium
@@ -7,12 +6,17 @@
     # api debugging
     hoppscotch
 
+    # remotemanagement
+    teleport_18
+
     # container tooling
     podman
     podman-desktop
     kubectl
     k9s
     kubernetes-helm
+    linkerd
+    talosctl
 
     # database tooling
     postgresql
@@ -24,7 +28,7 @@
     protoc-gen-go # legacy -> use buf
     protoc-gen-go-grpc # legacy -> use buf
 
-    # x509 and other crypto container tooling 
+    # x509 and other crypto container tooling
     step-cli
     openssl
 

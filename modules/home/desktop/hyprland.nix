@@ -13,6 +13,8 @@ in {
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     grim
     slurp
+    swappy
+    wl-clipboard
     wl-clip-persist
     cliphist
     wf-recorder
@@ -187,10 +189,7 @@ in {
         "$mainMod, T, exec, toggle-oppacity"
         "$mainMod, E, exec, ${file}"
 
-        # screenshot
-        ",Print, exec, screenshot --copy"
-        "$mainMod, Print, exec, screenshot --save"
-        "$mainMod SHIFT, Print, exec, screenshot --swappy"
+        ",Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
 
         # switch focus
         "$mainMod, left,  movefocus, l"
@@ -253,6 +252,9 @@ in {
         ",XF86AudioNext,exec, playerctl next"
         ",XF86AudioPrev,exec, playerctl previous"
         ",XF86AudioStop,exec, playerctl stop"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"

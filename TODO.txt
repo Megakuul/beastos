@@ -1,0 +1,5 @@
+- flatpak integration
+- good virtualization
+- background selector
+- simple addon layer
+- installer or startup script

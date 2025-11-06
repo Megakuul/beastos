@@ -1,5 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    fd
+    eza
+    dig
+  ];
   programs.zsh = {
     enable = true;
     # enableCompletion = true;

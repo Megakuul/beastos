@@ -15,6 +15,7 @@ local options = {
     yaml = { "yamlfmt" },
     rust = { "rustfmt" },
     python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+    bash = { "shfmt" },
   },
 
   format_on_save = {

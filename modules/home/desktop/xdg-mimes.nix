@@ -1,16 +1,16 @@
 {lib, ...}:
 with lib; let
   defaultApps = {
-    browser = ["brave.desktop"];
+    browser = ["firefox.desktop"];
     text = ["geany.desktop"];
-    image = ["brave.desktop"];
-    audio = ["brave.desktop"];
-    video = ["brave.desktop"];
+    image = ["firefox.desktop"];
+    audio = ["firefox.desktop"];
+    video = ["firefox.desktop"];
     directory = ["nemo.desktop"];
     office = ["libreoffice.desktop"];
-    pdf = ["brave.desktop"];
+    pdf = ["firefox.desktop"];
     terminal = ["ghostty.desktop"];
-    archive = ["org.gnome.FileRoller.desktop"];
+    archive = ["peazip-extract.desktop" "peazip.desktop"];
   };
 
   mimeMap = {

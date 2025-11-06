@@ -18,6 +18,7 @@ local servers = {
   "yamlls",
   "rust_analyzer",
   "pyright",
+  "bashls",
 }
 
 -- lsps with default config

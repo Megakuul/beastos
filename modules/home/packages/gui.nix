@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ## Multimedia
     joplin-desktop
@@ -16,7 +15,6 @@
     vlc
     wl-screenrec
     rustdesk-flutter
-    brave
 
     ## Office
     libreoffice
@@ -31,9 +29,7 @@
     mission-center # GUI resources monitor
     zenity
 
-
     # remotemanagement tooling
     remmina
-    astal.cava
   ];
 }

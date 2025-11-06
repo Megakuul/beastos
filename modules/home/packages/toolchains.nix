@@ -13,6 +13,7 @@
     rustywind
     tailwindcss-language-server
     templ
+    wails
 
     # go
     go
@@ -50,5 +51,9 @@
     # python
     python312
     ruff
+
+    # bash
+    bash-language-server
+    shfmt
   ];
 }
