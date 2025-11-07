@@ -1,16 +1,12 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   browser = "brave";
   terminal = "ghostty";
   file = "nemo";
 in {
   home.packages = with pkgs; [
     swww
-    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
-    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    hyprpicker
+    hypr
     grim
     slurp
     swappy
@@ -36,9 +32,21 @@ in {
       enable = true;
       # hidpi = true;
     };
+    plugins = with pkgs; [
+      hyprlandPlugins.hyprexpo
+    ];
     # enableNvidiaPatches = false;
     systemd.enable = true;
     settings = {
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+
+          workspace_method = "center current";
+          gesture_distance = 300;
+        };
+      };
       exec-once = [
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -213,29 +221,7 @@ in {
         "CTRL ALT, up, exec, hyprctl dispatch focuswindow floating"
         "CTRL ALT, down, exec, hyprctl dispatch focuswindow tiled"
 
-        # switch workspace
-        "$mainMod, TAB, workspace, m+1 "
-        "$mainMod, SHIFT_TAB, workspace, m-1 "
-        "$mainMod, 1, workspace, m1"
-        "$mainMod, 2, workspace, m2"
-        "$mainMod, 3, workspace, m3"
-        "$mainMod, 4, workspace, m4"
-        "$mainMod, 5, workspace, m5"
-        "$mainMod, 6, workspace, m6"
-        "$mainMod, 7, workspace, m7"
-        "$mainMod, 8, workspace, m8"
-        "$mainMod, 9, workspace, m9"
-
-        # same as above, but switch to the workspace
-        "$mainMod SHIFT, 1, movetoworkspacesilent, m1" # movetoworkspacesilent
-        "$mainMod SHIFT, 2, movetoworkspacesilent, m2"
-        "$mainMod SHIFT, 3, movetoworkspacesilent, m3"
-        "$mainMod SHIFT, 4, movetoworkspacesilent, m4"
-        "$mainMod SHIFT, 5, movetoworkspacesilent, m5"
-        "$mainMod SHIFT, 6, movetoworkspacesilent, m6"
-        "$mainMod SHIFT, 7, movetoworkspacesilent, m7"
-        "$mainMod SHIFT, 8, movetoworkspacesilent, m8"
-        "$mainMod SHIFT, 9, movetoworkspacesilent, m9"
+        "$mainMod, TAB, hyprexpo:expo, toggle"
 
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, right, movewindow, r"

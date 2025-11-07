@@ -1,22 +1,22 @@
 {
   pkgs,
-  inputs,
   username,
   host,
+  home,
+  unstable,
+  hyprsuite,
   ...
-}:
-{
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+}: {
+  imports = [home.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host; };
+    extraSpecialArgs = {inherit username host home unstable hyprsuite;};
     users.${username} = {
       imports =
-        if (host == "desktop") then
-          [ ./../home/default.desktop.nix ]
-        else
-          [ ./../home ];
+        if (host == "desktop")
+        then [./../home/default.desktop.nix]
+        else [./../home];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "24.05";
@@ -33,5 +33,5 @@
     ];
     shell = pkgs.zsh;
   };
-  nix.settings.allowed-users = [ "${username}" ];
+  nix.settings.allowed-users = ["${username}"];
 }

@@ -4,7 +4,7 @@
     tdf
     xdg-utils
     gtrash
-    disk
+    dysk
     ripgrep
   ];
   programs.zsh = {

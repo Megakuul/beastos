@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,9 +12,9 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    hypr-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
     };
 
     hyprpicker = {
@@ -31,53 +32,36 @@
         systems.follows = "hyprland/systems";
       };
     };
-
-    nur.url = "github:nix-community/NUR";
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    ghostty.url = "github:ghostty-org/ghostty";
-
-    superfile.url = "github:yorukot/superfile";
-
-    orbstrike.url = "github:megakuul/orbstrike";
-
-
-    # cthul.url = "path:/home/linus/Documents/repos/cthul";
   };
 
-  outputs =
-    { nixpkgs, self, ... }@inputs:
-    let
-      username = "linus";
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
+  outputs = {...} @ inputs: let
+    # TODO: materialize per system (for arm support)
+    username = "linus";
+    system = "x86_64-linux";
+    stable = inputs.nixpkgs-stable.legacyPackages.${system};
+    hyprsuite = {
+      inherit (inputs) hyprland hyprspace hyprlock hyprpicker;
+    };
+  in {
+    nixosConfigurations = {
+      desktop = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
-    in
-    {
-      nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./hosts/desktop ];
-          specialArgs = {
-            host = "desktop";
-            inherit self inputs username;
-          };
+        modules = [./hosts/desktop];
+        specialArgs = {
+          host = "desktop";
+          home = inputs.home-manager;
+          inherit username stable hyprsuite;
         };
-        laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./hosts/laptop ];
-          specialArgs = {
-            host = "laptop";
-            inherit self inputs username;
-          };
+      };
+      laptop = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./hosts/laptop];
+        specialArgs = {
+          host = "laptop";
+          home = inputs.home-manager;
+          inherit username stable hyprsuite;
         };
       };
     };
+  };
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
@@ -7,5 +6,5 @@
     efiInstallAsRemovable = true;
   };
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 }
