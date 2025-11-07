@@ -25,7 +25,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = null;
+    package = pkgs.hyprland;
     portalPackage = null;
 
     xwayland = {
@@ -33,18 +33,14 @@ in {
       # hidpi = true;
     };
     plugins = with pkgs; [
-      hyprlandPlugins.hyprexpo
+      hyprlandPlugins.hyprspace
     ];
     # enableNvidiaPatches = false;
     systemd.enable = true;
     settings = {
       plugin = {
-        hyprexpo = {
-          columns = 3;
-          gap_size = 5;
-
-          workspace_method = "center current";
-          gesture_distance = 300;
+        overview = {
+          switchOnDrop = true;
         };
       };
       exec-once = [
@@ -84,8 +80,8 @@ in {
       general = {
         "$mainMod" = "SUPER";
         layout = "dwindle";
-        gaps_in = 6;
-        gaps_out = 12;
+        gaps_in = 2;
+        gaps_out = 4;
         border_size = 2;
         "col.active_border" = "rgb(ACB5F2) rgb(E6B5D8) 45deg";
         "col.inactive_border" = "0x00000000";
@@ -187,7 +183,6 @@ in {
         "$mainMod, B, exec, [workspace 1 silent] ${browser}"
         "$mainMod, C, killactive,"
         "$mainMod, F, fullscreen, 0"
-        "$mainMod, V, exec, toggle-float"
         "$mainMod, R, exec, rofi -show drun || pkill rofi"
         "$mainMod, W, exec, rofi -show window || pkill rofi"
         "$mainMod, S, exec, rofi -show ssh -terminal ${terminal} || pkill rofi"
@@ -221,7 +216,7 @@ in {
         "CTRL ALT, up, exec, hyprctl dispatch focuswindow floating"
         "CTRL ALT, down, exec, hyprctl dispatch focuswindow tiled"
 
-        "$mainMod, TAB, hyprexpo:expo, toggle"
+        "$mainMod, V, overview:toggle, all"
 
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, right, movewindow, r"
@@ -231,6 +226,9 @@ in {
         "$mainMod SHIFT, j, movewindow, d"
         "$mainMod SHIFT, k, movewindow, u"
         "$mainMod SHIFT, l, movewindow, r"
+
+        "$mainMod, TAB, workspace, m+1 "
+        "$mainMod, SHIFT_TAB, workspace, m-1 "
 
         # media and volume controls
         # ",XF86AudioMute,exec, pamixer -t"
@@ -257,6 +255,7 @@ in {
 
       # windowrule
       windowrule = [
+        "noborder, onworkspace:1"
         "float,class:^(peazip)$"
         "float,class:^(Viewnior)$"
         "float,class:^(imv)$"
@@ -322,14 +321,6 @@ in {
         "maxsize 1 1,class:^(xwaylandvideobridge)$"
         "noblur,class:^(xwaylandvideobridge)$"
 
-        # No gaps when only
-        "bordersize 0, floating:0, onworkspace:w[t1]"
-        "rounding 0, floating:0, onworkspace:w[t1]"
-        "bordersize 0, floating:0, onworkspace:w[tg1]"
-        "rounding 0, floating:0, onworkspace:w[tg1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
-
         # "maxsize 1111 700, floating: 1"
         # "center, floating: 1"
 
@@ -337,13 +328,16 @@ in {
         "opaque,class:^()$,title:^()$"
         "noshadow,class:^()$,title:^()$"
         "noblur,class:^()$,title:^()$"
+
+        "bordersize 0, floating:0, onworkspace:w[tv1]s[false]"
+        "rounding 0, floating:0, onworkspace:w[tv1]s[false]"
+        "bordersize 0, floating:0, onworkspace:f[1]s[false]"
+        "rounding 0, floating:0, onworkspace:f[1]s[false]"
       ];
 
-      # No gaps when only
       workspace = [
-        "w[t1], gapsout:0, gapsin:0"
-        "w[tg1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
+        "w[tv1]s[false], gapsout:0, gapsin:0"
+        "f[1]s[false], gapsout:0, gapsin:0"
       ];
     };
 

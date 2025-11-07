@@ -97,6 +97,10 @@
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.system.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "media.eme.enabled" = true;
+          "signon.autofillForms" = false;
+          "signon.formlessCapture.enabled" = false;
+          "signon.generation.enabled" = false;
           "signon.management.page.breach-alerts.enabled" = false;
           "signon.rememberSignons" = true;
         };
