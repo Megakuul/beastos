@@ -1,5 +1,9 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [nemo peazip];
+  home.packages = with pkgs; [
+    nemo
+    peazip
+    gvfs
+  ];
 
   dconf.settings = {
     "org/nemo/preferences" = {

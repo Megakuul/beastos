@@ -1,14 +1,13 @@
 # to avoid confusion: hyprlock is
 {
   pkgs,
-  hyprsuite,
   host,
   ...
 }: {
   programs.hyprlock = {
     enable = true;
 
-    package = hyprsuite.hyprlock.packages.${pkgs.system}.hyprlock;
+    package = pkgs.hyprlock;
 
     settings = {
       general = {

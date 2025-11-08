@@ -3,15 +3,15 @@
   username,
   host,
   home,
+  stable,
   unstable,
-  hyprsuite,
   ...
 }: {
   imports = [home.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit username host home unstable hyprsuite;};
+    extraSpecialArgs = {inherit username host home stable unstable;};
     users.${username} = {
       imports =
         if (host == "desktop")

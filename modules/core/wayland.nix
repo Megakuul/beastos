@@ -1,13 +1,8 @@
-{
-  pkgs,
-  hyprsuite,
-  ...
-}: {
+{pkgs, ...}: {
   programs.hyprland = {
     enable = true;
-    package = hyprsuite.hyprland.packages.${pkgs.system}.default;
-    portalPackage =
-      hyprsuite.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {

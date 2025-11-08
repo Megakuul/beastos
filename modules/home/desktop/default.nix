@@ -1,4 +1,4 @@
-{hyprsuite, ...}: {
+{...}: {
   imports = [
     ./theming.nix
     ./hyprland.nix
@@ -7,6 +7,5 @@
     ./xdg-mimes.nix
     ./rofi.nix
     ./nemo.nix
-    hyprsuite.hyprland.homeManagerModules.default
   ];
 }

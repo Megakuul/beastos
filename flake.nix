@@ -9,39 +9,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
-    };
-
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs = {
-        hyprgraphics.follows = "hyprland/hyprgraphics";
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
-    };
   };
 
   outputs = {...} @ inputs: let
     # TODO: materialize per system (for arm support)
     username = "linus";
     system = "x86_64-linux";
+    unstable = inputs.nixpkgs.legacyPackages.${system};
     stable = inputs.nixpkgs-stable.legacyPackages.${system};
-    hyprsuite = {
-      inherit (inputs) hyprland hyprspace hyprlock hyprpicker;
-    };
   in {
     nixosConfigurations = {
       desktop = inputs.nixpkgs.lib.nixosSystem {
@@ -50,7 +25,7 @@
         specialArgs = {
           host = "desktop";
           home = inputs.home-manager;
-          inherit username stable hyprsuite;
+          inherit username stable unstable;
         };
       };
       laptop = inputs.nixpkgs.lib.nixosSystem {
@@ -59,7 +34,7 @@
         specialArgs = {
           host = "laptop";
           home = inputs.home-manager;
-          inherit username stable hyprsuite;
+          inherit username stable unstable;
         };
       };
     };

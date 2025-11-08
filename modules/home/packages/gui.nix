@@ -1,33 +1,38 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    ## Multimedia
-    joplin-desktop
-    calibre
-    reaper
+    # multimedia
     spotify
-    audacity
-    godot
-    krita
+    gimp3-with-plugins
+    penpot-desktop
     obs-studio
     pavucontrol
-    pitivi # video editing
-    soundwireserver
     vlc
-    wl-screenrec
-    rustdesk-flutter
+    kdePackages.kdenlive
+    tenacity
 
-    ## Office
+    # office
     libreoffice
     gnome-calculator
 
-    # Passwords
+    # password
     bitwarden-desktop
+    _1password-gui
 
-    ## Utility
-    dconf-editor
+    # utility
     gnome-disk-utility
     mission-center # GUI resources monitor
-    zenity
+
+    # analysis
+    ghidra
+    wireshark
+    kdePackages.kleopatra
+
+    # virtualisation
+    gnome-boxes
+    osinfo-db
+    osinfo-db-tools
+    virt-manager
+    tigervnc
 
     # remotemanagement tooling
     remmina

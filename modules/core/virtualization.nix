@@ -3,30 +3,38 @@
   username,
   ...
 }: {
-  # Add user to libvirtd group
-  users.users.${username}.extraGroups = ["libvirtd"];
+  users.users.${username}.extraGroups = ["libvirtd" "podman"];
 
-  # Install necessary packages
   environment.systemPackages = with pkgs; [
-    virt-manager
-    virt-viewer
-    spice
-    spice-gtk
-    spice-protocol
     virtio-win
     win-spice
-    adwaita-icon-theme
   ];
 
-  # Manage the virtualisation services
   virtualisation = {
-    docker = {
+    podman = {
       enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+    };
+    incus = {
+      enable = true;
+      ui = {
+        enable = true;
+      };
+      preseed = {
+        config = {
+          "core.https_address" = ":10123";
+          "images.auto_update_interval" = 15;
+        };
+      };
     };
     libvirtd = {
       enable = true;
       qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
         swtpm.enable = true;
+        vhostUserPackages = with pkgs; [virtiofsd];
       };
     };
     spiceUSBRedirection.enable = true;

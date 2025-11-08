@@ -1,11 +1,12 @@
-{...}: {
+{pkgs, ...}: {
   programs.hyprpanel = {
     enable = true;
+    package = pkgs.hyprpanel;
     settings = {
       scalingPriority = "gdk";
 
       wallpaper = {
-        image = "/home/linus/Downloads/dino.svg";
+        image = "/home/linus/Downloads/eye.png";
         pywal = false;
       };
 

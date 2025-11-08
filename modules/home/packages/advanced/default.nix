@@ -5,5 +5,6 @@
     ./git.nix
     ./nvim.nix
     ./geany.nix
+    ./incus.nix
   ];
 }

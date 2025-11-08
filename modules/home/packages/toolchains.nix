@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
+{unstable, ...}: {
+  home.packages = with unstable; [
     # lua
     lua
     stylua

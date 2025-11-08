@@ -1,4 +1,3 @@
-- fix workspaces
 - flatpak integration
 - good virtualization
 - background selector

@@ -1,22 +1,22 @@
 {pkgs, ...}: let
-  browser = "brave";
+  browser = "firefox";
   terminal = "ghostty";
   file = "nemo";
 in {
   home.packages = with pkgs; [
-    swww
     hyprpicker
-    hypr
+
+    # screenshot utils
     grim
     slurp
     swappy
+
+    # clipboard utils
     wl-clipboard
     wl-clip-persist
     cliphist
-    wf-recorder
-    glib
-    wayland
-    direnv
+
+    # monitor tooling
     nwg-displays
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [
@@ -32,8 +32,8 @@ in {
       enable = true;
       # hidpi = true;
     };
-    plugins = with pkgs; [
-      hyprlandPlugins.hyprspace
+    plugins = [
+      pkgs.hyprlandPlugins.hyprspace
     ];
     # enableNvidiaPatches = false;
     systemd.enable = true;

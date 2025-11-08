@@ -1,13 +1,10 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
+{unstable, ...}: {
+  home.packages = with unstable; [
     # editors
     vscodium
 
     # api debugging
     hoppscotch
-
-    # remotemanagement
-    teleport_18
 
     # container tooling
     podman
@@ -27,10 +24,6 @@
     protobuf # legacy -> use buf
     protoc-gen-go # legacy -> use buf
     protoc-gen-go-grpc # legacy -> use buf
-
-    # x509 and other crypto container tooling
-    step-cli
-    openssl
 
     # IaC tooling
     pulumi
