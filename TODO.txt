@@ -1,5 +1,3 @@
-- flatpak integration
-- good virtualization
-- background selector
-- simple addon layer
+- good virtualization (done but incus webui)
+- simple addon layer (first learn nix language)
 - installer or startup script

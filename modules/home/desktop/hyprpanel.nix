@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  theme,
+  ...
+}: {
   programs.hyprpanel = {
     enable = true;
     package = pkgs.hyprpanel;
@@ -6,7 +10,7 @@
       scalingPriority = "gdk";
 
       wallpaper = {
-        image = "/home/linus/Downloads/eye.png";
+        image = theme.wallpaper;
         pywal = false;
       };
 
@@ -60,14 +64,14 @@
 
         dashboard = {
           powermenu = {
-            avatar.image = "/home/linus/Downloads/dino.svg";
+            avatar.image = theme.profile;
           };
 
           shortcuts.left = {
             shortcut1 = {
-              command = "brave";
-              icon = "";
-              tooltip = "Brave Browser";
+              command = "firefox";
+              icon = "󰈹";
+              tooltip = "Firefox Browser";
             };
             shortcut2 = {
               command = "hyprctl dispatch exec 'remmina'";

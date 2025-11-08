@@ -5,13 +5,14 @@
   home,
   stable,
   unstable,
+  theme,
   ...
 }: {
   imports = [home.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit username host home stable unstable;};
+    extraSpecialArgs = {inherit username host home stable unstable theme;};
     users.${username} = {
       imports =
         if (host == "desktop")

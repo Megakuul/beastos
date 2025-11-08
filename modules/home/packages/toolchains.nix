@@ -14,6 +14,7 @@
     tailwindcss-language-server
     templ
     wails
+    flutter
 
     # go
     go

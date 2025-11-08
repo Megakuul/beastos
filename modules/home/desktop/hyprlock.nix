@@ -2,6 +2,7 @@
 {
   pkgs,
   host,
+  theme,
   ...
 }: {
   programs.hyprlock = {
@@ -21,7 +22,7 @@
       background = [
         {
           monitor = "";
-          path = "${../../../wallpapers/lightning.jpg}";
+          path = theme.lockpaper;
           blur_passes = 2;
           contrast = 0.8916;
           brightness = 0.8172;

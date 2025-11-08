@@ -9,14 +9,29 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    twinkle = {
+      url = "github:linusmoser/twinkle";
+      branch = "swyx-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {...} @ inputs: let
-    # TODO: materialize per system (for arm support)
+    # inputs.nixpkgs.overlays = [
+    #   (final: prev: {
+    #     twinkle = inputs.twinkle.packages;
+    #   })
+    # ];
     username = "linus";
     system = "x86_64-linux";
     unstable = inputs.nixpkgs.legacyPackages.${system};
     stable = inputs.nixpkgs-stable.legacyPackages.${system};
+    theme = {
+      profile = "${./wallpapers/totoro.png}";
+      wallpaper = "${./wallpapers/white.jpg}";
+      lockpaper = "${./wallpapers/lightning.jpg}";
+    };
   in {
     nixosConfigurations = {
       desktop = inputs.nixpkgs.lib.nixosSystem {
@@ -25,7 +40,7 @@
         specialArgs = {
           host = "desktop";
           home = inputs.home-manager;
-          inherit username stable unstable;
+          inherit username stable unstable theme;
         };
       };
       laptop = inputs.nixpkgs.lib.nixosSystem {
@@ -34,7 +49,7 @@
         specialArgs = {
           host = "laptop";
           home = inputs.home-manager;
-          inherit username stable unstable;
+          inherit username stable unstable theme;
         };
       };
     };

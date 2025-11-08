@@ -1,6 +1,4 @@
-{pkgs, ...}: let
-  hyprland-pkgs = pkgs.hyprland.nixpkgs;
-in {
+{pkgs, ...}: {
   hardware = {
     graphics = {
       enable = true;
