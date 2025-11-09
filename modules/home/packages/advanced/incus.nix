@@ -60,7 +60,7 @@ in {
     };
   };
   xdg.desktopEntries."incus" = {
-    name = "Incus UI";
+    name = "Incus Client";
     exec = "${incusClient}";
     icon = "virtualbox";
     categories = ["Emulator" "System" "Utility"];

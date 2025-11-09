@@ -64,7 +64,14 @@
 
         dashboard = {
           powermenu = {
-            avatar.image = theme.profile;
+            avatar = {
+              image = theme.profile;
+              name = "";
+            };
+          };
+
+          stats = {
+            enabled = false;
           };
 
           shortcuts.left = {

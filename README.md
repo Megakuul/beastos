@@ -1,19 +1,20 @@
 # Nixomaticon
 
+![informli](/favicon.svg)
+
 Basically just a superior operating system for work.
 
-# Installation
-
-1. Download and burn nixos iso:
+## Installation
 ---
+
+**1. Download and burn nixos iso:**
 
 ```bash
 wget 
 dd if=./nixos of=/dev/sdx --status=progress
 ```
 
-2. Boot into iso and setup your disks
----
+**2. Boot into iso and setup your disks**
 
 ```bash
 # setup boot part with at least EFI part (500mb) + Linux part (rest)
@@ -32,8 +33,7 @@ fatlabel NIXBOOT /dev/nvme0n1p1
 mount /dev/disk/by-label/NIXBOOT /mnt/boot --mkdir
 ```
 
-3. Create your flake and install nixos
----
+**3. Create your flake and install nixos**
 
 ```bash 
 mkdir -p /mnt/etc/nixos
@@ -53,3 +53,12 @@ NIX_STORE_DIR=/mnt/nix/store nixos-install --root /mnt --flake /mnt/etc/nixos#de
 ```
 
 Reboot the system and you successfully installed nixomaticon
+
+
+## Q & A
+---
+
+| Question | Answer |
+| ------------- | -------------- |
+| Where are `.desktop` files mounted? | User: `/etc/profiles/per-user/<username>/share/applications` System: `/run/current-system/sw/share/applications` |
+

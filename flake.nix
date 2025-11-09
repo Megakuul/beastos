@@ -27,9 +27,9 @@
     unstable = inputs.nixpkgs.legacyPackages.${system};
     stable = inputs.nixpkgs-stable.legacyPackages.${system};
     theme = {
-      profile = "${./wallpapers/totoro.png}";
-      wallpaper = "${./wallpapers/white.jpg}";
-      lockpaper = "${./wallpapers/lightning.jpg}";
+      profile = "${./assets/profile.png}";
+      wallpaper = "${./assets/white.jpg}";
+      lockpaper = "${./assets/lightning.jpg}";
     };
   in {
     nixosConfigurations = {
