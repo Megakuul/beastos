@@ -67,6 +67,7 @@
             avatar = {
               image = theme.profile;
               name = "";
+              image_size = "12em";
             };
           };
 
