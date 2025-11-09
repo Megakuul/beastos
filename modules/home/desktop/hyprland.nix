@@ -35,7 +35,6 @@ in {
     plugins = [
       pkgs.hyprlandPlugins.hyprspace
     ];
-    # enableNvidiaPatches = false;
     systemd.enable = true;
     settings = {
       plugin = {
@@ -339,6 +338,10 @@ in {
         "w[tv1]s[false], gapsout:0, gapsin:0"
         "f[1]s[false], gapsout:0, gapsin:0"
       ];
+
+      cursor = {
+        no_hardware_cursors = true;
+      };
     };
 
     extraConfig = "

@@ -14,10 +14,7 @@
     useGlobalPkgs = true;
     extraSpecialArgs = {inherit username host home stable unstable theme;};
     users.${username} = {
-      imports =
-        if (host == "desktop")
-        then [./../home/default.desktop.nix]
-        else [./../home];
+      imports = [./../home];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "24.05";

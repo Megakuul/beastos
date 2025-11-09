@@ -11,8 +11,7 @@
     };
 
     twinkle = {
-      url = "github:linusmoser/twinkle";
-      branch = "swyx-support";
+      url = "github:linusmoser/twinkle/swyx-support";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

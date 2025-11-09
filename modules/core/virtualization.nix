@@ -3,7 +3,7 @@
   username,
   ...
 }: {
-  users.users.${username}.extraGroups = ["libvirtd" "podman"];
+  users.users.${username}.extraGroups = ["libvirtd" "podman" "incus-admin"];
 
   environment.systemPackages = with pkgs; [
     virtio-win

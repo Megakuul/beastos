@@ -51,6 +51,7 @@
 
     # python
     python312
+    pyright
     ruff
 
     # bash
