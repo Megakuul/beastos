@@ -10,8 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    twinkle = {
-      url = "github:linusmoser/twinkle/swyx-support";
+    fleet-orbit = {
+      url = "github:adamcik/fleet-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -31,14 +31,10 @@
       desktop = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({...}: {
-            nixpkgs.overlays = [
-              (final: prev: {
-                twinkle = inputs.twinkle.packages.${system}.twinkle;
-              })
-            ];
-          })
+          inputs.home-manager.nixosModules.home-manager
           ./hosts/desktop
+          inputs.fleet-orbit.nixosModules.fleet-nixos
+          ./modules/informaticon
         ];
         specialArgs = {
           host = "desktop";
@@ -49,14 +45,11 @@
       laptop = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({...}: {
-            nixpkgs.overlays = [
-              (final: prev: {
-                twinkle = inputs.twinkle.packages.${system}.twinkle;
-              })
-            ];
-          })
+          # todo make another entrypoint for everything so home-manager is available
+          inputs.home-manager.nixosModules.home-manager
           ./hosts/laptop
+          inputs.fleet-orbit.nixosModules.fleet-nixos
+          ./modules/informaticon
         ];
         specialArgs = {
           host = "laptop";

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  stable,
+  ...
+}: {
   home.packages = with pkgs; [
     # multimedia
     spotify
@@ -13,7 +17,6 @@
     # office
     libreoffice
     gnome-calculator
-    twinkle
     linphone
 
     # password
@@ -30,7 +33,7 @@
     kdePackages.kleopatra
 
     # virtualisation
-    gnome-boxes
+    stable.gnome-boxes
     osinfo-db
     osinfo-db-tools
     virt-manager

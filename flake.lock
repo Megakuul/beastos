@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "fleet-orbit": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1755515055,
+        "narHash": "sha256-lvFkkBDb/wP+FSLaM08npfLKMcyWF07v7JL5qjbXyhs=",
+        "owner": "adamcik",
+        "repo": "fleet-nixos",
+        "rev": "5298468c1abcbb4551dabec5f13dff1e115cfb5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adamcik",
+        "repo": "fleet-nixos",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -54,31 +74,10 @@
     },
     "root": {
       "inputs": {
+        "fleet-orbit": "fleet-orbit",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable",
-        "twinkle": "twinkle"
-      }
-    },
-    "twinkle": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1751287987,
-        "narHash": "sha256-ZESy0K3foOWMXsUsAMhWauQlnqf75Z3cIWw+0XkxaEo=",
-        "owner": "linusmoser",
-        "repo": "twinkle",
-        "rev": "323e4406e544c39ca8352be578e169582a71b1d7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "linusmoser",
-        "ref": "swyx-support",
-        "repo": "twinkle",
-        "type": "github"
+        "nixpkgs-stable": "nixpkgs-stable"
       }
     }
   },
