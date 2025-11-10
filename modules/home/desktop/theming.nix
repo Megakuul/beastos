@@ -1,5 +1,11 @@
 # let the linux desktop theming mess begin
-{pkgs, ...}: {
+{pkgs, ...}: let
+  variant = "macchiato";
+  accent = "lavender";
+  kvantumThemePackage = pkgs.catppuccin-kvantum.override {
+    inherit variant accent;
+  };
+in {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -10,6 +16,9 @@
     noto-fonts-color-emoji
     fantasque-sans-mono
     maple-mono.truetype-autohint
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qtstyleplugin-kvantum
   ];
 
   dconf.settings = {
@@ -42,10 +51,17 @@
   qt = {
     enable = true;
     platformTheme.name = "qtct";
-    style = {
-      name = "Dracula";
-      package = pkgs.dracula-qt5-theme;
-    };
+    style.name = "kvantum";
+    style.package = kvantumThemePackage;
+  };
+
+  xdg.configFile = {
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=Catppuccin-${variant}-${accent}
+    '';
+
+    "Kvantum/Catppuccin-${variant}-${accent}".source = "${kvantumThemePackage}/share/Kvantum/Catppuccin-${variant}-${accent}";
   };
 
   home.pointerCursor = {
@@ -67,8 +83,6 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = 1;
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     QT_QPA_PLATFORM = "wayland";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_STYLE_OVERRIDE = "Dracula";
     GTK_THEME = "Dracula";
     MOZ_ENABLE_WAYLAND = 1;
     WLR_BACKEND = "vulkan";

@@ -17,11 +17,6 @@
   };
 
   outputs = {...} @ inputs: let
-    # inputs.nixpkgs.overlays = [
-    #   (final: prev: {
-    #     twinkle = inputs.twinkle.packages;
-    #   })
-    # ];
     username = "linus";
     system = "x86_64-linux";
     unstable = inputs.nixpkgs.legacyPackages.${system};
@@ -35,7 +30,16 @@
     nixosConfigurations = {
       desktop = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/desktop];
+        modules = [
+          ({...}: {
+            nixpkgs.overlays = [
+              (final: prev: {
+                twinkle = inputs.twinkle.packages.${system}.twinkle;
+              })
+            ];
+          })
+          ./hosts/desktop
+        ];
         specialArgs = {
           host = "desktop";
           home = inputs.home-manager;
@@ -44,7 +48,16 @@
       };
       laptop = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/laptop];
+        modules = [
+          ({...}: {
+            nixpkgs.overlays = [
+              (final: prev: {
+                twinkle = inputs.twinkle.packages.${system}.twinkle;
+              })
+            ];
+          })
+          ./hosts/laptop
+        ];
         specialArgs = {
           host = "laptop";
           home = inputs.home-manager;

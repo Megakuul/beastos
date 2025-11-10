@@ -13,6 +13,8 @@
     # office
     libreoffice
     gnome-calculator
+    twinkle
+    linphone
 
     # password
     bitwarden-desktop
