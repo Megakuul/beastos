@@ -8,6 +8,7 @@
   theme,
   ...
 }: {
+  imports = [home.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;

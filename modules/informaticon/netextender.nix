@@ -8,12 +8,12 @@
   hash = "sha256-pnF/KRQMAcPnTj0Ni+sKKkw+H72WHf2iYVkWsWNCndc=";
   url = "https://software.sonicwall.com/NetExtender/NetExtender-linux-amd64-${version}.tar.gz";
   netextender = pkgs.stdenv.mkDerivation rec {
+    inherit version;
     pname = "netextender";
-    version = version;
     src = pkgs.fetchurl {inherit url hash;};
 
     nativeBuildInputs = with pkgs; [autoPatchelfHook makeWrapper];
-    buildInputs = with pkgs; [openssl_1_1 zlib gtk2 pango cairo xorg.libX11];
+    buildInputs = with pkgs; [openssl_legacy zlib gtk2 pango cairo xorg.libX11];
 
     unpackPhase = "tar -xzf $src";
     installPhase = ''
@@ -31,5 +31,5 @@
     '';
   };
 in {
-  home.packages = [netextender];
+  environment.systemPackages = [netextender];
 }

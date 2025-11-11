@@ -31,7 +31,6 @@
       desktop = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          inputs.home-manager.nixosModules.home-manager
           ./hosts/desktop
           inputs.fleet-orbit.nixosModules.fleet-nixos
           ./modules/informaticon
