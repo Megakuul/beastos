@@ -4,6 +4,7 @@
     efiSupport = true;
     device = "nodev";
     efiInstallAsRemovable = true;
+    useOSProber = true;
   };
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.supportedFilesystems = ["ntfs"];

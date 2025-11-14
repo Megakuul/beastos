@@ -21,13 +21,12 @@
     gopls
 
     # c / cpp
+    gnumake
     bazel_7
     vcpkg
     conan
     cmake
-    llvmPackages_21.clang
-    llvmPackages_21.clang-tools
-    llvmPackages_21.lld
+    gcc
 
     # ocaml
     ocaml
