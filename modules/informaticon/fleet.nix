@@ -1,6 +1,6 @@
 {...}: {
   services.orbit = {
-    enable = true;
+    enable = false;
     fleetUrl = "https://fleetdm.informaticon.com";
     enrollSecretPath = "/tmp/fleet/enroll_secret";
     debug = true;
