@@ -11,6 +11,10 @@ in {
     slurp
     swappy
 
+    # screenrec utils
+    wf-recorder
+    wl-screenrec
+
     # clipboard utils
     wl-clipboard
     wl-clip-persist
@@ -189,8 +193,7 @@ in {
         "$mainMod, S, exec, rofi -show ssh -terminal ${terminal} || pkill rofi"
         "$mainMod, G, exec, hyprlock"
         "$mainMod, P, pseudo,"
-        "$mainMod, X, togglesplit,"
-        "$mainMod, T, exec, toggle-oppacity"
+        "$mainMod, T, exec, togglefloating"
         "$mainMod, E, exec, ${file}"
 
         ",Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
