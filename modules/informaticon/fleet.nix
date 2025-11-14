@@ -1,9 +1,8 @@
 {...}: {
   services.orbit = {
     enable = true;
-    fleetUrl = "https://<todo>";
-    # WARNING: use enrollSecretPath for secrets outside nix-store
-    enrollSecret = "your-enroll-secret";
+    fleetUrl = "https://fleetdm.informaticon.com";
+    enrollSecretPath = "/tmp/fleet/enroll_secret";
     debug = true;
     devMode = false;
     hostIdentifier = "uuid";
