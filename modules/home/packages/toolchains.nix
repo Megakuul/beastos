@@ -6,12 +6,16 @@
     lua-language-server
 
     # ui tools (html, tailwind, ts, ...)
+    nodejs_24
+    bun
+    deno
     prettierd
     vscode-langservers-extracted
     typescript
     typescript-language-server
     rustywind
     tailwindcss-language-server
+    svelte-language-server
     templ
     wails
     flutter

@@ -1,4 +1,8 @@
-{unstable, ...}: {
+{
+  stable,
+  unstable,
+  ...
+}: {
   home.packages = with unstable; [
     # editors
     vscodium
@@ -30,6 +34,7 @@
     pulumiPackages.pulumi-go
     opentofu
     awscli2
+    stable.aws-sam-cli
     google-cloud-sdk
   ];
 }
