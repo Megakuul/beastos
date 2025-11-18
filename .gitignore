@@ -4,3 +4,4 @@
 .\#*
 
 hardware-configuration.nix
+hosts/**
