@@ -27,7 +27,6 @@
     # c / cpp
     gnumake
     bazel_7
-    vcpkg
     conan
     cmake
     gcc

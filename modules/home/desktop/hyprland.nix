@@ -37,13 +37,19 @@ in {
       # hidpi = true;
     };
     plugins = [
-      pkgs.hyprlandPlugins.hyprspace
+      pkgs.hyprlandPlugins.hyprexpo
     ];
     systemd.enable = true;
     settings = {
       plugin = {
-        overview = {
-          switchOnDrop = true;
+        hyprexpo = {
+          columns = 2;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method = "workspace"; # [center/first] [workspace] e.g. first 1 or center m+1
+          skip_empty = true;
+
+          gesture_distance = 300; # how far is the "max" for the gesture
         };
       };
       exec-once = [
@@ -193,7 +199,7 @@ in {
         "$mainMod, S, exec, rofi -show ssh -terminal ${terminal} || pkill rofi"
         "$mainMod, G, exec, hyprlock"
         "$mainMod, P, pseudo,"
-        "$mainMod, T, exec, togglefloating"
+        "$mainMod, T, togglefloating"
         "$mainMod, E, exec, ${file}"
 
         ",Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
@@ -220,7 +226,7 @@ in {
         "CTRL ALT, up, exec, hyprctl dispatch focuswindow floating"
         "CTRL ALT, down, exec, hyprctl dispatch focuswindow tiled"
 
-        "$mainMod, V, overview:toggle, all"
+        "$mainMod, V, hyprexpo:expo, toggle"
 
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, right, movewindow, r"
@@ -233,6 +239,8 @@ in {
 
         "$mainMod, TAB, workspace, m+1 "
         "$mainMod, SHIFT_TAB, workspace, m-1 "
+        "$mainMod, U, movetoworkspacesilent, m+1 "
+        "$mainMod, D, movetoworkspacesilent, m-1 "
 
         # media and volume controls
         # ",XF86AudioMute,exec, pamixer -t"
