@@ -2,7 +2,8 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     css = { "prettierd" },
-    html = { "rustywind", "prettierd" },
+    html = { "prettierd", "rustywind" },
+    svelte = { "rustywind" },
     javascript = { "prettierd" },
     typescript = { "prettierd" },
     json = { "prettierd" },
@@ -19,8 +20,8 @@ local options = {
   },
 
   format_on_save = {
+    lsp_format = "first",
     timeout_ms = 500,
-    lsp_fallback = true,
   },
 }
 

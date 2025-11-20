@@ -15,6 +15,31 @@
       };
 
       bar = {
+        layouts = {
+          "0" = {
+            "left" = ["dashboard" "workspaces" "windowtitle"];
+            "middle" = ["media"];
+            "right" = [
+              "volume"
+              "network"
+              "bluetooth"
+              "systray"
+              "clock"
+              "notifications"
+            ];
+          };
+          "*" = {
+            "left" = ["dashboard" "workspaces" "windowtitle"];
+            "middle" = ["media"];
+            "right" = [
+              "volume"
+              "systray"
+              "clock"
+              "notifications"
+            ];
+          };
+        };
+
         launcher = {
           icon = "";
           autoDetectIcon = true;

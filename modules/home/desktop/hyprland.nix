@@ -49,7 +49,7 @@ in {
           workspace_method = "workspace"; # [center/first] [workspace] e.g. first 1 or center m+1
           skip_empty = true;
 
-          gesture_distance = 300; # how far is the "max" for the gesture
+          gesture_distance = 300;
         };
       };
       exec-once = [
@@ -190,7 +190,7 @@ in {
       };
 
       bind = [
-        "$mainMod, Q, exec, ${terminal} --gtk-single-instance=true"
+        "$mainMod, Q, exec, ${terminal}"
         "$mainMod, B, exec, [workspace 1 silent] ${browser}"
         "$mainMod, C, killactive,"
         "$mainMod, F, fullscreen, 0"

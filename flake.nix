@@ -24,7 +24,8 @@
     theme = {
       profile = "${./assets/profile.png}";
       wallpaper = "${./assets/white.jpg}";
-      lockpaper = "${./assets/lightning.jpg}";
+      lockpaper = "${./assets/white.jpg}";
+      bootloader = "${./assets/bootloader.png}";
     };
   in {
     nixosConfigurations = {

@@ -57,7 +57,7 @@ vim.keymap.set("n", "<C-e>", function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
 
-vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+vim.keymap.set("n", "<leader>fr", '<cmd>lua require("spectre").toggle()<CR>', {
   desc = "Toggle Spectre",
 })
 vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
@@ -81,3 +81,28 @@ require("cybu").setup {
   display_time = 0,
 }
 vim.keymap.set("n", "<C-q>", "<plug>(CybuLastusedNext)")
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.html", "*.svelte" },
+  callback = function()
+    vim.opt_local.wrap = false
+  end,
+})
+
+vim.keymap.set("n", "<leader>dd", ":DBUIToggle<CR>", {
+  desc = "Toggle DBUI",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "sql", "mysql", "plsql" },
+  callback = function()
+    vim.keymap.set("n", "<leader>q", "<Plug>(DBUI_ExecuteQuery)", { buffer = true, desc = "Execute SQL", remap = true })
+
+    vim.keymap.set(
+      "x",
+      "<leader>q",
+      "<Plug>(DBUI_ExecuteQuery)",
+      { buffer = true, desc = "Execute SQL Selection", remap = true }
+    )
+  end,
+})

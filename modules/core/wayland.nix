@@ -5,6 +5,10 @@
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
+  environment.variables = {
+    GTK_IM_MODULE = "simple"; # fixes gtk dead-key issues
+  };
+
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
