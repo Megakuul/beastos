@@ -23,6 +23,7 @@
     # go
     go
     gopls
+    gotools
 
     # c / cpp
     gnumake
