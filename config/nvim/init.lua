@@ -106,3 +106,5 @@ vim.api.nvim_create_autocmd("FileType", {
     )
   end,
 })
+
+vim.keymap.set("n", "<leader>cd", ":cd %:p:h<CR>")

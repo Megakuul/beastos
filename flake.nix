@@ -28,8 +28,8 @@
       bootloader = "${./assets/bootloader.png}";
     };
     profile = {
-      gitUser = "LinusMoser";
-      gitEmail = "linus.moser@informaticon.com";
+      gitUser = "Megakuul";
+      gitEmail = "linus.moser@megakuul.ch";
     };
   in {
     nixosConfigurations = {
@@ -43,7 +43,13 @@
         specialArgs = {
           host = "desktop";
           home = inputs.home-manager;
-          inherit username stable unstable profile theme;
+          inherit
+            username
+            stable
+            unstable
+            profile
+            theme
+            ;
         };
       };
       laptop = inputs.nixpkgs.lib.nixosSystem {
@@ -58,7 +64,13 @@
         specialArgs = {
           host = "laptop";
           home = inputs.home-manager;
-          inherit username stable unstable profile theme;
+          inherit
+            username
+            stable
+            unstable
+            profile
+            theme
+            ;
         };
       };
     };
