@@ -27,6 +27,10 @@
       lockpaper = "${./assets/white.jpg}";
       bootloader = "${./assets/bootloader.png}";
     };
+    profile = {
+      gitUser = "LinusMoser";
+      gitEmail = "linus.moser@informaticon.com";
+    };
   in {
     nixosConfigurations = {
       desktop = inputs.nixpkgs.lib.nixosSystem {
@@ -39,7 +43,7 @@
         specialArgs = {
           host = "desktop";
           home = inputs.home-manager;
-          inherit username stable unstable theme;
+          inherit username stable unstable profile theme;
         };
       };
       laptop = inputs.nixpkgs.lib.nixosSystem {
@@ -54,7 +58,7 @@
         specialArgs = {
           host = "laptop";
           home = inputs.home-manager;
-          inherit username stable unstable theme;
+          inherit username stable unstable profile theme;
         };
       };
     };

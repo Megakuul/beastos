@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services = {
     gvfs.enable = true;
     gnome = {

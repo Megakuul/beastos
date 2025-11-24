@@ -1,13 +1,20 @@
-{ pkgs, username, ... }:
 {
-  home.packages = [ pkgs.gh ]; 
+  pkgs,
+  username,
+  profile,
+  ...
+}: {
+  home.packages = [pkgs.gh];
 
   programs.git = {
     enable = true;
 
     settings = {
-      user.name = "Megakuul";
-      user.email = "linus.moser@megakuul.ch";
+      user.name = "${profile.gitUser}";
+      user.email = "${profile.gitEmail}";
+      user.signingkey = "/home/${username}/.config/git/signingkey";
+      gpg.format = "ssh";
+      commit.gpgsign = true;
       init.defaultBranch = "main";
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
@@ -16,7 +23,6 @@
       core.excludesFile = "/home/${username}/.config/git/.gitignore";
       credential.helper = "!${pkgs.gh}/bin/gh auth git-credential";
     };
-
   };
   programs.delta = {
     enable = true;

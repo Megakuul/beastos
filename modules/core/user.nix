@@ -6,13 +6,14 @@
   stable,
   unstable,
   theme,
+  profile,
   ...
 }: {
   imports = [home.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit username host home stable unstable theme;};
+    extraSpecialArgs = {inherit username host home stable unstable theme profile;};
     users.${username} = {
       imports = [./../home];
       home.username = "${username}";
