@@ -112,3 +112,5 @@ vim.keymap.set("n", "<leader>cd", ":cd %:p:h<CR>")
 vim.keymap.set("n", "grr", ":Telescope lsp_references<CR>")
 vim.keymap.set("n", "grd", ":Telescope lsp_definitions<CR>")
 vim.keymap.set("n", "gri", ":Telescope lsp_implementations<CR>")
+
+vim.keymap.set("n", "<leader>tb", "Gitsigns toggle_current_line_blame")
