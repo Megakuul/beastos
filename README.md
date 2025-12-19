@@ -1,8 +1,9 @@
-# BeastOS (for marketing reasons also known as Nixomaticon ;>) 
+# BeastOS ❄️
+(for marketing reasons also known as Nixomaticon)
 
 ![informli](/favicon.svg)
 
-Basically just a superior operating system for work.
+Basically just a superior operating system for work packaged as nixos module 🥶
 
 ## Installation
 ---
