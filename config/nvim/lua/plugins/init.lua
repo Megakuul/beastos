@@ -12,8 +12,10 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
+
           if client.name == "nil_ls" then
             client.server_capabilities.documentFormattingProvider = false
+
             client.server_capabilities.documentRangeFormattingProvider = false
           end
         end,
@@ -121,5 +123,16 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    {
+      "ramilito/kubectl.nvim",
+      version = "2.10.13",
+      dependencies = "saghen/blink.download",
+      config = function()
+        require("kubectl").setup()
+      end,
+    },
   },
 }

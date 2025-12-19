@@ -6,6 +6,7 @@
     gtrash
     dysk
     ripgrep
+    dogdns
   ];
   programs.zsh = {
     shellAliases = {
@@ -23,6 +24,7 @@
       man = "BAT_THEME='default' batman";
       disk = "dysk";
       grep = "rg";
+      dig = "dog";
 
       ls = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
       ll = "eza --icons  -a --group-directories-first -1 --no-user --long";

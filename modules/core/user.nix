@@ -1,36 +1,41 @@
 {
+  config,
   pkgs,
-  username,
-  host,
   home,
   stable,
   unstable,
   theme,
-  profile,
   ...
 }: {
   imports = [home.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit username host home stable unstable theme profile;};
-    users.${username} = {
+    extraSpecialArgs = {
+      inherit
+        home
+        stable
+        unstable
+        theme
+        ;
+    };
+    users.${config.beast.profile.username} = {
       imports = [./../home];
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
+      home.username = "${config.beast.profile.username}";
+      home.homeDirectory = "/home/${config.beast.profile.username}";
       home.stateVersion = "24.05";
       programs.home-manager.enable = true;
     };
   };
 
-  users.users.${username} = {
+  users.users.${config.beast.profile.username} = {
     isNormalUser = true;
-    description = "${username}";
+    description = "${config.beast.profile.username}";
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
     shell = pkgs.zsh;
   };
-  nix.settings.allowed-users = ["${username}"];
+  nix.settings.allowed-users = ["${config.beast.profile.username}"];
 }

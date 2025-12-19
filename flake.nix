@@ -2,76 +2,75 @@
   description = "Unleash the Beast";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     fleet-orbit = {
       url = "github:adamcik/fleet-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
   outputs = {...} @ inputs: let
-    username = "linus";
-    system = "x86_64-linux";
-    unstable = inputs.nixpkgs.legacyPackages.${system};
-    stable = inputs.nixpkgs-stable.legacyPackages.${system};
     theme = {
       profile = "${./assets/profile.png}";
       wallpaper = "${./assets/white.jpg}";
       lockpaper = "${./assets/white.jpg}";
       bootloader = "${./assets/bootloader.png}";
     };
-    profile = {
-      gitUser = "Megakuul";
-      gitEmail = "linus.moser@megakuul.ch";
-    };
   in {
-    nixosConfigurations = {
-      desktop = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/desktop
-          inputs.fleet-orbit.nixosModules.fleet-nixos
-          ./modules/informaticon
-        ];
-        specialArgs = {
-          host = "desktop";
-          home = inputs.home-manager;
-          inherit
-            username
-            stable
-            unstable
-            profile
-            theme
-            ;
+    nixosModules.default = {lib, ...}: rec {
+      imports = [
+        inputs.home-manager.nixosModules.home-manager
+        ./modules/core
+        inputs.fleet-orbit.nixosModules.fleet-nixos
+        ./modules/informaticon
+      ];
+      options.beast = {
+        nixomaticon = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "Enable informaticon tools";
+        };
+        system = lib.mkOption {
+          type = lib.types.str;
+          default = "x86_64-linux";
+          description = "NixOS System";
+        };
+        host = lib.mkOption {
+          type = lib.types.str;
+          default = "beast";
+          description = "System hostname";
+        };
+        profile = {
+          username = lib.mkOption {
+            type = lib.types.str;
+            default = "localadmin";
+            description = "System username";
+          };
+          git = {
+            username = lib.mkOption {
+              type = lib.types.str;
+              description = "Git username";
+            };
+            email = lib.mkOption {
+              type = lib.types.str;
+              description = "Git email";
+            };
+          };
         };
       };
-      laptop = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          # todo make another entrypoint for everything so home-manager is available
-          inputs.home-manager.nixosModules.home-manager
-          ./hosts/laptop
-          inputs.fleet-orbit.nixosModules.fleet-nixos
-          ./modules/informaticon
-        ];
-        specialArgs = {
-          host = "laptop";
-          home = inputs.home-manager;
-          inherit
-            username
-            stable
-            unstable
-            profile
-            theme
-            ;
-        };
+
+      _module.args = {
+        inherit theme;
+        home = inputs.home-manager;
+        stable = inputs.nixpkgs-stable.legacyPackages.${options.beast.system};
+        unstable = inputs.nixpkgs-unstable.legacyPackages.${options.beast.system};
       };
     };
   };

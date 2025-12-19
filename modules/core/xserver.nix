@@ -1,6 +1,6 @@
 {
+  config,
   pkgs,
-  username,
   ...
 }: {
   services = {
@@ -12,7 +12,7 @@
 
     displayManager.autoLogin = {
       enable = true;
-      user = "${username}";
+      user = "${config.beast.profile.username}";
     };
     libinput = {
       enable = true;

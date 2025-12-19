@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     fd
     eza
-    dig
   ];
   programs.zsh = {
     enable = true;
