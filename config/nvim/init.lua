@@ -114,3 +114,10 @@ vim.keymap.set("n", "grd", ":Telescope lsp_definitions<CR>")
 vim.keymap.set("n", "gri", ":Telescope lsp_implementations<CR>")
 
 vim.keymap.set("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>")
+
+vim.keymap.set(
+  "n",
+  "<leader>k",
+  '<cmd>lua require("kubectl").toggle({ tab = true })<cr>',
+  { noremap = true, silent = true }
+)

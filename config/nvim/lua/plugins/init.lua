@@ -113,4 +113,15 @@ return {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+
+  {
+    {
+      "ramilito/kubectl.nvim",
+      version = "2.10.13",
+      dependencies = "saghen/blink.download",
+      config = function()
+        require("kubectl").setup()
+      end,
+    },
+  },
 }

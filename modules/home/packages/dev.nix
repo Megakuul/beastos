@@ -18,6 +18,7 @@
     kubernetes-helm
     linkerd
     talosctl
+    act
 
     # database tooling
     postgresql
