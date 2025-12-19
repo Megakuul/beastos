@@ -1,4 +1,4 @@
-# BeastOS 🌹
+# BeastOS (for marketing reasons also known as Nixomaticon ;>) 
 
 ![informli](/favicon.svg)
 
