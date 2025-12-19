@@ -1,8 +1,4 @@
-{
-  pkgs,
-  stable,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # multimedia
     spotify
@@ -33,7 +29,7 @@
     kdePackages.kleopatra
 
     # virtualisation
-    stable.gnome-boxes
+    gnome-boxes
     osinfo-db
     osinfo-db-tools
     virt-manager

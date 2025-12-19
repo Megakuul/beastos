@@ -1,5 +1,5 @@
 {
-  config,
+  osConfig,
   pkgs,
   ...
 }: {
@@ -9,9 +9,9 @@
     enable = true;
 
     settings = {
-      user.name = "${config.beast.profile.git.username}";
-      user.email = "${config.beast.profile.git.email}";
-      user.signingkey = "/home/${config.beast.profile.username}/.config/git/signingkey";
+      user.name = "${osConfig.beast.profile.git.username}";
+      user.email = "${osConfig.beast.profile.git.email}";
+      user.signingkey = "/home/${osConfig.beast.profile.username}/.config/git/signingkey";
       gpg.format = "ssh";
       commit.gpgsign = true;
       init.defaultBranch = "main";
@@ -19,7 +19,7 @@
       diff.colorMoved = "default";
       pull.ff = "only";
       color.ui = true;
-      core.excludesFile = "/home/${config.beast.profile.username}/.config/git/.gitignore";
+      core.excludesFile = "/home/${osConfig.beast.profile.username}/.config/git/.gitignore";
       credential.helper = "!${pkgs.gh}/bin/gh auth git-credential";
     };
   };

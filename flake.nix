@@ -2,17 +2,16 @@
   description = "Unleash the Beast";
 
   inputs = {
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     fleet-orbit = {
       url = "github:adamcik/fleet-nixos";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -24,13 +23,7 @@
       bootloader = "${./assets/bootloader.png}";
     };
   in {
-    nixosModules.default = {lib, ...}: rec {
-      imports = [
-        inputs.home-manager.nixosModules.home-manager
-        ./modules/core
-        inputs.fleet-orbit.nixosModules.fleet-nixos
-        ./modules/informaticon
-      ];
+    nixosModules.default = {lib, ...}: {
       options.beast = {
         nixomaticon = lib.mkOption {
           type = lib.types.bool;
@@ -66,11 +59,17 @@
         };
       };
 
-      _module.args = {
-        inherit theme;
-        home = inputs.home-manager;
-        stable = inputs.nixpkgs-stable.legacyPackages.${options.beast.system};
-        unstable = inputs.nixpkgs-unstable.legacyPackages.${options.beast.system};
+      imports = [
+        inputs.home-manager.nixosModules.home-manager
+        ./modules/core
+        inputs.fleet-orbit.nixosModules.fleet-nixos
+        ./modules/informaticon
+      ];
+
+      config = {
+        _module.args = {
+          inherit theme;
+        };
       };
     };
   };

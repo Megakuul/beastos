@@ -1,23 +1,14 @@
 {
   config,
   pkgs,
-  home,
-  stable,
-  unstable,
   theme,
   ...
 }: {
-  imports = [home.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     extraSpecialArgs = {
-      inherit
-        home
-        stable
-        unstable
-        theme
-        ;
+      inherit theme;
     };
     users.${config.beast.profile.username} = {
       imports = [./../home];
