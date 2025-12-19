@@ -1,4 +1,9 @@
-{pkgs, ...}: let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   nxbender = pkgs.python311Packages.buildPythonApplication {
     pname = "nxbender";
     version = "2025-11-13";
@@ -44,5 +49,7 @@
     '';
   };
 in {
-  environment.systemPackages = [nxbender];
+  config = lib.mkIf config.beast.nixomaticon {
+    environment.systemPackages = [nxbender];
+  };
 }

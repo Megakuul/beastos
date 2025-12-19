@@ -1,5 +1,4 @@
-{ host, ... }:
-{
+{...}: {
   programs.kitty = {
     enable = true;
 
@@ -7,7 +6,7 @@
 
     font = {
       name = "Maple Mono";
-      size = if (host == "laptop") then 15 else 16;
+      size = 16;
     };
 
     extraConfig = ''
@@ -23,7 +22,7 @@
       scrollback_lines = 10000;
       enable_audio_bell = false;
       mouse_hide_wait = 60;
-      window_padding_width = if (host == "laptop") then 5 else 10;
+      window_padding_width = 5;
 
       ## Tabs
       tab_title_template = "{index}";

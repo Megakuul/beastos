@@ -1,4 +1,9 @@
-{pkgs, ...}: let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   version = "unstable-2024-20-11";
   rev = "323e4406e544c39ca8352be578e169582a71b1d7";
   hash = "sha256-ZESy0K3foOWMXsUsAMhWauQlnqf75Z3cIWw+0XkxaEo=";
@@ -43,5 +48,7 @@
     ];
   };
 in {
-  environment.systemPackages = [twinkle];
+  config = lib.mkIf config.beast.nixomaticon {
+    environment.systemPackages = [twinkle];
+  };
 }

@@ -1,5 +1,9 @@
-{...}: {
-  services.orbit = {
+{
+  config,
+  lib,
+  ...
+}: {
+  services.orbit = lib.mkIf config.beast.nixomaticon {
     enable = false;
     fleetUrl = "https://fleetdm.informaticon.com";
     enrollSecretPath = "/tmp/fleet/enroll_secret";

@@ -1,9 +1,13 @@
 {
+  config,
   pkgs,
-  username,
   ...
 }: {
-  users.users.${username}.extraGroups = ["libvirtd" "podman" "incus-admin"];
+  users.users.${config.beast.profile.username}.extraGroups = [
+    "libvirtd"
+    "podman"
+    "incus-admin"
+  ];
 
   environment.systemPackages = with pkgs; [
     virtio-win
