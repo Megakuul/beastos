@@ -19,6 +19,7 @@
     templ
     wails
     flutter
+    tailwindcss_4
 
     # go
     go
