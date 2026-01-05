@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    putty
     # multimedia
     spotify
     gimp3-with-plugins
