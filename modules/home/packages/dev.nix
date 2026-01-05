@@ -32,5 +32,6 @@
     opentofu
     awscli2
     google-cloud-sdk
+    aws-nuke
   ];
 }
