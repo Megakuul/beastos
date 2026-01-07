@@ -19,6 +19,7 @@ local servers = {
   "rust_analyzer",
   "pyright",
   "bashls",
+  "harper-ls",
 }
 
 -- lsps with default config
