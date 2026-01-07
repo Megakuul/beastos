@@ -1,14 +1,14 @@
 {lib, ...}:
 with lib; let
   defaultApps = {
-    browser = ["firefox.desktop"];
+    browser = ["brave.desktop"];
     text = ["geany.desktop"];
-    image = ["firefox.desktop"];
-    audio = ["firefox.desktop"];
-    video = ["firefox.desktop"];
+    image = ["brave.desktop"];
+    audio = ["brave.desktop"];
+    video = ["brave.desktop"];
     directory = ["nemo.desktop"];
     office = ["libreoffice.desktop"];
-    pdf = ["firefox.desktop"];
+    pdf = ["brave.desktop"];
     terminal = ["ghostty.desktop"];
     archive = ["peazip-extract.desktop" "peazip.desktop"];
   };

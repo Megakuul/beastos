@@ -102,9 +102,9 @@
 
           shortcuts.left = {
             shortcut1 = {
-              command = "firefox";
+              command = "brave";
               icon = "󰈹";
-              tooltip = "Firefox Browser";
+              tooltip = "Browser";
             };
             shortcut2 = {
               command = "hyprctl dispatch exec 'remmina'";

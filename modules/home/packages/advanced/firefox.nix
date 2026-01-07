@@ -46,10 +46,6 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
             installation_mode = "force_installed";
           };
-          "languagetool-webextension@languagetool.org" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/file/4538560/languagetool-9.0.1.xpi";
-            installation_mode = "force_installed";
-          };
           "myallychou@gmail.com" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4263531/youtube_recommended_videos-1.6.7.xpi";
             installation_mode = "force_installed";

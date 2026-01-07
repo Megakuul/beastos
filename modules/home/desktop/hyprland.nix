@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  browser = "firefox";
+  browser = "brave";
   terminal = "ghostty";
   file = "nemo";
 in {
@@ -326,6 +326,9 @@ in {
         "float,center,title:^(branchdialog)$"
         "float,center,title:^(Confirm to replace files)$"
         "float,center,title:^(File Operation Progress)$"
+        "float,center,title:^(Bitwarden)$"
+        "float,center,class:^(xdg-desktop-portal-gtk)$"
+        "size 850 500,class:^(xdg-desktop-portal-gtk)$"
 
         "opacity 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
