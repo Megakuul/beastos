@@ -31,6 +31,7 @@
     pulumiPackages.pulumi-go
     opentofu
     awscli2
+    ssm-session-manager-plugin
     google-cloud-sdk
     aws-nuke
 
