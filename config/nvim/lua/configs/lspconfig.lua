@@ -1,5 +1,5 @@
 local nvlsp = require "nvchad.configs.lspconfig"
-local lspconfig = require "lspconfig.configs"
+local lspconfig = require "lspconfig"
 
 nvlsp.defaults() -- loads nvchad's defaults
 
@@ -19,6 +19,7 @@ local servers = {
   "rust_analyzer",
   "pyright",
   "bashls",
+  "harper_ls",
 }
 
 -- lsps with default config
