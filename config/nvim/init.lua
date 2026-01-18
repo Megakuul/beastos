@@ -121,3 +121,7 @@ vim.keymap.set(
   '<cmd>lua require("kubectl").toggle({ tab = true })<cr>',
   { noremap = true, silent = true }
 )
+
+local noop = function() end
+vim.lsp.handlers["window/showMessage"] = noop
+vim.lsp.handlers["window/logMessage"] = noop
