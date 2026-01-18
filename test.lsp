@@ -1,4 +1,5 @@
 local nvlsp = require "nvchad.configs.lspconfig"
+local lspconfig = require "lspconfig"
 
 nvlsp.defaults() -- loads nvchad's defaults
 
@@ -23,6 +24,9 @@ local servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  vim.lsp.config(lsp, {})
-  vim.lsp.enable { lsp }
+  lspconfig[lsp].setup {
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+  }
 end
