@@ -36,22 +36,8 @@ in {
       enable = true;
       # hidpi = true;
     };
-    plugins = [
-      pkgs.hyprlandPlugins.hyprexpo
-    ];
     systemd.enable = true;
     settings = {
-      plugin = {
-        hyprexpo = {
-          columns = 2;
-          gap_size = 5;
-          bg_col = "rgb(111111)";
-          workspace_method = "workspace"; # [center/first] [workspace] e.g. first 1 or center m+1
-          skip_empty = true;
-
-          gesture_distance = 300;
-        };
-      };
       exec-once = [
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -225,8 +211,6 @@ in {
 
         "CTRL ALT, up, exec, hyprctl dispatch focuswindow floating"
         "CTRL ALT, down, exec, hyprctl dispatch focuswindow tiled"
-
-        "$mainMod, V, hyprexpo:expo, toggle"
 
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, right, movewindow, r"
