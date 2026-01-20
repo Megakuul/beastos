@@ -19,6 +19,7 @@
     # database tooling
     postgresql
     antares
+    sql-studio
 
     # gRPC tooling
     buf

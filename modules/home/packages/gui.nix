@@ -10,6 +10,8 @@
     vlc
     kdePackages.kdenlive
     tenacity
+    losslesscut-bin
+    drawio
 
     # office
     libreoffice
