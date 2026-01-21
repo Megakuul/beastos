@@ -38,6 +38,10 @@ in {
     };
     systemd.enable = true;
     settings = {
+      env = [
+        "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+      ];
       exec-once = [
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -65,7 +69,7 @@ in {
         kb_options = "grp:alt_caps_toggle";
         numlock_by_default = true;
         repeat_delay = 300;
-        follow_mouse = 0;
+        follow_mouse = 2;
         float_switch_override_focus = 0;
         mouse_refocus = 0;
         sensitivity = 0;
@@ -74,16 +78,14 @@ in {
         };
       };
 
+      "$mainMod" = "SUPER";
       general = {
-        "$mainMod" = "SUPER";
         layout = "dwindle";
         gaps_in = 2;
         gaps_out = 4;
         border_size = 2;
         "col.active_border" = "rgb(ACB5F2) rgb(E6B5D8) 45deg";
         "col.inactive_border" = "0x00000000";
-        # border_part_of_window = false;
-        no_border_on_floating = false;
       };
 
       misc = {
@@ -94,7 +96,6 @@ in {
         animate_manual_resizes = false;
         enable_swallow = true;
         focus_on_activate = true;
-        new_window_takes_over_fullscreen = 2;
         middle_click_paste = false;
       };
 
@@ -250,8 +251,7 @@ in {
       ];
 
       # windowrule
-      windowrule = [
-        "noborder, onworkspace:1"
+      windowrulev2 = [
         "float,class:^(peazip)$"
         "float,class:^(Viewnior)$"
         "float,class:^(imv)$"
