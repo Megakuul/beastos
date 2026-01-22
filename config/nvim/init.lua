@@ -125,3 +125,11 @@ vim.keymap.set(
 local noop = function() end
 vim.lsp.handlers["window/showMessage"] = noop
 vim.lsp.handlers["window/logMessage"] = noop
+
+local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if ok then
+  treesitter.setup {
+    ensure_installed = { "typescript", "css", "javascript", "svelte" },
+    highlight = { enable = true },
+  }
+end
