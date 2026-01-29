@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # generally useful
+    ncdu
     tldr
     dig
     file
