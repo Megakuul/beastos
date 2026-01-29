@@ -1,11 +1,11 @@
 {
   pkgs,
-  config,
+  osConfig,
   ...
 }: let
-  browser = config.beast.profile.apps.browser;
-  terminal = config.beast.profile.apps.terminal;
-  file = config.beast.profile.apps.explorer;
+  browser = osConfig.beast.profile.apps.browser;
+  terminal = osConfig.beast.profile.apps.terminal;
+  file = osConfig.beast.profile.apps.explorer;
 in {
   home.packages = with pkgs; [
     hyprpicker
@@ -64,7 +64,7 @@ in {
 
           "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
         ]
-        ++ config.beast.profile.startup;
+        ++ osConfig.beast.profile.startup;
 
       input = {
         kb_layout = "ch";
@@ -337,7 +337,7 @@ in {
 
           "float,title:^(twinkle)$,size 310 55,move ((monitor_w/2)-155) 30"
         ]
-        ++ config.beast.profile.windowrules;
+        ++ osConfig.beast.profile.windowrules;
 
       workspace = [
         "w[tv1]s[false], gapsout:0, gapsin:0"

@@ -9,6 +9,7 @@
     useGlobalPkgs = true;
     extraSpecialArgs = {
       inherit theme;
+      osConfig = config;
     };
     users.${config.beast.profile.username} = {
       imports = [./../home];
