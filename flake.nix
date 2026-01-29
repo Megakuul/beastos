@@ -56,6 +56,33 @@
               description = "Git email";
             };
           };
+          windowrules = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [];
+            description = "List of hyprland window rules";
+          };
+          startup = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [];
+            description = "List of startup commands";
+          };
+          apps = {
+            browser = lib.mkOption {
+              type = lib.types.str;
+              default = "brave";
+              description = "Default system browser";
+            };
+            terminal = lib.mkOption {
+              type = lib.types.str;
+              default = "ghostty";
+              description = "Default system terminal";
+            };
+            explorer = lib.mkOption {
+              type = lib.types.str;
+              default = "nemo";
+              description = "Default system explorer";
+            };
+          };
         };
       };
 

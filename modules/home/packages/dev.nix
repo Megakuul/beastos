@@ -19,7 +19,7 @@
     # database tooling
     postgresql
     antares
-    sql-studio
+    dbeaver-bin
 
     # gRPC tooling
     buf

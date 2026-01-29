@@ -1,7 +1,11 @@
-{pkgs, ...}: let
-  browser = "brave";
-  terminal = "ghostty";
-  file = "nemo";
+{
+  pkgs,
+  config,
+  ...
+}: let
+  browser = config.beast.profile.apps.browser;
+  terminal = config.beast.profile.apps.terminal;
+  file = config.beast.profile.apps.explorer;
 in {
   home.packages = with pkgs; [
     hyprpicker
@@ -42,27 +46,25 @@ in {
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
-      exec-once = [
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "hyprpanel &"
+      exec-once =
+        [
+          "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "hyprpanel &"
 
-        "hyprlock"
+          "hyprlock"
 
-        "nm-applet &"
-        "poweralertd &"
+          "nm-applet &"
+          "poweralertd &"
 
-        "wl-clip-persist --clipboard both &"
-        "wl-paste --watch cliphist store &"
-        "hyprctl setcursor Bibata-Modern-Ice 24 &"
-        "swww-daemon &"
+          "wl-clip-persist --clipboard both &"
+          "wl-paste --watch cliphist store &"
+          "hyprctl setcursor Bibata-Modern-Ice 24 &"
+          "swww-daemon &"
 
-        "podman-desktop &"
-
-        "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
-
-        "sh -c 'sleep 5 && twinkle'"
-      ];
+          "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
+        ]
+        ++ config.beast.profile.startup;
 
       input = {
         kb_layout = "ch";
@@ -250,89 +252,92 @@ in {
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      # windowrule
-      windowrulev2 = [
-        "float,class:^(peazip)$"
-        "float,class:^(Viewnior)$"
-        "float,class:^(imv)$"
-        "float,class:^(mpv)$"
-        "tile,class:^(Aseprite)$"
-        "float,class:^(Audacious)$"
-        "pin,class:^(rofi)$"
-        "pin,class:^(waypaper)$"
-        # "idleinhibit focus,mpv"
-        # "float,udiskie"
-        "float,title:^(Transmission)$"
-        "float,title:^(Volume Control)$"
-        "float,title:^(Firefox — Sharing Indicator)$"
-        "move 0 0,title:^(Firefox — Sharing Indicator)$"
-        "size 700 450,title:^(Volume Control)$"
-        "move 40 55%,title:^(Volume Control)$"
+      windowrulev2 =
+        [
+          "float,class:^(peazip)$"
+          "float,class:^(Viewnior)$"
+          "float,class:^(imv)$"
+          "float,class:^(mpv)$"
+          "tile,class:^(Aseprite)$"
+          "float,class:^(Audacious)$"
+          "pin,class:^(rofi)$"
+          "pin,class:^(waypaper)$"
+          # "idleinhibit focus,mpv"
+          # "float,udiskie"
+          "float,title:^(Transmission)$"
+          "float,title:^(Volume Control)$"
+          "float,title:^(Firefox — Sharing Indicator)$"
+          "move 0 0,title:^(Firefox — Sharing Indicator)$"
+          "size 700 450,title:^(Volume Control)$"
+          "move 40 55%,title:^(Volume Control)$"
 
-        "float, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
-        "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-        "opacity 1.0 override 1.0 override, class:(Aseprite)"
-        "opacity 1.0 override 1.0 override, class:(Unity)"
-        "opacity 1.0 override 1.0 override, class:(zen)"
-        "opacity 1.0 override 1.0 override, class:(evince)"
-        "workspace 1, class:^(${browser})$"
-        "workspace 3, class:^(evince)$"
-        "workspace 4, class:^(Gimp-2.10)$"
-        "workspace 4, class:^(Aseprite)$"
-        "workspace 5, class:^(Audacious)$"
-        "workspace 5, class:^(Spotify)$"
-        "workspace 8, class:^(com.obsproject.Studio)$"
-        "workspace 10, class:^(discord)$"
-        "workspace 10, class:^(WebCord)$"
-        "idleinhibit focus, class:^(mpv)$"
-        "idleinhibit fullscreen, class:^(firefox)$"
-        "float,class:^(org.gnome.Calculator)$"
-        "float,class:^(waypaper)$"
-        "float,center,class:^(zenity)$"
-        "size 850 500,class:^(zenity)$"
-        "size 725 330,class:^(SoundWireServer)$"
-        "float,class:^(org.gnome.FileRoller)$"
-        "float,class:^(org.pulseaudio.pavucontrol)$"
-        "float,class:^(SoundWireServer)$"
-        "float,class:^(.sameboy-wrapped)$"
-        "float,center,class:^(file_progress)$"
-        "float,center,class:^(confirm)$"
-        "float,center,class:^(dialog)$"
-        "float,center,class:^(download)$"
-        "float,class:^(notification)$"
-        "float,center,class:^(error)$"
-        "float,center,class:^(confirmreset)$"
-        "float,center,title:^(Open File)$"
-        "float,center,title:^(File Upload)$"
-        "float,center,title:^(branchdialog)$"
-        "float,center,title:^(Confirm to replace files)$"
-        "float,center,title:^(File Operation Progress)$"
-        "float,center,title:^(Bitwarden)$"
-        "float,center,class:^(xdg-desktop-portal-gtk)$"
-        "size 850 500,class:^(xdg-desktop-portal-gtk)$"
+          "float, title:^(Picture-in-Picture)$"
+          "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
+          "pin, title:^(Picture-in-Picture)$"
+          "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
+          "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
+          "opacity 1.0 override 1.0 override, class:(Aseprite)"
+          "opacity 1.0 override 1.0 override, class:(Unity)"
+          "opacity 1.0 override 1.0 override, class:(zen)"
+          "opacity 1.0 override 1.0 override, class:(evince)"
+          "workspace 1, class:^(${browser})$"
+          "workspace 3, class:^(evince)$"
+          "workspace 4, class:^(Gimp-2.10)$"
+          "workspace 4, class:^(Aseprite)$"
+          "workspace 5, class:^(Audacious)$"
+          "workspace 5, class:^(Spotify)$"
+          "workspace 8, class:^(com.obsproject.Studio)$"
+          "workspace 10, class:^(discord)$"
+          "workspace 10, class:^(WebCord)$"
+          "idleinhibit focus, class:^(mpv)$"
+          "idleinhibit fullscreen, class:^(firefox)$"
+          "float,class:^(org.gnome.Calculator)$"
+          "float,class:^(waypaper)$"
+          "float,center,class:^(zenity)$"
+          "size 850 500,class:^(zenity)$"
+          "size 725 330,class:^(SoundWireServer)$"
+          "float,class:^(org.gnome.FileRoller)$"
+          "float,class:^(org.pulseaudio.pavucontrol)$"
+          "float,class:^(SoundWireServer)$"
+          "float,class:^(.sameboy-wrapped)$"
+          "float,center,class:^(file_progress)$"
+          "float,center,class:^(confirm)$"
+          "float,center,class:^(dialog)$"
+          "float,center,class:^(download)$"
+          "float,class:^(notification)$"
+          "float,center,class:^(error)$"
+          "float,center,class:^(confirmreset)$"
+          "float,center,title:^(Open File)$"
+          "float,center,title:^(File Upload)$"
+          "float,center,title:^(branchdialog)$"
+          "float,center,title:^(Confirm to replace files)$"
+          "float,center,title:^(File Operation Progress)$"
+          "float,center,title:^(Bitwarden)$"
+          "float,center,class:^(xdg-desktop-portal-gtk)$"
+          "size 850 500,class:^(xdg-desktop-portal-gtk)$"
 
-        "opacity 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
-        "maxsize 1 1,class:^(xwaylandvideobridge)$"
-        "noblur,class:^(xwaylandvideobridge)$"
+          "opacity 0.0 override,class:^(xwaylandvideobridge)$"
+          "noanim,class:^(xwaylandvideobridge)$"
+          "noinitialfocus,class:^(xwaylandvideobridge)$"
+          "maxsize 1 1,class:^(xwaylandvideobridge)$"
+          "noblur,class:^(xwaylandvideobridge)$"
 
-        # "maxsize 1111 700, floating: 1"
-        # "center, floating: 1"
+          # "maxsize 1111 700, floating: 1"
+          # "center, floating: 1"
 
-        # Remove context menu transparency in chromium based apps
-        "opaque,class:^()$,title:^()$"
-        "noshadow,class:^()$,title:^()$"
-        "noblur,class:^()$,title:^()$"
+          # Remove context menu transparency in chromium based apps
+          "opaque,class:^()$,title:^()$"
+          "noshadow,class:^()$,title:^()$"
+          "noblur,class:^()$,title:^()$"
 
-        "bordersize 0, floating:0, onworkspace:w[tv1]s[false]"
-        "rounding 0, floating:0, onworkspace:w[tv1]s[false]"
-        "bordersize 0, floating:0, onworkspace:f[1]s[false]"
-        "rounding 0, floating:0, onworkspace:f[1]s[false]"
-      ];
+          "bordersize 0, floating:0, onworkspace:w[tv1]s[false]"
+          "rounding 0, floating:0, onworkspace:w[tv1]s[false]"
+          "bordersize 0, floating:0, onworkspace:f[1]s[false]"
+          "rounding 0, floating:0, onworkspace:f[1]s[false]"
+
+          "float,title:^(twinkle)$,size 310 55,move ((monitor_w/2)-155) 30"
+        ]
+        ++ config.beast.profile.windowrules;
 
       workspace = [
         "w[tv1]s[false], gapsout:0, gapsin:0"

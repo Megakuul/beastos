@@ -25,6 +25,8 @@
     go
     gopls
     gotools
+    delve
+    gdlv
 
     # c / cpp
     gnumake
