@@ -46,6 +46,12 @@
       "-DHAVE_LIBATOMIC=atomic"
       # "-DWITH_DIAMONDCARD=On" seems ancient and broken
     ];
+
+    qtWrapperArgs = [
+      "--set"
+      "QT_QPA_PLATFORM"
+      "xcb"
+    ];
   };
 in {
   config = lib.mkIf config.beast.nixomaticon {
