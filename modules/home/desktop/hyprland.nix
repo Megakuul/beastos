@@ -334,8 +334,6 @@ in {
           "rounding 0, floating:0, onworkspace:w[tv1]s[false]"
           "bordersize 0, floating:0, onworkspace:f[1]s[false]"
           "rounding 0, floating:0, onworkspace:f[1]s[false]"
-
-          "float,title:^(twinkle)$,size 310 55,move ((monitor_w/2)-155) 30"
         ]
         ++ osConfig.beast.profile.windowrules;
 
