@@ -26,6 +26,7 @@
     psmisc
     man-pages # extra man pages
     tree-sitter
+    nmap
 
     # multimedia
     pamixer # pulseaudio command line mixer
