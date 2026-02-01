@@ -31,6 +31,7 @@
     pamixer # pulseaudio command line mixer
     playerctl # controller for media players
     yt-dlp-light # download youtube videos
+    castero # music player
 
     # analysis
     binsider # elf analyzer tui
