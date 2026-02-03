@@ -49,7 +49,7 @@
 
     # nix
     alejandra
-    nil
+    nixd
 
     # yaml de-retarders
     yamlfmt

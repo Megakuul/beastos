@@ -1,3 +1,4 @@
+local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults() -- loads nvchad's defaults
@@ -13,7 +14,6 @@ local servers = {
   "gopls",
   "clangd",
   "ocamllsp",
-  "nil_ls",
   "yamlls",
   "rust_analyzer",
   "pyright",
@@ -26,3 +26,23 @@ for _, lsp in ipairs(servers) do
   vim.lsp.config(lsp, {})
   vim.lsp.enable { lsp }
 end
+
+lspconfig.nixd.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    nixd = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      options = {
+        nixos = {
+          expr = "(import <nixpkgs/nixos> { }).options",
+        },
+        home_manager = {
+          expr = '(builtins.getFlake "github:nix-community/home-manager").lib.homeManagerConfiguration { pkgs = import <nixpkgs> {}; modules = []; }.options',
+        },
+      },
+    },
+  },
+}
