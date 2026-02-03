@@ -50,6 +50,7 @@
     # nix
     alejandra
     nixd
+    nixfmt
 
     # yaml de-retarders
     yamlfmt
