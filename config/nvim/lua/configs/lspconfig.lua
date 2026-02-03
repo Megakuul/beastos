@@ -1,4 +1,4 @@
-local lspconfig = require "lspconfig"
+local lspconfigs = require "lspconfig.configs"
 local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults() -- loads nvchad's defaults
@@ -27,7 +27,7 @@ for _, lsp in ipairs(servers) do
   vim.lsp.enable { lsp }
 end
 
-lspconfig.nixd.setup {
+vim.lsp.config("nixd", {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   settings = {
@@ -45,4 +45,5 @@ lspconfig.nixd.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable "nixd"
