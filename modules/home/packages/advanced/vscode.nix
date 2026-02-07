@@ -11,6 +11,8 @@
         eamodio.gitlens
         golang.go
         jnoortheen.nix-ide
+        arrterian.nix-env-selector
+        jeff-hykin.better-nix-syntax
         svelte.svelte-vscode
         bradlc.vscode-tailwindcss
         enkia.tokyo-night
@@ -25,6 +27,7 @@
         ms-python.python
         charliermarsh.ruff
         mads-hartmann.bash-ide-vscode
+        elijah-potter.harper
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -167,6 +170,32 @@
       "problems.showCurrentInStatus" = true;
       "oil-code.disableDefaultKeymaps" = true;
       "oil-code.hasNerdFont" = true;
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nixd";
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = [ "nixfmt" ];
+          };
+          "nixpkgs" = {
+            "expr" = "import <nixpkgs> {}";
+          };
+          "options" = {
+            "nixos" = {
+              "expr" =
+                "(builtins.head (builtins.attrValues (builtins.getFlake \"${workspaceFolder}\").nixosConfigurations)).options";
+            };
+            "home-manager" = {
+              "expr" =
+                "(builtins.head (builtins.attrValues (builtins.getFlake \"${workspaceFolder}\").homeConfigurations)).options";
+            };
+            "nix-darwin" = {
+              "expr" =
+                "(builtins.head (builtins.attrValues (builtins.getFlake \"${workspaceFolder}\").darwinConfigurations)).options";
+            };
+          };
+        };
+      };
       "vim.useSystemClipboard" = true;
       "vim.leader" = "<space>";
       "vim.insertModeKeyBindings" = [
