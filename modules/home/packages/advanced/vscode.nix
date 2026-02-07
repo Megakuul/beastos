@@ -1,9 +1,25 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, ... }:
 {
-  home.activation.createWritableFile = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    cp -f  $HOME/config/example.conf
-    chmod 644 $HOME/config/example.conf
-  '';
+  home.activation.boforeCheckLinkTargets = {
+    after = [ ];
+    before = [ "checkLinkTargets" ];
+    data = ''
+      userDir=$HOME/.config/VSCodium/User
+      rm -rf $userDir/settings.json
+    '';
+  };
+
+  home.activation.afterWriteBoundary = {
+    after = [ "writeBoundary" ];
+    before = [ ];
+    data = ''
+      userDir=$HOME/.config/VSCodium/User
+      rm -rf $userDir/settings.json
+      cat \
+        ${(pkgs.formats.json { }).generate "fck-vscode" config.programs.vscode.userSettings} \
+        > $userDir/settings.json
+    '';
+  };
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
