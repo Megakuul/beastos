@@ -4,7 +4,7 @@
     enable = true;
     package = pkgs.vscodium;
 
-    extensions =
+    profiles.default.extensions =
       with pkgs.vscode-extensions;
       [
         vscodevim.vim
@@ -35,7 +35,7 @@
         }
       ];
 
-    keybindings = [
+    profiles.default.keybindings = [
       {
         key = "ctrl+n";
         command = "editor.action.fontZoomIn";
@@ -140,7 +140,7 @@
       }
     ];
 
-    userSettings = {
+    profiles.default.userSettings = {
       "workbench.iconTheme" = "vscode-icons";
       "svelte.enable-ts-plugin" = true;
       "zenMode.fullScreen" = false;
