@@ -3,7 +3,8 @@
   pkgs,
   theme,
   ...
-}: {
+}:
+{
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -12,7 +13,7 @@
       osConfig = config;
     };
     users.${config.beast.profile.username} = {
-      imports = [./../home];
+      imports = [ ./../home ];
       home.username = "${config.beast.profile.username}";
       home.homeDirectory = "/home/${config.beast.profile.username}";
       home.stateVersion = "24.05";
@@ -29,5 +30,5 @@
     ];
     shell = pkgs.zsh;
   };
-  nix.settings.allowed-users = ["${config.beast.profile.username}"];
+  nix.settings.allowed-users = [ "${config.beast.profile.username}" ];
 }
