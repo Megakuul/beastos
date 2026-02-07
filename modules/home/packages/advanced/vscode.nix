@@ -127,7 +127,13 @@
       }
       {
         key = "enter";
-        command = "closeFindWidget";
+        command = "runCommands";
+        args = {
+          commands = [
+            "closeFindWidget"
+            "cursorLeft"
+          ];
+        };
         when = "findWidgetVisible && !isComposing";
       }
       {
