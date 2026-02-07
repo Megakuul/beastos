@@ -188,14 +188,6 @@
           commands = [ "oil-code.select" ];
         }
         {
-          before = [ "n" ];
-          commands = [ "editor.action.nextMatchFindAction" ];
-        }
-        {
-          before = [ "N" ];
-          commands = [ "editor.action.previousMatchFindAction" ];
-        }
-        {
           before = [
             "<leader>"
             "c"
