@@ -18,7 +18,6 @@
 
         sumneko.lua
         esbenp.prettier-vscode
-        a-h.templ
         llvm-vs-code-extensions.vscode-clangd
         ocamllabs.ocaml-platform
         redhat.vscode-yaml
