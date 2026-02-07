@@ -158,12 +158,15 @@
       "editor.fontWeight" = "500";
       "editor.fontSize" = 18;
       "editor.lineHeight" = 1.2;
-      "editor.fontFamily" = "'IosevkaTerm Nerd Font', 'Iosevka Term', 'Iosevka', monospace";
+      "editor.fontFamily" =
+        "'IosevkaTerm Nerd Font', 'Iosevka Term', 'Iosevka', 'JetBrainsMono Nerd Font', monospace";
       "editor.fontLigatures" = true;
       "editor.accessibilitySupport" = "off";
       "editor.hover.enabled" = "onKeyboardModifier";
       "editor.hover.sticky" = true;
       "problems.showCurrentInStatus" = true;
+      "oil-code.disableDefaultKeymaps" = true;
+      "oil-code.hasNerdFont" = true;
       "vim.useSystemClipboard" = true;
       "vim.leader" = "<space>";
       "vim.insertModeKeyBindings" = [
@@ -178,7 +181,11 @@
       "vim.normalModeKeyBindingsNonRecursive" = [
         {
           before = [ "-" ];
-          commands = [ "oil-code.openParent" ];
+          commands = [ "oil-code.open" ];
+        }
+        {
+          before = [ "<CR>" ];
+          commands = [ "oil-code.select" ];
         }
         {
           before = [ "n" ];
@@ -196,7 +203,11 @@
           commands = [ "workbench.action.showCommands" ];
         }
         {
-          before = [ "/" ];
+          before = [
+            "<leader>"
+            "f"
+            "r"
+          ];
           commands = [ "actions.find" ];
         }
         {
