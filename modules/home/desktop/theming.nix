@@ -19,6 +19,8 @@ in {
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
     qt6Packages.qtstyleplugin-kvantum
+    nerd-fonts.iosevka
+    iosevka
   ];
 
   dconf.settings = {
