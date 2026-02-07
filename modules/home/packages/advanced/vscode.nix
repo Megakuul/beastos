@@ -3,7 +3,6 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    defaultEditor = true;
 
     extensions =
       with pkgs.vscode-extensions;
@@ -127,11 +126,28 @@
         command = "workbench.action.navigateForward";
         when = "!canNavigateBack";
       }
+      {
+        key = "enter";
+        command = "closeFindWidget";
+        when = "findWidgetVisible && !isComposing";
+      }
+      {
+        key = "ctrl+z";
+        command = "workbench.action.toggleZenMode";
+      }
+      {
+        key = "ctrl+z";
+        command = "-undo";
+      }
     ];
 
     userSettings = {
       "workbench.iconTheme" = "vscode-icons";
       "svelte.enable-ts-plugin" = true;
+      "zenMode.fullScreen" = false;
+      "zenMode.centerLayout" = false;
+      "zenMode.hideTabs" = false;
+      "zenMode.hideLineNumbers" = false;
       "editor.tabSize" = 2;
       "editor.lineNumbers" = "relative";
       "editor.fontWeight" = "500";
@@ -158,6 +174,14 @@
         {
           before = [ "-" ];
           commands = [ "oil-code.openParent" ];
+        }
+        {
+          before = [ "n" ];
+          commands = [ "editor.action.nextMatchFindAction" ];
+        }
+        {
+          before = [ "N" ];
+          commands = [ "editor.action.previousMatchFindAction" ];
         }
         {
           before = [
