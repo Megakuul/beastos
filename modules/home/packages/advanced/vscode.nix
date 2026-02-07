@@ -11,7 +11,6 @@
         eamodio.gitlens
         golang.go
         jnoortheen.nix-ide
-        arrterian.nix-env-selector
         jeff-hykin.better-nix-syntax
         svelte.svelte-vscode
         bradlc.vscode-tailwindcss
