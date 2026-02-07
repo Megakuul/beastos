@@ -279,6 +279,13 @@
         }
         {
           before = [
+            "<leader>"
+            "/"
+          ];
+          commands = [ "editor.action.commentLine" ];
+        }
+        {
+          before = [
             "g"
             "r"
             "r"
@@ -336,8 +343,13 @@
         "<C-p>" = true;
         "<C-f>" = true;
       };
+      "[json]" = {
+        "editor.defaultFormatter" = "vscode.json-language-features";
+      };
       "editor.formatOnSave" = true;
+      "settingsSync.ignoredSettings" = [ "*" ];
       "workbench.colorTheme" = "Tokyo Night";
+      "workbench.startupEditor" = "newUntitledFile";
     };
   };
 }
