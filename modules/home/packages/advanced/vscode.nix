@@ -1,20 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  home = {
-    activation = {
-      afterWriteBoundary = {
-        after = [ "writeBoundary" ];
-        before = [ ];
-        data = ''
-          find ~/.config/VSCodium | while read -r path
-          do
-            $DRY_RUN_CMD chmod --recursive +w \
-              "$(readlink --canonicalize "$path")"
-          done
-        '';
-      };
-    };
-  };
+  home.activation.createWritableFile = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    cp -f  $HOME/config/example.conf
+    chmod 644 $HOME/config/example.conf
+  '';
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
