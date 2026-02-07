@@ -183,15 +183,15 @@
           "options" = {
             "nixos" = {
               "expr" =
-                "(builtins.head (builtins.attrValues (builtins.getFlake \"${workspaceFolder}\").nixosConfigurations)).options";
+                "(builtins.head (builtins.attrValues (builtins.getFlake \"\${workspaceFolder}\").nixosConfigurations)).options";
             };
             "home-manager" = {
               "expr" =
-                "(builtins.head (builtins.attrValues (builtins.getFlake \"${workspaceFolder}\").homeConfigurations)).options";
+                "(builtins.head (builtins.attrValues (builtins.getFlake \"\${workspaceFolder}\").homeConfigurations)).options";
             };
             "nix-darwin" = {
               "expr" =
-                "(builtins.head (builtins.attrValues (builtins.getFlake \"${workspaceFolder}\").darwinConfigurations)).options";
+                "(builtins.head (builtins.attrValues (builtins.getFlake \"\${workspaceFolder}\").darwinConfigurations)).options";
             };
           };
         };
