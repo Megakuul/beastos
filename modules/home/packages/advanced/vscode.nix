@@ -329,11 +329,27 @@
         }
         {
           before = [
+            "g"
+            "r"
+            "t"
+          ];
+          commands = [ "editor.action.goToTypeDefinition" ];
+        }
+        {
+          before = [
             "<leader>"
             "t"
             "b"
           ];
           commands = [ "gitlens.toggleLineBlame" ];
+        }
+        {
+          before = [
+            "<leader>"
+            "g"
+            "r"
+          ];
+          commands = [ "editor.action.rename" ];
         }
         {
           before = [
@@ -356,6 +372,13 @@
             "w"
           ];
           commands = [ "workbench.action.findInFiles" ];
+        }
+        {
+          before = [
+            "<leader>"
+            "/"
+          ];
+          commands = [ "editor.action.commentLine" ];
         }
       ];
       "vim.handleKeys" = {
