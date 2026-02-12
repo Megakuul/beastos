@@ -71,11 +71,6 @@
         command = "editor.action.fontZoomReset";
       }
       {
-        key = "ctrl+f";
-        command = "workbench.action.focusActiveEditorGroup";
-        when = "sideBarFocus || terminalFocus";
-      }
-      {
         key = "ctrl+t";
         command = "workbench.action.terminal.focus";
         when = "editorTextFocus";
@@ -166,6 +161,14 @@
         key = "ctrl+z";
         command = "-undo";
       }
+      {
+        key = "ctrl+f";
+        command = "telescode.open";
+      }
+      {
+        key = "ctrl+f";
+        command = "-actions.find";
+      }
     ];
 
     profiles.default.userSettings = {
@@ -253,14 +256,14 @@
         {
           before = [ "[" ];
           commands = [
-            "editor.action.marker.next"
+            "editor.action.marker.nextInFile"
             "closeMarkersNavigation"
           ];
         }
         {
           before = [ "]" ];
           commands = [
-            "editor.action.marker.prev"
+            "editor.action.marker.prevInFile"
             "closeMarkersNavigation"
           ];
         }
@@ -383,7 +386,7 @@
       ];
       "vim.handleKeys" = {
         "<C-p>" = true;
-        "<C-f>" = true;
+        "<C-f>" = false;
       };
       "[json]" = {
         "editor.defaultFormatter" = "vscode.json-language-features";
