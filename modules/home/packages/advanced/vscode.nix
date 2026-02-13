@@ -16,7 +16,7 @@
       userDir=$HOME/.config/VSCodium/User
       rm -rf $userDir/settings.json
       cat \
-        ${(pkgs.formats.json { }).generate "fck-vscode" config.programs.vscode.userSettings} \
+        ${(pkgs.formats.json { }).generate "fck-vscode" config.programs.vscode.profiles.default.userSettings} \
         > $userDir/settings.json
     '';
   };
@@ -47,6 +47,19 @@
         charliermarsh.ruff
         mads-hartmann.bash-ide-vscode
         elijah-potter.harper
+
+        (pkgs.vscode-utils.buildVscodeExtension rec {
+          pname = "telescode";
+          version = "0.0.2";
+          name = "telescode-${version}";
+          vscodeExtUniqueId = "Megakuul.telescope";
+          vscodeExtPublisher = "Megakuul";
+          vscodeExtName = "telescope";
+          src = pkgs.fetchurl {
+            url = "https://open-vsx.org/api/Megakuul/telescode/0.0.2/file/Megakuul.telescode-0.0.2.vsix";
+            hash = "sha256-oeJg8ClJQYCPIhEecG4F+jemC9KUZFuQmyQLeDdNC1w=";
+          };
+        })
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
