@@ -20,7 +20,7 @@
     };
 
     desktop-widgets = {
-      url = "github:Megakuul/hyprland-widgets";
+      url = "github:megakuul/hyprland-widgets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     whitesur-src = {
@@ -31,7 +31,6 @@
       url = "github:selimbucher/WhiteSur-steam-icons";
       flake = false;
     };
-
   };
 
   outputs =

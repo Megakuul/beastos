@@ -267,6 +267,9 @@ in
       ];
 
       windowrule = [
+        # center all floating windows by default
+        "match:class .*, match:float 1, center 1"
+
         "match:class ^(peazip)$, float 1"
         "match:class ^(Viewnior)$, float 1"
         "match:class ^(imv)$, float 1"

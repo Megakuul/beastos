@@ -260,15 +260,13 @@
           {
             before = [ "[" ];
             commands = [
-              "editor.action.marker.nextInFile"
-              "closeMarkersNavigation"
+              "editor.action.marker.nextInFiles"
             ];
           }
           {
             before = [ "]" ];
             commands = [
-              "editor.action.marker.prevInFile"
-              "closeMarkersNavigation"
+              "editor.action.marker.prevInFiles"
             ];
           }
           {
@@ -393,12 +391,18 @@
           "<C-f>" = false;
         };
         "[json]" = {
-          "editor.defaultFormatter" = "vscode.json-language-features";
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
+        "[jsonc]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+
         "editor.formatOnSave" = true;
+        "editor.formatOnSaveTimeout" = 1000;
         "settingsSync.ignoredSettings" = [ "*" ];
         "workbench.colorTheme" = "Tokyo Night";
         "workbench.startupEditor" = "newUntitledFile";
       };
     };
+
 }
