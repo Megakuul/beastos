@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # generally useful
     ncdu
@@ -44,6 +45,5 @@
 
     # wine
     winetricks
-    wineWowPackages.wayland
   ];
 }

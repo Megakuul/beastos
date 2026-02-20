@@ -1,17 +1,28 @@
 # let the linux desktop theming mess begin
-{pkgs, ...}: let
+{ pkgs, inputs, ... }:
+let
   variant = "macchiato";
   accent = "lavender";
   kvantumThemePackage = pkgs.catppuccin-kvantum.override {
     inherit variant accent;
   };
-in {
-  fonts.fontconfig.enable = true;
+in
+{
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      sansSerif = [ "Quicksand" ];
+      monospace = [ "DejaVu Sans Mono" ];
+    };
+  };
   home.packages = with pkgs; [
+    dejavu_fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.caskaydia-cove
     nerd-fonts.symbols-only
+    quicksand
+    catppuccin-kvantum
     twemoji-color-font
     noto-fonts-color-emoji
     fantasque-sans-mono
@@ -21,6 +32,7 @@ in {
     qt6Packages.qtstyleplugin-kvantum
     nerd-fonts.iosevka
     iosevka
+
   ];
 
   dconf.settings = {
@@ -32,7 +44,7 @@ in {
   gtk = {
     enable = true;
     font = {
-      name = "Maple Mono";
+      name = "Quicksand";
       size = 12;
     };
     theme = {
@@ -40,8 +52,30 @@ in {
       package = pkgs.dracula-theme;
     };
     iconTheme = {
-      name = "Dracula";
-      package = pkgs.dracula-icon-theme;
+      name = "WhiteSur";
+      package =
+        # this was not my idea please call an ambulance or @selimbucher to get rid of the pain
+        (
+          let
+            base = pkgs.whitesur-icon-theme.override {
+              alternativeIcons = true;
+              boldPanelIcons = true;
+            };
+          in
+          base.overrideAttrs (oldAttrs: {
+            version = "latest";
+            src = inputs.whitesur-src;
+            myCustomIcons = inputs.slimmer-icons;
+            dontCheckForBrokenSymlinks = true;
+            postInstall = (oldAttrs.postInstall or "") + ''
+              cp -rf ${inputs.slimmer-icons}/apps/* $out/share/icons/WhiteSur/apps/
+
+              if [ -d "${inputs.slimmer-icons}/apps@2x" ]; then
+                cp -rf ${inputs.slimmer-icons}/apps@2x/* $out/share/icons/WhiteSur/apps@2x/
+              fi
+            '';
+          })
+        );
     };
     cursorTheme = {
       name = "Bibata-Modern-Ice";
@@ -60,10 +94,11 @@ in {
   xdg.configFile = {
     "Kvantum/kvantum.kvconfig".text = ''
       [General]
-      theme=Catppuccin-${variant}-${accent}
+      theme=catppuccin-${variant}-${accent}
     '';
 
-    "Kvantum/Catppuccin-${variant}-${accent}".source = "${kvantumThemePackage}/share/Kvantum/Catppuccin-${variant}-${accent}";
+    "Kvantum/catppuccin-${variant}-${accent}".source =
+      "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
   };
 
   home.pointerCursor = {
@@ -96,6 +131,6 @@ in {
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     GRIMBLAST_HIDE_CURSOR = 0;
-    EDITOR = "nvim";
+    EDITOR = "code";
   };
 }

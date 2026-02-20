@@ -13,6 +13,17 @@
       url = "github:adamcik/fleet-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    desktop-widgets.url = "github:Megakuul/hyprland-widgets";
+    whitesur-src = {
+      url = "github:vinceliuice/WhiteSur-icon-theme";
+      flake = false;
+    };
+
+    slimmer-icons = {
+      url = "github:selimbucher/WhiteSur-steam-icons";
+      flake = false;
+    };
   };
 
   outputs =
@@ -100,7 +111,7 @@
 
           config = {
             _module.args = {
-              inherit theme;
+              inherit inputs theme;
             };
           };
         };

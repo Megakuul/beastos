@@ -2,14 +2,17 @@
   config,
   pkgs,
   theme,
+  inputs,
   ...
 }:
 {
   home-manager = {
+    backupFileExtension = "backup";
+    overwriteBackup = true;
     useUserPackages = true;
     useGlobalPkgs = true;
     extraSpecialArgs = {
-      inherit theme;
+      inherit theme inputs;
       osConfig = config;
     };
     users.${config.beast.profile.username} = {

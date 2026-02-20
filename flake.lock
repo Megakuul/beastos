@@ -1,5 +1,68 @@
 {
   "nodes": {
+    "ags": {
+      "inputs": {
+        "astal": "astal",
+        "nixpkgs": [
+          "desktop-widgets",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764289441,
+        "narHash": "sha256-ak+lgFiYE5PHByN1/BRkO5JP498hno6Ix24C1Qf/vec=",
+        "owner": "aylur",
+        "repo": "ags",
+        "rev": "e169694390548dfd38ff40f1ef2163d6c3ffe3ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aylur",
+        "repo": "ags",
+        "type": "github"
+      }
+    },
+    "astal": {
+      "inputs": {
+        "nixpkgs": [
+          "desktop-widgets",
+          "ags",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764173295,
+        "narHash": "sha256-Jh4VtPcK2Ov+RTcV9FtyQRsxiJmXFQGfqX6jjM7/mgc=",
+        "owner": "aylur",
+        "repo": "astal",
+        "rev": "7d1fac8a4b2a14954843a978d2ddde86168c75ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aylur",
+        "repo": "astal",
+        "type": "github"
+      }
+    },
+    "desktop-widgets": {
+      "inputs": {
+        "ags": "ags",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1771549058,
+        "narHash": "sha256-UGwHmi+xW65PSufFiG/5tfFHS5FyRPRvHHC2wwkAjlA=",
+        "owner": "Megakuul",
+        "repo": "hyprland-widgets",
+        "rev": "0e978fdf36495a8da12a47386f50ffbd0b760acc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Megakuul",
+        "repo": "hyprland-widgets",
+        "type": "github"
+      }
+    },
     "fleet-orbit": {
       "inputs": {
         "nixpkgs": [
@@ -43,6 +106,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1770841267,
+        "narHash": "sha256-9xejG0KoqsoKEGp2kVbXRlEYtFFcDTHjidiuX8hGO44=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ec7c70d12ce2fc37cb92aff673dcdca89d187bae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1768886240,
         "narHash": "sha256-C2TjvwYZ2VDxYWeqvvJ5XPPp6U7H66zeJlRaErJKoEM=",
         "owner": "NixOS",
@@ -59,9 +138,28 @@
     },
     "root": {
       "inputs": {
+        "desktop-widgets": "desktop-widgets",
         "fleet-orbit": "fleet-orbit",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2",
+        "slimmer-icons": "slimmer-icons",
+        "whitesur-src": "whitesur-src"
+      }
+    },
+    "slimmer-icons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771542184,
+        "narHash": "sha256-UMWPAtKv3ig6Y40b8GvxDwfc8Lx30rh1BmlzoZYAJqM=",
+        "owner": "selimbucher",
+        "repo": "WhiteSur-steam-icons",
+        "rev": "df0d50ba4601accb82c853f037897b17dc9bd648",
+        "type": "github"
+      },
+      "original": {
+        "owner": "selimbucher",
+        "repo": "WhiteSur-steam-icons",
+        "type": "github"
       }
     },
     "treefmt-nix": {
@@ -82,6 +180,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "whitesur-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1766810369,
+        "narHash": "sha256-5AWyuqREKpgBCXPplpkdrcInDTZfjVIm/JtTleOmaNY=",
+        "owner": "vinceliuice",
+        "repo": "WhiteSur-icon-theme",
+        "rev": "bab5833b5cae200bccb786a2d3d6afa2201e7806",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vinceliuice",
+        "repo": "WhiteSur-icon-theme",
         "type": "github"
       }
     }

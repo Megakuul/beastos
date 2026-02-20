@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services = {
     gvfs.enable = true;
     gnome = {
@@ -13,5 +14,8 @@
       gcr
       gnome-settings-daemon
     ];
+
+    power-profiles-daemon.enable = true;
+    upower.enable = true;
   };
 }

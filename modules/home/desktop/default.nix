@@ -1,9 +1,10 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./theming.nix
     ./hyprland.nix
     ./hyprlock.nix
-    ./hyprpanel.nix
+    ./selimbar.nix
     ./xdg-mimes.nix
     ./rofi.nix
     ./nemo.nix

@@ -2,11 +2,13 @@
   pkgs,
   osConfig,
   ...
-}: let
+}:
+let
   browser = osConfig.beast.profile.apps.browser;
   terminal = osConfig.beast.profile.apps.terminal;
   file = osConfig.beast.profile.apps.explorer;
-in {
+in
+{
   home.packages = with pkgs; [
     hyprpicker
 
@@ -25,6 +27,7 @@ in {
     cliphist
 
     # monitor tooling
+    nwg-look
     nwg-displays
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [
@@ -42,29 +45,35 @@ in {
     };
     systemd.enable = true;
     settings = {
+      layerrule = {
+        name = "glassify-selimbar";
+        blur = true;
+        blur_popups = true;
+        ignore_alpha = 0.1;
+        "match:namespace" = "gtk4-layer-shell";
+      };
       env = [
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
-      exec-once =
-        [
-          "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-          "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-          "hyprpanel &"
+      exec-once = [
+        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "desktop &"
 
-          "hyprlock"
+        "hyprlock"
 
-          "nm-applet &"
-          "poweralertd &"
+        "nm-applet &"
+        "poweralertd &"
 
-          "wl-clip-persist --clipboard both &"
-          "wl-paste --watch cliphist store &"
-          "hyprctl setcursor Bibata-Modern-Ice 24 &"
-          "swww-daemon &"
+        "wl-clip-persist --clipboard both &"
+        "wl-paste --watch cliphist store &"
+        "hyprctl setcursor Bibata-Modern-Ice 24 &"
+        "swww-daemon &"
 
-          "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
-        ]
-        ++ osConfig.beast.profile.startup;
+        "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
+      ]
+      ++ osConfig.beast.profile.startup;
 
       input = {
         kb_layout = "ch";
@@ -123,14 +132,12 @@ in {
 
         blur = {
           enabled = true;
-          size = 3;
+          size = 1;
           passes = 2;
           brightness = 1;
           contrast = 1.4;
-          ignore_opacity = true;
           noise = 0;
           new_optimizations = true;
-          xray = true;
         };
 
         shadow = {
@@ -235,9 +242,6 @@ in {
         ",XF86AudioNext,exec, playerctl next"
         ",XF86AudioPrev,exec, playerctl previous"
         ",XF86AudioStop,exec, playerctl stop"
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
@@ -246,96 +250,99 @@ in {
         "$mainMod, M, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;} listview {columns: 1;}' | cliphist decode | wl-copy"
       ];
 
+      bindl = [
+        ",XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && desktop-ctl show volume"
+        ",XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && desktop-ctl show volume"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && desktop-ctl show volume"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n10 set 4%+ && desktop-ctl show brightness"
+        ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n10 set 4%- && desktop-ctl show brightness"
+      ];
+
       # mouse binding
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      windowrulev2 =
-        [
-          "float,class:^(peazip)$"
-          "float,class:^(Viewnior)$"
-          "float,class:^(imv)$"
-          "float,class:^(mpv)$"
-          "tile,class:^(Aseprite)$"
-          "float,class:^(Audacious)$"
-          "pin,class:^(rofi)$"
-          "pin,class:^(waypaper)$"
-          # "idleinhibit focus,mpv"
-          # "float,udiskie"
-          "float,title:^(Transmission)$"
-          "float,title:^(Volume Control)$"
-          "float,title:^(Firefox — Sharing Indicator)$"
-          "move 0 0,title:^(Firefox — Sharing Indicator)$"
-          "size 700 450,title:^(Volume Control)$"
-          "move 40 55%,title:^(Volume Control)$"
+      windowrule = [
+        "match:class ^(peazip)$, float 1"
+        "match:class ^(Viewnior)$, float 1"
+        "match:class ^(imv)$, float 1"
+        "match:class ^(mpv)$, float 1"
+        "match:class ^(Aseprite)$, tile 1"
+        "match:class ^(Audacious)$, float 1"
+        "match:class ^(rofi)$, pin 1"
+        "match:class ^(waypaper)$, pin 1"
 
-          "float, title:^(Picture-in-Picture)$"
-          "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
-          "pin, title:^(Picture-in-Picture)$"
-          "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
-          "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-          "opacity 1.0 override 1.0 override, class:(Aseprite)"
-          "opacity 1.0 override 1.0 override, class:(Unity)"
-          "opacity 1.0 override 1.0 override, class:(zen)"
-          "opacity 1.0 override 1.0 override, class:(evince)"
-          "workspace 1, class:^(${browser})$"
-          "workspace 3, class:^(evince)$"
-          "workspace 4, class:^(Gimp-2.10)$"
-          "workspace 4, class:^(Aseprite)$"
-          "workspace 5, class:^(Audacious)$"
-          "workspace 5, class:^(Spotify)$"
-          "workspace 8, class:^(com.obsproject.Studio)$"
-          "workspace 10, class:^(discord)$"
-          "workspace 10, class:^(WebCord)$"
-          "idleinhibit focus, class:^(mpv)$"
-          "idleinhibit fullscreen, class:^(firefox)$"
-          "float,class:^(org.gnome.Calculator)$"
-          "float,class:^(waypaper)$"
-          "float,center,class:^(zenity)$"
-          "size 850 500,class:^(zenity)$"
-          "size 725 330,class:^(SoundWireServer)$"
-          "float,class:^(org.gnome.FileRoller)$"
-          "float,class:^(org.pulseaudio.pavucontrol)$"
-          "float,class:^(SoundWireServer)$"
-          "float,class:^(.sameboy-wrapped)$"
-          "float,center,class:^(file_progress)$"
-          "float,center,class:^(confirm)$"
-          "float,center,class:^(dialog)$"
-          "float,center,class:^(download)$"
-          "float,class:^(notification)$"
-          "float,center,class:^(error)$"
-          "float,center,class:^(confirmreset)$"
-          "float,center,title:^(Open File)$"
-          "float,center,title:^(File Upload)$"
-          "float,center,title:^(branchdialog)$"
-          "float,center,title:^(Confirm to replace files)$"
-          "float,center,title:^(File Operation Progress)$"
-          "float,center,title:^(Bitwarden)$"
-          "float,center,class:^(xdg-desktop-portal-gtk)$"
-          "size 850 500,class:^(xdg-desktop-portal-gtk)$"
+        "match:title ^(Transmission)$, float 1"
+        "match:title ^(Volume Control)$, float 1"
+        "match:title ^(Firefox — Sharing Indicator)$, float 1"
+        "match:title ^(Firefox — Sharing Indicator)$, move 0 0"
+        "match:title ^(Volume Control)$, size 700 450"
+        "match:title ^(Volume Control)$, move 40 55%"
 
-          "opacity 0.0 override,class:^(xwaylandvideobridge)$"
-          "noanim,class:^(xwaylandvideobridge)$"
-          "noinitialfocus,class:^(xwaylandvideobridge)$"
-          "maxsize 1 1,class:^(xwaylandvideobridge)$"
-          "noblur,class:^(xwaylandvideobridge)$"
+        "match:title ^(Picture-in-Picture)$, float 1"
+        "match:title ^(Picture-in-Picture)$, opacity 1.0 override 1.0 override"
+        "match:title ^(Picture-in-Picture)$, pin 1"
+        "match:title ^(.*imv.*)$, opacity 1.0 override 1.0 override"
+        "match:title ^(.*mpv.*)$, opacity 1.0 override 1.0 override"
+        "match:class (Aseprite), opacity 1.0 override 1.0 override"
+        "match:class (Unity), opacity 1.0 override 1.0 override"
+        "match:class (zen), opacity 1.0 override 1.0 override"
+        "match:class (evince), opacity 1.0 override 1.0 override"
+        "match:class ^(${browser})$, workspace 1"
+        "match:class ^(evince)$, workspace 3"
+        "match:class ^(Gimp-2.10)$, workspace 4"
+        "match:class ^(Aseprite)$, workspace 4"
+        "match:class ^(Audacious)$, workspace 5"
+        "match:class ^(Spotify)$, workspace 5"
+        "match:class ^(com.obsproject.Studio)$, workspace 8"
+        "match:class ^(discord)$, workspace 10"
+        "match:class ^(WebCord)$, workspace 10"
 
-          # "maxsize 1111 700, floating: 1"
-          # "center, floating: 1"
+        "match:class ^(org.gnome.Calculator)$, float 1"
+        "match:class ^(waypaper)$, float 1"
+        "match:class ^(zenity)$, float 1, center 1"
+        "match:class ^(zenity)$, size 850 500"
+        "match:class ^(SoundWireServer)$, size 725 330"
+        "match:class ^(org.gnome.FileRoller)$, float 1"
+        "match:class ^(org.pulseaudio.pavucontrol)$, float 1"
+        "match:class ^(SoundWireServer)$, float 1"
+        "match:class ^(.sameboy-wrapped)$, float 1"
+        "match:class ^(file_progress)$, float 1, center 1"
+        "match:class ^(confirm)$, float 1, center 1"
+        "match:class ^(dialog)$, float 1, center 1"
+        "match:class ^(download)$, float 1, center 1"
+        "match:class ^(notification)$, float 1"
+        "match:class ^(error)$, float 1, center 1"
+        "match:class ^(confirmreset)$, float 1, center 1"
+        "match:title ^(Open File)$, float 1, center 1"
+        "match:title ^(File Upload)$, float 1, center 1"
+        "match:title ^(branchdialog)$, float 1, center 1"
+        "match:title ^(Confirm to replace files)$, float 1, center 1"
+        "match:title ^(File Operation Progress)$, float 1, center 1"
+        "match:title ^(Bitwarden)$, float 1, center 1"
+        "match:class ^(xdg-desktop-portal-gtk)$, float 1, center 1"
+        "match:class ^(xdg-desktop-portal-gtk)$, size 850 500"
 
-          # Remove context menu transparency in chromium based apps
-          "opaque,class:^()$,title:^()$"
-          "noshadow,class:^()$,title:^()$"
-          "noblur,class:^()$,title:^()$"
+        "match:class ^(xwaylandvideobridge)$, opacity 0.0 override"
+        "match:class ^(xwaylandvideobridge)$, no_anim 1"
+        "match:class ^(xwaylandvideobridge)$, no_initial_focus 1"
+        "match:class ^(xwaylandvideobridge)$, max_size 1 1"
+        "match:class ^(xwaylandvideobridge)$, no_blur 1"
 
-          "bordersize 0, floating:0, onworkspace:w[tv1]s[false]"
-          "rounding 0, floating:0, onworkspace:w[tv1]s[false]"
-          "bordersize 0, floating:0, onworkspace:f[1]s[false]"
-          "rounding 0, floating:0, onworkspace:f[1]s[false]"
-        ]
-        ++ osConfig.beast.profile.windowrules;
+        "match:class ^()$, match:title ^()$, opaque 1"
+        "match:class ^()$, match:title ^()$, no_shadow 1"
+        "match:class ^()$, match:title ^()$, no_blur 1"
+
+        "match:float 0, match:workspace w[tv1]s[false], border_size 0"
+        "match:float 0, match:workspace w[tv1]s[false], rounding 0"
+        "match:float 0, match:workspace f[1]s[false], border_size 0"
+        "match:float 0, match:workspace f[1]s[false], rounding 0"
+        "match:title ^(tray\.scss - hyprland-widgets - VSCodium)$, opacity 0.8 override"
+      ]
+      ++ osConfig.beast.profile.windowrules;
 
       workspace = [
         "w[tv1]s[false], gapsout:0, gapsin:0"
