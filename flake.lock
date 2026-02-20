@@ -50,11 +50,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1771549058,
-        "narHash": "sha256-UGwHmi+xW65PSufFiG/5tfFHS5FyRPRvHHC2wwkAjlA=",
+        "lastModified": 1771551236,
+        "narHash": "sha256-FBzwPbCmY+mIvsL6GqMDNsdydmevhDCrVip9zeIgD+E=",
         "owner": "Megakuul",
         "repo": "hyprland-widgets",
-        "rev": "0e978fdf36495a8da12a47386f50ffbd0b760acc",
+        "rev": "d9610a8eef80a89d83bf6c97ab32243b57f292c6",
         "type": "github"
       },
       "original": {
