@@ -14,16 +14,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    desktop-widgets.url = "github:Megakuul/hyprland-widgets";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    desktop-widgets = {
+      url = "github:Megakuul/hyprland-widgets";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     whitesur-src = {
       url = "github:vinceliuice/WhiteSur-icon-theme";
       flake = false;
     };
-
     slimmer-icons = {
       url = "github:selimbucher/WhiteSur-steam-icons";
       flake = false;
     };
+
   };
 
   outputs =
