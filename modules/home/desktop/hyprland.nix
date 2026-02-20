@@ -59,7 +59,6 @@ in
       exec-once = [
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "desktop &"
 
         "hyprlock"
 
@@ -70,6 +69,8 @@ in
         "wl-paste --watch cliphist store &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
+
+        "desktop &"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ]
