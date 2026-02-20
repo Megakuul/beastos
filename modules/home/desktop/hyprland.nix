@@ -29,6 +29,7 @@ in
     # monitor tooling
     nwg-look
     nwg-displays
+    swww
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
@@ -69,8 +70,7 @@ in
         "wl-paste --watch cliphist store &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
-
-        "desktop &"
+        "sh -c 'while ! swww query; do sleep 0.1; done; desktop'"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ]
