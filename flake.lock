@@ -52,11 +52,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771584791,
-        "narHash": "sha256-8oNNnx6WAQJNJp2tECF+7DkalrlQSXURRH1cGcmcVi4=",
+        "lastModified": 1771844485,
+        "narHash": "sha256-ESDHEedJPRfyD7TqV7UWVBIE9SeiOkOuGfQn1xEWwuc=",
         "owner": "selimbucher",
         "repo": "hyprland-widgets",
-        "rev": "007b214a2561750e495490447f8c1e03d815b269",
+        "rev": "c0aff4f6523120e6e4808159114b99383ede187e",
         "type": "github"
       },
       "original": {
