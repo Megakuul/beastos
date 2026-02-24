@@ -4,7 +4,7 @@
       "inputs": {
         "astal": "astal",
         "nixpkgs": [
-          "desktop-widgets",
+          "selimbar",
           "nixpkgs"
         ]
       },
@@ -25,7 +25,7 @@
     "astal": {
       "inputs": {
         "nixpkgs": [
-          "desktop-widgets",
+          "selimbar",
           "ags",
           "nixpkgs"
         ]
@@ -41,27 +41,6 @@
       "original": {
         "owner": "aylur",
         "repo": "astal",
-        "type": "github"
-      }
-    },
-    "desktop-widgets": {
-      "inputs": {
-        "ags": "ags",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1771844485,
-        "narHash": "sha256-ESDHEedJPRfyD7TqV7UWVBIE9SeiOkOuGfQn1xEWwuc=",
-        "owner": "selimbucher",
-        "repo": "hyprland-widgets",
-        "rev": "c0aff4f6523120e6e4808159114b99383ede187e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "selimbucher",
-        "repo": "hyprland-widgets",
         "type": "github"
       }
     },
@@ -144,13 +123,34 @@
     },
     "root": {
       "inputs": {
-        "desktop-widgets": "desktop-widgets",
         "fleet-orbit": "fleet-orbit",
         "home-manager": "home-manager",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
+        "selimbar": "selimbar",
         "slimmer-icons": "slimmer-icons",
         "whitesur-src": "whitesur-src"
+      }
+    },
+    "selimbar": {
+      "inputs": {
+        "ags": "ags",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771949115,
+        "narHash": "sha256-qZ9JXnwX19rT+bBnbk5d1s14qWMn4E2kN3oGIjbMibQ=",
+        "owner": "selimbucher",
+        "repo": "hyprland-widgets",
+        "rev": "8db187fcb1e4837ad6d854ca6edba8b0a0e38644",
+        "type": "github"
+      },
+      "original": {
+        "owner": "selimbucher",
+        "repo": "hyprland-widgets",
+        "type": "github"
       }
     },
     "slimmer-icons": {

@@ -7,6 +7,9 @@
 }:
 {
   home-manager = {
+    sharedModules = [
+      inputs.selimbar.homeManagerModules.default
+    ];
     backupFileExtension = "backup";
     overwriteBackup = true;
     useUserPackages = true;

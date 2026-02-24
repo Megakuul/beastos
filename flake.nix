@@ -19,8 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    desktop-widgets = {
-      url = "github:megakuul/hyprland-widgets";
+    selimbar = {
+      url = "github:selimbucher/hyprland-widgets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     whitesur-src = {
