@@ -390,6 +390,7 @@
           "<C-p>" = true;
           "<C-f>" = false;
         };
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[json]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
