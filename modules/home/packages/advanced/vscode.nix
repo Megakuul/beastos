@@ -59,6 +59,8 @@
 
         open-vsx.haphazarddev.oil-code
         open-vsx.megakuul.telescode
+        open-vsx.bufbuild.vscode-buf
+        open-vsx.oven.bun-vscode
       ];
 
       profiles.default.keybindings = [
@@ -390,7 +392,18 @@
           "<C-p>" = true;
           "<C-f>" = false;
         };
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "[javascript]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        "[typescript]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        "[svelte]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        "[html]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
         "[json]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };

@@ -140,11 +140,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771949115,
-        "narHash": "sha256-qZ9JXnwX19rT+bBnbk5d1s14qWMn4E2kN3oGIjbMibQ=",
+        "lastModified": 1772993687,
+        "narHash": "sha256-NlVLQIrGDUmFQZq10RWjguBQk+7RjBbz37MOmEhSum8=",
         "owner": "selimbucher",
         "repo": "hyprland-widgets",
-        "rev": "8db187fcb1e4837ad6d854ca6edba8b0a0e38644",
+        "rev": "2abb860248c3b3cbf7103337736aeeac4c066359",
         "type": "github"
       },
       "original": {
