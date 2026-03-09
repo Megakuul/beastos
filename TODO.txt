@@ -1,3 +1,0 @@
-- good virtualization (done but incus webui)
-- simple addon layer (first learn nix language)
-- installer or startup script

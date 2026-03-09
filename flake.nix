@@ -102,7 +102,7 @@
                 };
                 explorer = lib.mkOption {
                   type = lib.types.str;
-                  default = "nemo";
+                  default = "nautilus";
                   description = "Default system explorer";
                 };
               };
