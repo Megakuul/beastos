@@ -20,7 +20,7 @@
     };
 
     selimbar = {
-      url = "github:selimbucher/hyprland-widgets";
+      url = "github:selimbucher/kiwi-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     whitesur-src = {

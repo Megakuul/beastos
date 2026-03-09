@@ -69,7 +69,7 @@ in
         "wl-clip-persist --clipboard both &"
         "wl-paste --watch cliphist store &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
-        "desktop &"
+        "kiwi &"
         "blanket --gapplication-service &"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"

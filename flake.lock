@@ -140,16 +140,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1772993687,
-        "narHash": "sha256-NlVLQIrGDUmFQZq10RWjguBQk+7RjBbz37MOmEhSum8=",
+        "lastModified": 1773085934,
+        "narHash": "sha256-3pqxuPoW+0W2XnwEVaWIZH42sZqcx8Q3G0FWjz6QGIo=",
         "owner": "selimbucher",
-        "repo": "hyprland-widgets",
-        "rev": "2abb860248c3b3cbf7103337736aeeac4c066359",
+        "repo": "kiwi-shell",
+        "rev": "325b7193bf2e3cec8ef9383f8f485e1436ea4d58",
         "type": "github"
       },
       "original": {
         "owner": "selimbucher",
-        "repo": "hyprland-widgets",
+        "repo": "kiwi-shell",
         "type": "github"
       }
     },
