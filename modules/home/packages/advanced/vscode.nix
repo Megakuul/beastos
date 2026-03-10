@@ -392,6 +392,8 @@
           "<C-p>" = true;
           "<C-f>" = false;
         };
+        "javascript.format.enable" = false;
+        "typescript.format.enable" = false;
         "[javascript]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
