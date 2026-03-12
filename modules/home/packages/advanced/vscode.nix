@@ -14,17 +14,18 @@
     '';
   };
 
-  home.activation.afterWriteBoundary = {
-    after = [ "writeBoundary" ];
+  home.activation.makeVscodeSettingsMutable = {
+    after = [ "linkGeneration" ];
     before = [ ];
     data = ''
       userDir=$HOME/.config/VSCodium/User
       rm -rf $userDir/settings.json
-      cat \
-        ${
-          (pkgs.formats.json { }).generate "fck-vscode" config.programs.vscode.profiles.default.userSettings
-        } \
-        > $userDir/settings.json
+
+      cp "${
+        (pkgs.formats.json { }).generate "fck-vscode" config.programs.vscode.profiles.default.userSettings
+      }" "$userDir/settings.json"
+
+      chmod u+w "$userDir/settings.json"
     '';
   };
   programs.vscode =
@@ -202,6 +203,8 @@
         "editor.accessibilitySupport" = "off";
         "editor.hover.enabled" = "onKeyboardModifier";
         "editor.hover.sticky" = true;
+        "gitlens.rebaseEditor.enabled" = false;
+        "git.mergeEditor" = false;
         "problems.showCurrentInStatus" = true;
         "oil-code.disableDefaultKeymaps" = true;
         "oil-code.hasNerdFont" = true;
