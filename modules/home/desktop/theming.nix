@@ -119,7 +119,9 @@ in
     WLR_DRM_NO_ATOMIC = 1;
     QT_AUTO_SCREEN_SCALE_FACTOR = 1;
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
-    QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORMTHEME = "gtk3";
+    QT_STYLE_OVERRIDE = "adwaita-dark";
     GTK_THEME = "Dracula";
     MOZ_ENABLE_WAYLAND = 1;
     WLR_BACKEND = "vulkan";
@@ -131,6 +133,6 @@ in
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     GRIMBLAST_HIDE_CURSOR = 0;
-    EDITOR = "code";
+    EDITOR = "vim";
   };
 }

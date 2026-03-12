@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     # generally useful
+    vim
     ncdu
     tldr
     dig

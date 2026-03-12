@@ -55,7 +55,6 @@ in
         "match:namespace" = "gtk4-layer-shell";
       };
       env = [
-        "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
       exec-once = [
@@ -71,7 +70,8 @@ in
         "wl-paste --watch cliphist store &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "kiwi &"
-        "blanket --gapplication-service && sleep 3 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.7"
+        "[workspace 5 silent] blanket"
+        "sleep 3 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.5"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ]
@@ -275,6 +275,7 @@ in
         "match:class ^(peazip)$, float 1"
         "match:class ^(nemo)$, float 1"
         "match:class ^(vlc)$, float 1"
+        "match:class ^(vlc)$, float on, size 1280 720, center on"
         "match:class ^(nwg-displays)$, fullscreen on"
         "match:class ^(org.gnome.Evince)$, float 1"
         "match:class ^(org.ksnip.ksnip)$, float 1"
