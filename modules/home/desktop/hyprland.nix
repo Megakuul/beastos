@@ -16,6 +16,7 @@ in
     grim
     slurp
     swappy
+    gnome-frog
 
     # screenrec utils
     wf-recorder
@@ -82,7 +83,7 @@ in
         numlock_by_default = true;
         repeat_delay = 300;
         follow_mouse = 2;
-        float_switch_override_focus = 0;
+        # float_switch_override_focus = 0;
         mouse_refocus = 0;
         sensitivity = 0;
         touchpad = {
@@ -95,13 +96,13 @@ in
         layout = "dwindle";
         gaps_in = 2;
         gaps_out = 4;
-        border_size = 2;
-        "col.active_border" = "rgb(ACB5F2) rgb(E6B5D8) 45deg";
-        "col.inactive_border" = "0x00000000";
+        border_size = 1;
+        "col.active_border" = "rgba(e6e6e6aa)";
+        "col.inactive_border" = "rgba(595959aa)";
       };
 
       misc = {
-        disable_autoreload = true;
+        disable_autoreload = false;
         disable_hyprland_logo = true;
         always_follow_on_dnd = true;
         layers_hog_keyboard_focus = true;
@@ -126,7 +127,7 @@ in
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 12;
         active_opacity = 0.97;
         inactive_opacity = 0.94;
         # fullscreen_opacity = 1.0;
@@ -148,7 +149,8 @@ in
           offset = "0 2";
           range = 20;
           render_power = 3;
-          color = "rgba(00000055)";
+          color = "rgba(00000066)";
+          color_inactive = "rgba(00000022)";
         };
       };
 
@@ -272,6 +274,7 @@ in
 
         "match:class ^(peazip)$, float 1"
         "match:class ^(nemo)$, float 1"
+        "match:class ^(com.github.tenderowl.frog)$, float 1"
         "match:class ^(org.gnome.Nautilus)$, float 1"
         "match:class ^(nautilus)$, float 1"
         "match:class ^(Viewnior)$, float 1"
@@ -351,10 +354,10 @@ in
       ]
       ++ osConfig.beast.profile.windowrules;
 
-      workspace = [
-        "w[tv1]s[false], gapsout:0, gapsin:0"
-        "f[1]s[false], gapsout:0, gapsin:0"
-      ];
+      # workspace = [
+      #   "w[tv1]s[false], gapsout:0, gapsin:0"
+      #   "f[1]s[false], gapsout:0, gapsin:0"
+      # ];
 
       cursor = {
         no_hardware_cursors = true;

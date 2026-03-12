@@ -13,11 +13,11 @@
     tenacity
     losslesscut-bin
     drawio
+    figma-linux
 
     # office
     libreoffice
     gnome-calculator
-    linphone
 
     # password
     bitwarden-desktop
@@ -33,7 +33,6 @@
     kdePackages.kleopatra
 
     # virtualisation
-    gnome-boxes
     osinfo-db
     osinfo-db-tools
     virt-manager

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # lua
     lua
@@ -60,6 +61,7 @@
     python312
     pyright
     ruff
+    uv
 
     # bash
     bash-language-server

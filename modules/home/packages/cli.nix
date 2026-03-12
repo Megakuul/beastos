@@ -28,6 +28,7 @@
     man-pages # extra man pages
     tree-sitter
     nmap
+    vim
 
     # multimedia
     pamixer # pulseaudio command line mixer
@@ -45,5 +46,11 @@
 
     # wine
     winetricks
+
+    # documentation stuff
+    asciidoc-full-with-plugins
+    typst
+    typstyle
+    typst-live
   ];
 }
