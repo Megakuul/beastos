@@ -10,7 +10,7 @@ let
     audio = [ "vlc.desktop" ];
     directory = [ "nautilus.desktop" ];
     office = [ "libreoffice.desktop" ];
-    pdf = [ "evince.desktop" ];
+    pdf = [ "org.gnome.Evince.desktop" ];
     terminal = [ "ghostty.desktop" ];
     archive = [
       "peazip-extract.desktop"
