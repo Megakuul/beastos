@@ -71,7 +71,7 @@ in
         "wl-paste --watch cliphist store &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "kiwi &"
-        "blanket --gapplication-service &"
+        "blanket --gapplication-service && sleep 3 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.7"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ]
@@ -274,6 +274,10 @@ in
 
         "match:class ^(peazip)$, float 1"
         "match:class ^(nemo)$, float 1"
+        "match:class ^(vlc)$, float 1"
+        "match:class ^(nwg-displays)$, fullscreen on"
+        "match:class ^(org.gnome.Evince)$, float 1"
+        "match:class ^(org.ksnip.ksnip)$, float 1"
         "match:class ^(com.github.tenderowl.frog)$, float 1"
         "match:class ^(org.gnome.Nautilus)$, float 1"
         "match:class ^(nautilus)$, float 1"

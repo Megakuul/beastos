@@ -15,6 +15,7 @@
     drawio
     figma-linux
     ksnip
+    evince
 
     # office
     libreoffice

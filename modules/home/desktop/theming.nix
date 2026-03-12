@@ -32,7 +32,7 @@ in
     qt6Packages.qtstyleplugin-kvantum
     nerd-fonts.iosevka
     iosevka
-
+    adwaita-qt6
   ];
 
   dconf.settings = {
@@ -86,9 +86,9 @@ in
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
-    style.package = kvantumThemePackage;
+    platformTheme.name = "gtk";
+    style.name = "adwaita-dark";
+    style.package = pkgs.adwaita-qt;
   };
 
   xdg.configFile = {
