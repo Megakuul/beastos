@@ -3,10 +3,11 @@ with lib;
 let
   defaultApps = {
     browser = [ "brave.desktop" ];
-    text = [ "geany.desktop" ];
-    image = [ "brave.desktop" ];
-    audio = [ "brave.desktop" ];
-    video = [ "brave.desktop" ];
+    text = [ "codium.desktop" ];
+    image = [ "ksnip.desktop" ];
+    video = [ "vlc.desktop" ];
+    figma = [ "figma-linux.desktop" ];
+    audio = [ "vlc.desktop" ];
     directory = [ "nautilus.desktop" ];
     office = [ "libreoffice.desktop" ];
     pdf = [ "brave.desktop" ];
@@ -20,17 +21,28 @@ let
   mimeMap = {
     text = [
       "application/json"
-      "application/ld+json"
-      "text/json"
-      "application/x-yaml"
-      "text/yaml"
       "application/toml"
-      "text/toml"
+      "application/x-yaml"
+      "text/csv"
+      "text/json"
+      "text/markdown"
       "text/plain"
+      "text/toml"
+      "text/x-c"
+      "text/x-c++"
+      "text/x-java"
+      "text/x-markdown"
+      "text/x-python"
+      "text/x-rust"
+      "text/x-shellscript"
+      "text/yaml"
+      "x-scheme-handler/vscodium"
     ];
     image = [
+      "image/avif"
       "image/bmp"
       "image/gif"
+      "image/heic"
       "image/jpeg"
       "image/jpg"
       "image/png"
@@ -41,6 +53,8 @@ let
     ];
     audio = [
       "audio/aac"
+      "audio/flac"
+      "audio/mp4"
       "audio/mpeg"
       "audio/ogg"
       "audio/opus"
@@ -53,38 +67,56 @@ let
       "video/mp4"
       "video/mpeg"
       "video/ogg"
+      "video/quicktime"
       "video/webm"
       "video/x-flv"
       "video/x-matroska"
       "video/x-msvideo"
+      "x-scheme-handler/vlc"
     ];
-    directory = [ "inode/directory" ];
     browser = [
+      "application/xhtml+xml"
       "text/html"
       "x-scheme-handler/about"
+      "x-scheme-handler/chrome"
       "x-scheme-handler/http"
       "x-scheme-handler/https"
       "x-scheme-handler/unknown"
     ];
     office = [
-      "application/vnd.oasis.opendocument.text"
-      "application/vnd.oasis.opendocument.spreadsheet"
-      "application/vnd.oasis.opendocument.presentation"
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation"
       "application/msword"
+      "application/rtf"
       "application/vnd.ms-excel"
       "application/vnd.ms-powerpoint"
-      "application/rtf"
+      "application/vnd.oasis.opendocument.presentation"
+      "application/vnd.oasis.opendocument.spreadsheet"
+      "application/vnd.oasis.opendocument.text"
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ];
-    pdf = [ "application/pdf" ];
-    terminal = [ "terminal" ];
+    pdf = [
+      "application/pdf"
+    ];
+    directory = [
+      "inode/directory"
+    ];
     archive = [
+      "application/bzip2"
+      "application/gzip"
+      "application/vnd.rar"
+      "application/x-7z-compressed"
+      "application/x-bzip"
+      "application/x-bzip2"
+      "application/x-compressed-tar"
+      "application/x-gzip"
+      "application/x-rar"
+      "application/x-tar"
+      "application/x-xz"
       "application/zip"
-      "application/rar"
-      "application/7z"
-      "application/*tar"
+    ];
+    figma = [
+      "x-scheme-handler/figma"
     ];
   };
 

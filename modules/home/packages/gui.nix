@@ -14,6 +14,7 @@
     losslesscut-bin
     drawio
     figma-linux
+    ksnip
 
     # office
     libreoffice

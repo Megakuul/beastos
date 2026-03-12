@@ -52,7 +52,6 @@
         llvm-vs-code-extensions.vscode-clangd
         ocamllabs.ocaml-platform
         redhat.vscode-yaml
-        rust-lang.rust-analyzer
         ms-python.python
         charliermarsh.ruff
         mads-hartmann.bash-ide-vscode
@@ -63,11 +62,9 @@
         open-vsx.bufbuild.vscode-buf
         open-vsx.oven.bun-vscode
         open-vsx.rust-lang.rust-analyzer
-        open-vsx.asciidoctor.asciidoctor-vscode
         open-vsx.nvarner.typst-lsp
         open-vsx.myriad-dreamin.tinymist
-        open-vsx.bmewburn.vscode-intelephense-client
-        open-vsx.Dart-Code.flutter
+        open-vsx.dart-code.flutter
         open-vsx.hashicorp.terraform
       ];
 

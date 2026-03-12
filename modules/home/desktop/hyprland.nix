@@ -97,7 +97,7 @@ in
         gaps_in = 2;
         gaps_out = 4;
         border_size = 1;
-        "col.active_border" = "rgba(e6e6e6aa)";
+        "col.active_border" = "rgba(595959aa)";
         "col.inactive_border" = "rgba(595959aa)";
       };
 
@@ -128,8 +128,8 @@ in
 
       decoration = {
         rounding = 12;
-        active_opacity = 0.97;
-        inactive_opacity = 0.94;
+        active_opacity = 0.95;
+        inactive_opacity = 0.92;
         # fullscreen_opacity = 1.0;
 
         blur = {
@@ -346,10 +346,10 @@ in
         "match:class ^()$, match:title ^()$, no_shadow 1"
         "match:class ^()$, match:title ^()$, no_blur 1"
 
-        "match:float 0, match:workspace w[tv1]s[false], border_size 0"
-        "match:float 0, match:workspace w[tv1]s[false], rounding 0"
-        "match:float 0, match:workspace f[1]s[false], border_size 0"
-        "match:float 0, match:workspace f[1]s[false], rounding 0"
+        # "match:float 0, match:workspace w[tv1]s[false], border_size 0"
+        # "match:float 0, match:workspace w[tv1]s[false], rounding 0"
+        # "match:float 0, match:workspace f[1]s[false], border_size 0"
+        # "match:float 0, match:workspace f[1]s[false], rounding 0"
         "match:title ^(tray\.scss - hyprland-widgets - VSCodium)$, opacity 0.8 override"
       ]
       ++ osConfig.beast.profile.windowrules;
