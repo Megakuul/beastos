@@ -4,7 +4,7 @@ let
   defaultApps = {
     browser = [ "brave.desktop" ];
     text = [ "codium.desktop" ];
-    image = [ "ksnip.desktop" ];
+    image = [ "org.ksnip.ksnip.desktop" ];
     video = [ "vlc.desktop" ];
     figma = [ "figma-linux.desktop" ];
     audio = [ "vlc.desktop" ];

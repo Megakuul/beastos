@@ -1,5 +1,10 @@
 # let the linux desktop theming mess begin
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 let
   variant = "macchiato";
   accent = "lavender";
@@ -30,9 +35,9 @@ in
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
     qt6Packages.qtstyleplugin-kvantum
+    qt6Packages.qt6ct
     nerd-fonts.iosevka
     iosevka
-    adwaita-qt6
   ];
 
   dconf.settings = {
@@ -86,9 +91,8 @@ in
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
-    style.name = "adwaita-dark";
-    style.package = pkgs.adwaita-qt;
+    platformTheme.name = "qtct";
+    style.name = "kvantum";
   };
 
   xdg.configFile = {
@@ -120,8 +124,8 @@ in
     QT_AUTO_SCREEN_SCALE_FACTOR = 1;
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     QT_QPA_PLATFORM = "wayland;xcb";
-    QT_QPA_PLATFORMTHEME = "gtk3";
-    QT_STYLE_OVERRIDE = "adwaita-dark";
+    QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
+    QT_STYLE_OVERRIDE = lib.mkForce "kvantum";
     GTK_THEME = "Dracula";
     MOZ_ENABLE_WAYLAND = 1;
     WLR_BACKEND = "vulkan";

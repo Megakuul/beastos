@@ -71,7 +71,7 @@ in
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "kiwi &"
         "[workspace 5 silent] blanket"
-        "sleep 3 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.5"
+        "sleep 1 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.5"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ]

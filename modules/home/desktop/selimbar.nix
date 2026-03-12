@@ -3,10 +3,10 @@
   services.kiwi-shell = {
     enable = true;
     settings = {
-      primary_color = "rgb(200, 100, 50)";
+      primary_color = "rgb(226, 221, 235)";
       theme = "glass";
-      bar_margin = 7;
-      dock_margin = 7;
+      bar_margin = 5;
+      dock_margin = 5;
       dock_home = true;
       dock_trash = true;
     };
