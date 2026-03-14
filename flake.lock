@@ -85,6 +85,27 @@
         "type": "github"
       }
     },
+    "kiwi-settings": {
+      "inputs": {
+        "nixpkgs": [
+          "selimbar",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773456816,
+        "narHash": "sha256-qt9x+zXtH7hRkK15l7onLY516lCXrH6i+3lrFmiMMVo=",
+        "owner": "selimbucher",
+        "repo": "kiwi-settings",
+        "rev": "c480f92167111f2a3280ac9fde20772486049afd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "selimbucher",
+        "repo": "kiwi-settings",
+        "type": "github"
+      }
+    },
     "nix-vscode-extensions": {
       "inputs": {
         "nixpkgs": [
@@ -135,16 +156,17 @@
     "selimbar": {
       "inputs": {
         "ags": "ags",
+        "kiwi-settings": "kiwi-settings",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1773347086,
-        "narHash": "sha256-R23V+zt8xem7QMZJEOtJVBsu2zmrm+ba07Y1Ev4GxGE=",
+        "lastModified": 1773464171,
+        "narHash": "sha256-r01Ght+vkVrjrXcPxEqpjA4Ly21mA56jh/lCqGQK9Ac=",
         "owner": "selimbucher",
         "repo": "kiwi-shell",
-        "rev": "9e05480a6b8c67350c7493068300c1beddce437e",
+        "rev": "4a3567ddf07254ff3e2f4ea80cb844d6145e09ee",
         "type": "github"
       },
       "original": {
