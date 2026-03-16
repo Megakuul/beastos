@@ -16,7 +16,7 @@
         "signal.desktop"
         "nwg-displays.desktop"
         "com.rafaelmardojai.Blanket.desktop"
-        "draw.io.desktop"
+        "com.mitchellh.ghostty.desktop"
         "figma-linux.desktop"
       ];
     };
