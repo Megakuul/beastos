@@ -15,7 +15,7 @@
         reactive: false
         skin: transparent
   '';
-  xdg.configFile."k9s/skins/transparent".text = ''
+  xdg.configFile."k9s/skins/transparent.yaml".text = ''
     k9s:
       body:
         bgColor: default
@@ -100,12 +100,16 @@
             --font="Monospace 10"
       done
     '';
-    # ugly hack to fix https://github.com/nix-community/home-manager/issues/3090
-    onChange = ''
-      export SCRIPT_PATH="~/.local/share/nautilus/scripts"
-      cp $SCRIPT_PATH/view_certificate_link.sh $SCRIPT_PATH/view_certificate.sh
-      chmod 600 $SCRIPT_PATH/view_certificate.sh
-    '';
     force = true;
+  };
+  # ugly hack to fix https://github.com/nix-community/home-manager/issues/3090
+  home.activation.makeNautilusScriptsExecutable = {
+    after = [ "linkGeneration" ];
+    before = [ ];
+    data = ''
+      export SCRIPT_PATH="~/.local/share/nautilus/scripts"
+      cp ~/.local/share/nautilus/scripts/view_certificate_link.sh ~/.local/share/nautilus/scripts/view_certificate.sh
+      chmod 600 ~/.local/share/nautilus/scripts/view_certificate.sh
+    '';
   };
 }
