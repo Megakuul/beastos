@@ -419,6 +419,9 @@
         "[jsonc]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
+        "[yaml]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
 
         "editor.formatOnSave" = true;
         "editor.formatOnSaveTimeout" = 1000;
