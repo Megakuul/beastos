@@ -7,6 +7,6 @@
     ./selimbar.nix
     ./xdg-mimes.nix
     ./rofi.nix
-    ./nemo.nix
+    ./config.nix
   ];
 }

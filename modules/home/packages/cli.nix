@@ -41,6 +41,7 @@
     binsider # elf analyzer tui
     step-cli
     openssl
+    osslsigncode
 
     # remotemanagement
     teleport_18

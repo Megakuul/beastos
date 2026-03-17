@@ -279,6 +279,7 @@ in
         "match:class ^(peazip)$, float 1"
         "match:class ^(nemo)$, float 1"
         "match:class ^(vlc)$, float 1"
+        "match:class ^(org.gnome.NautilusPreviewer)$, float 1"
         "match:class ^(vlc)$, float on, size 1280 720, center on"
         "match:class ^(nwg-displays)$, fullscreen on"
         "match:class ^(org.gnome.Evince)$, float 1"

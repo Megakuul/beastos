@@ -16,6 +16,13 @@
     figma-linux
     ksnip
     evince
+    nautilus
+    nautilus-python
+    nautilus-open-any-terminal
+    sushi
+    peazip
+    gvfs
+    code-nautilus
 
     # office
     libreoffice
