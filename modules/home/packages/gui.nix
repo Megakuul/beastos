@@ -23,6 +23,7 @@
     peazip
     gvfs
     code-nautilus
+    zenity
 
     # office
     libreoffice
