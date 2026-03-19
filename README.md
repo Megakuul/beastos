@@ -72,6 +72,7 @@ Create a basic flake that pulls the beast module and configure the options accor
                 git = {
                   username = "yourgitname123";
                   email = "yourgitmail@ananas.salat";
+                  configPath = "~/.config/git";
                 };
               };
             };
@@ -94,6 +95,22 @@ Reboot the system and you successfully installed the beast 🎉
 
 > [!TIP]
 > You can just add your local nix module to the `modules` list to apply additional configurations to your system.
+
+
+## Git Setup
+---
+
+To setup git authentication and signing keys (assuming you are using ssh) install the following keys to the `beast.profile.git.configPath`:
+
+```bash
+# key used to sign git commits
+ssh-keygen -f signingkey
+# key used to authenticate against codeberg.org
+ssh-keygen -f codeberg
+# key used to authenticate against github.com
+ssh-keygen -f github
+```
+
 
 
 ## Q & A

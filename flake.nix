@@ -78,6 +78,11 @@
                   type = lib.types.str;
                   description = "Git email";
                 };
+                configPath = lib.mkOption {
+                  type = lib.types.str;
+                  description = "Path to git configurations and keys";
+                  default = "~/.config/git";
+                };
               };
               windowrules = lib.mkOption {
                 type = lib.types.listOf lib.types.str;

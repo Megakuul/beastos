@@ -2,8 +2,9 @@
   osConfig,
   pkgs,
   ...
-}: {
-  home.packages = [pkgs.gh];
+}:
+{
+  home.packages = [ pkgs.gh ];
 
   programs.git = {
     enable = true;
@@ -11,7 +12,7 @@
     settings = {
       user.name = "${osConfig.beast.profile.git.username}";
       user.email = "${osConfig.beast.profile.git.email}";
-      user.signingkey = "/home/${osConfig.beast.profile.username}/.config/git/signingkey";
+      user.signingkey = "${osConfig.beast.profile.git.configPath}/signingkey";
       gpg.format = "ssh";
       commit.gpgsign = true;
       init.defaultBranch = "main";
@@ -19,8 +20,30 @@
       diff.colorMoved = "default";
       pull.ff = "only";
       color.ui = true;
-      core.excludesFile = "/home/${osConfig.beast.profile.username}/.config/git/.gitignore";
+      core.excludesFile = "${osConfig.beast.profile.git.configPath}/.gitignore";
       credential.helper = "!${pkgs.gh}/bin/gh auth git-credential";
+      url = {
+        "git@github.com:" = {
+          insteadOf = "https://github.com/";
+        };
+        "git@codeberg.org:" = {
+          insteadOf = "https://codeberg.org/";
+        };
+      };
+    };
+  };
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        identityFile = "${osConfig.beast.profile.git.configPath}/github";
+      };
+      "codeberg.org" = {
+        hostname = "codeberg.org";
+        identityFile = "${osConfig.beast.profile.git.configPath}/codeberg";
+      };
     };
   };
   programs.delta = {

@@ -109,7 +109,7 @@
     data = ''
       export SCRIPT_PATH="~/.local/share/nautilus/scripts"
       cp ~/.local/share/nautilus/scripts/view_certificate_link.sh ~/.local/share/nautilus/scripts/view_certificate.sh
-      chmod 500 ~/.local/share/nautilus/scripts/view_certificate.sh
+      chmod 700 ~/.local/share/nautilus/scripts/view_certificate.sh
     '';
   };
 }
