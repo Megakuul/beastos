@@ -59,7 +59,7 @@
   # certificate viewer in nautilus
   home.file.".local/share/nautilus/scripts/view_certificate_link.sh" = {
     text = ''
-      #!/bin/bash
+      #!/bin/sh
 
       for filename in "$@"; do
           VERIFY_OUTPUT=$(osslsigncode verify "$filename" 2>&1)
@@ -109,7 +109,7 @@
     data = ''
       export SCRIPT_PATH="~/.local/share/nautilus/scripts"
       cp ~/.local/share/nautilus/scripts/view_certificate_link.sh ~/.local/share/nautilus/scripts/view_certificate.sh
-      chmod 600 ~/.local/share/nautilus/scripts/view_certificate.sh
+      chmod 500 ~/.local/share/nautilus/scripts/view_certificate.sh
     '';
   };
 }
