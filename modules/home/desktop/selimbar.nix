@@ -17,7 +17,7 @@
         "nwg-displays.desktop"
         "com.rafaelmardojai.Blanket.desktop"
         "com.mitchellh.ghostty.desktop"
-        "figma-linux.desktop"
+        ".virt-manager-wrapped.desktop"
       ];
     };
   };
