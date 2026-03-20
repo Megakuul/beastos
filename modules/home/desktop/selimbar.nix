@@ -9,6 +9,7 @@
       dock_margin = 5;
       dock_home = true;
       dock_trash = true;
+      dock = "auto-hide";
       dock_apps = [
         "codium.desktop"
         "brave-browser.desktop"
