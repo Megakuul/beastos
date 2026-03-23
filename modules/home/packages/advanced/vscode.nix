@@ -31,6 +31,7 @@
   programs.vscode =
     let
       open-vsx = inputs.nix-vscode-extensions.extensions.${pkgs.system}.open-vsx;
+      vscode-marketplace = inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace;
     in
     {
       enable = true;
@@ -55,9 +56,10 @@
         ms-python.python
         charliermarsh.ruff
         mads-hartmann.bash-ide-vscode
-        elijah-potter.harper
 
-        open-vsx.haphazarddev.oil-code
+        vscode-marketplace.alimostafavi.voil
+
+        open-vsx.elijah-potter.harper
         open-vsx.megakuul.telescode
         open-vsx.bufbuild.vscode-buf
         open-vsx.oven.bun-vscode
@@ -180,6 +182,16 @@
           key = "ctrl+f";
           command = "-actions.find";
         }
+        {
+          key = "-";
+          command = "voil.openPanelCurrentDir";
+          when = "!voilDoc && vim.mode == 'Normal' && editorFocus";
+        }
+        {
+          key = "-";
+          command = "voil.gotoParentDir";
+          when = "voilDoc && vim.mode == 'Normal' && editorFocus";
+        }
       ];
 
       profiles.default.userSettings = {
@@ -203,8 +215,6 @@
         "gitlens.rebaseEditor.enabled" = false;
         "git.mergeEditor" = false;
         "problems.showCurrentInStatus" = true;
-        "oil-code.disableDefaultKeymaps" = true;
-        "oil-code.hasNerdFont" = true;
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
         "nix.serverSettings" = {
@@ -243,14 +253,6 @@
           }
         ];
         "vim.normalModeKeyBindingsNonRecursive" = [
-          {
-            before = [ "-" ];
-            commands = [ "oil-code.open" ];
-          }
-          {
-            before = [ "<CR>" ];
-            commands = [ "oil-code.select" ];
-          }
           {
             before = [
               "<leader>"
