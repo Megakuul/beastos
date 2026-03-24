@@ -39,10 +39,12 @@
       "github.com" = {
         hostname = "github.com";
         identityFile = "${osConfig.beast.profile.git.configPath}/github";
+        identitiesOnly = true;
       };
       "codeberg.org" = {
         hostname = "codeberg.org";
         identityFile = "${osConfig.beast.profile.git.configPath}/codeberg";
+        identitiesOnly = true;
       };
     };
   };
