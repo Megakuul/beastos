@@ -36,15 +36,20 @@
     enable = true;
     enableDefaultConfig = false;
     matchBlocks = {
+      "*" = {
+
+      };
       "github.com" = {
         hostname = "github.com";
         identityFile = "${osConfig.beast.profile.git.configPath}/github";
         identitiesOnly = true;
+        addKeysToAgent = "yes";
       };
       "codeberg.org" = {
         hostname = "codeberg.org";
         identityFile = "${osConfig.beast.profile.git.configPath}/codeberg";
         identitiesOnly = true;
+        addKeysToAgent = "yes";
       };
     };
   };
