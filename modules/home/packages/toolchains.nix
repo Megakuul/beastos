@@ -7,7 +7,14 @@
     lua-language-server
 
     # ui tools (html, tailwind, ts, ...)
-    nodejs_24
+    nodejs-slim_24
+    corepack_24
+    (pkgs.writeShellScriptBin "npm" ''
+      exec corepack npm "$@"
+    '')
+    (pkgs.writeShellScriptBin "npx" ''
+      exec corepack npx "$@"
+    '')
     bun
     deno
     prettierd
