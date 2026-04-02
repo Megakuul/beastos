@@ -5,5 +5,6 @@
     ./brave.nix # brave as chromium backup
     ./git.nix
     ./vscode.nix
+    ./music.nix
   ];
 }

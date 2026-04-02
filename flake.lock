@@ -106,6 +106,26 @@
         "type": "github"
       }
     },
+    "native-instruments": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775162649,
+        "narHash": "sha256-CNJmZz9897t89k0aWsiHUl78dkgMSGOzBwYc5H9wmfg=",
+        "owner": "selimbucher",
+        "repo": "native-instruments",
+        "rev": "90b837faab6d4daab177e952bb934fcd53147d9c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "selimbucher",
+        "repo": "native-instruments",
+        "type": "github"
+      }
+    },
     "nix-vscode-extensions": {
       "inputs": {
         "nixpkgs": [
@@ -146,6 +166,7 @@
       "inputs": {
         "fleet-orbit": "fleet-orbit",
         "home-manager": "home-manager",
+        "native-instruments": "native-instruments",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
         "selimbar": "selimbar",

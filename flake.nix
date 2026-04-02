@@ -31,6 +31,11 @@
       url = "github:selimbucher/WhiteSur-steam-icons";
       flake = false;
     };
+
+    native-instruments = {
+      url = "github:selimbucher/native-instruments";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
