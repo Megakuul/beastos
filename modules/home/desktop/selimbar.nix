@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = [
+    pkgs.awww
+    pkgs.swww
+  ];
   services.kiwi-shell = {
     enable = true;
     settings = {
@@ -20,6 +24,7 @@
         "com.mitchellh.ghostty.desktop"
         ".virt-manager-wrapped.desktop"
       ];
+      dock_arpeggio = true;
     };
   };
 }

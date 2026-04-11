@@ -93,11 +93,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773559966,
-        "narHash": "sha256-GN2cbHvlFzFlD4W7GYi4ggYbxFDkKhiLAPuoUjhMevE=",
+        "lastModified": 1775866982,
+        "narHash": "sha256-IML+sPkoO3W0l4PQZpxSbQD4n5+qIjCtAXHdFxRMmGY=",
         "owner": "selimbucher",
         "repo": "kiwi-settings",
-        "rev": "a3e23cb466f3fdab547fa5618e13fffcfec8ea84",
+        "rev": "a9dcfcf53c214efbd372468cc0cc34192bb6bba8",
         "type": "github"
       },
       "original": {
@@ -113,11 +113,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775162649,
-        "narHash": "sha256-CNJmZz9897t89k0aWsiHUl78dkgMSGOzBwYc5H9wmfg=",
+        "lastModified": 1775172997,
+        "narHash": "sha256-8JAQN6lCb1WavZOhfINQ2LDgOnS2fe6m4ZqkZue7Xvg=",
         "owner": "selimbucher",
         "repo": "native-instruments",
-        "rev": "90b837faab6d4daab177e952bb934fcd53147d9c",
+        "rev": "1ddb1be598bd62ff11018b983235466c30e12bf1",
         "type": "github"
       },
       "original": {
@@ -183,11 +183,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774196556,
-        "narHash": "sha256-NuzSsJcswUflKOIllYAsu8ecFqPB7YGETRzgi4gyi+o=",
+        "lastModified": 1775872836,
+        "narHash": "sha256-ijRUkLaVDvbX09C6/I7lfbUNvOVnSMfJK5Nac+D4hLo=",
         "owner": "selimbucher",
         "repo": "kiwi-shell",
-        "rev": "0868ebd99348cea56c1657aa8d3ab51d725d90c7",
+        "rev": "213d7fb6dce0f21815516d6c92d247dad988b219",
         "type": "github"
       },
       "original": {
