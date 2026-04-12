@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     # lua
@@ -57,7 +57,7 @@
 
     # nix
     alejandra
-    nixd
+    inputs.nixd.packages.${pkgs.stdenv.system}.default
     nixfmt
 
     # yaml de-retarders

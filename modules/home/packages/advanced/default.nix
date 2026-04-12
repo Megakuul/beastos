@@ -6,5 +6,6 @@
     ./git.nix
     ./vscode.nix
     ./music.nix
+    ./helix.nix
   ];
 }
