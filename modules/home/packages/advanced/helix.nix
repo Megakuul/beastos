@@ -17,6 +17,9 @@
     };
     settings = {
       theme = "catppuccin_mocha";
+      keys.normal = {
+        u = "expand_selection";
+      };
       keys.insert = {
         "j" = {
           "k" = "normal_mode";
