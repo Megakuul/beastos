@@ -5,6 +5,16 @@
     enable = true;
     package = pkgs.helix;
 
+    languages = {
+      language = [
+        {
+          name = "go";
+          formatter = {
+            command = "goimports";
+          };
+        }
+      ];
+    };
     settings = {
       theme = "catppuccin_mocha";
       keys.insert = {
