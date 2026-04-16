@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   networking = {
     hostName = "${config.beast.host}";
     networkmanager.enable = true;
@@ -13,6 +14,7 @@
     ];
     firewall = {
       enable = true;
+      trustedInterfaces = [ "virbr0" ];
       allowedTCPPorts = [
       ];
       allowedUDPPorts = [
@@ -21,5 +23,5 @@
     nftables.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [networkmanagerapplet];
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 }

@@ -36,11 +36,6 @@
       url = "github:selimbucher/native-instruments";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixd = {
-      url = "github:megakuul/nixd";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

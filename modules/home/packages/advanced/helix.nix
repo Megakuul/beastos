@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  home.packages = with pkgs; [yazi];
   programs.helix = {
     enable = true;
     package = pkgs.helix;
@@ -18,7 +19,7 @@
     settings = {
       theme = "catppuccin_mocha";
       keys.normal = {
-        u = "expand_selection";
+        "ö" = "expand_selection";
       };
       keys.insert = {
         "j" = {

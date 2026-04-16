@@ -7,8 +7,8 @@
     lua-language-server
 
     # ui tools (html, tailwind, ts, ...)
-    nodejs-slim_24
-    corepack_24
+    nodejs-slim_25
+    corepack
     (pkgs.writeShellScriptBin "npm" ''
       exec corepack npm "$@"
     '')
@@ -57,7 +57,7 @@
 
     # nix
     alejandra
-    inputs.nixd.packages.${pkgs.stdenv.system}.default
+    nixd
     nixfmt
 
     # yaml de-retarders
