@@ -32,7 +32,6 @@
     # go
     go
     gopls
-    gotools
     delve
     gdlv
 
