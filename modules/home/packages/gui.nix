@@ -24,6 +24,7 @@
     gvfs
     code-nautilus
     zenity
+    spotube
 
     # office
     libreoffice
