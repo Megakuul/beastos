@@ -31,6 +31,8 @@
 
     # go
     go
+    gofumpt
+    goimports-reviser
     gopls
     delve
     gdlv

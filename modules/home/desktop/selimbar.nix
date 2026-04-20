@@ -2,7 +2,6 @@
 {
   home.packages = [
     pkgs.awww
-    pkgs.swww
   ];
   services.kiwi-shell = {
     enable = true;
