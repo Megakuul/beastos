@@ -36,6 +36,7 @@
       url = "github:selimbucher/native-instruments";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs =

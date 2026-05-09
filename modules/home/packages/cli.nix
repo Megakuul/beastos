@@ -30,6 +30,7 @@
     tree-sitter
     nmap
     vim
+    mplayer
 
     # multimedia
     pamixer # pulseaudio command line mixer

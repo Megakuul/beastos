@@ -7,5 +7,6 @@
     ./vscode.nix
     ./music.nix
     ./helix.nix
+    ./nvim.nix
   ];
 }
