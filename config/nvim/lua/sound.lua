@@ -1,7 +1,14 @@
 local sound_dir = vim.fn.stdpath "config" .. "/sounds/"
 local player = "paplay"
+local last_play = 0
 
 local function play_sound(file)
+  local now = vim.uv.now()
+  if now - last_play < 80 then
+    return
+  end
+  last_play = now
+
   vim.fn.jobstart({ player, sound_dir .. file }, { detach = true })
 end
 
