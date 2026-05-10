@@ -5,7 +5,7 @@
 }: {
   users.users.${config.beast.profile.username}.extraGroups = [
     "libvirtd"
-    "podman"
+    "docker"
     "incus-admin"
   ];
 
@@ -15,24 +15,10 @@
   ];
 
   virtualisation = {
-    podman = {
+    docker = {
       enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
     };
     waydroid.enable = true;
-    incus = {
-      enable = true;
-      ui = {
-        enable = true;
-      };
-      preseed = {
-        config = {
-          "core.https_address" = ":10123";
-          "images.auto_update_interval" = 15;
-        };
-      };
-    };
     libvirtd = {
       enable = true;
       qemu = {

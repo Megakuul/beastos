@@ -1,12 +1,11 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-
     # api debugging
     hoppscotch
 
     # container tooling
-    podman
-    podman-desktop
+    docker
+    docker-compose
     kubectl
     k9s
     kubernetes-helm
