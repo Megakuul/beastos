@@ -1,17 +1,16 @@
-{ lib, ... }:
-with lib;
-let
+{lib, ...}:
+with lib; let
   defaultApps = {
-    browser = [ "brave.desktop" ];
-    text = [ "codium.desktop" ];
-    image = [ "brave.desktop" ];
-    video = [ "vlc.desktop" ];
-    figma = [ "figma-linux.desktop" ];
-    audio = [ "vlc.desktop" ];
-    directory = [ "nautilus.desktop" ];
-    office = [ "libreoffice.desktop" ];
-    pdf = [ "org.gnome.Evince.desktop" ];
-    terminal = [ "ghostty.desktop" ];
+    browser = ["brave.desktop"];
+    text = ["codium.desktop"];
+    image = ["brave.desktop"];
+    video = ["vlc.desktop"];
+    figma = ["figma-linux.desktop"];
+    audio = ["vlc.desktop"];
+    directory = ["nautilus.desktop"];
+    office = ["libreoffice.desktop"];
+    pdf = ["org.gnome.Evince.desktop"];
+    terminal = ["kitty.desktop"];
     archive = [
       "peazip-extract.desktop"
       "peazip.desktop"
@@ -120,13 +119,11 @@ let
     ];
   };
 
-  associations =
-    with lists;
+  associations = with lists;
     listToAttrs (
       flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap)
     );
-in
-{
+in {
   xdg.configFile."mimeapps.list".force = true;
   xdg.mimeApps.enable = true;
   xdg.mimeApps.associations.added = associations;
