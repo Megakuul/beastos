@@ -57,6 +57,12 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
+      routes = {
+        {
+          filter = { error = true },
+          opts = { skip = true },
+        },
+      },
       lsp = {
         hover = {
           enabled = false,

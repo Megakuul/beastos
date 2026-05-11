@@ -8,7 +8,7 @@ local options = {
     typescript = { "prettierd" },
     json = { "prettierd" },
     templ = { "templ" },
-    go = { "goimports", "gofumpt" },
+    go = { "goimports-reviser", "gofumpt" },
     c = { "clang_format" },
     cpp = { "clang_format" },
     ocaml = { "ocamlformat" },
@@ -21,7 +21,7 @@ local options = {
 
   format_on_save = {
     lsp_format = "first",
-    timeout_ms = 500,
+    timeout_ms = 2000,
   },
 }
 
