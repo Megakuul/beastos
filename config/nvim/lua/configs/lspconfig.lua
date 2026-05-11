@@ -18,6 +18,7 @@ local servers = {
   "rust_analyzer",
   "pyright",
   "bashls",
+  "buf_ls",
 }
 
 vim.lsp.config("*", {

@@ -17,6 +17,7 @@ local options = {
     rust = { "rustfmt" },
     python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
     bash = { "shfmt" },
+    proto = { "buf" },
   },
 
   format_on_save = {
