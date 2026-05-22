@@ -2,13 +2,11 @@
   pkgs,
   osConfig,
   ...
-}:
-let
+}: let
   browser = osConfig.beast.profile.apps.browser;
   terminal = osConfig.beast.profile.apps.terminal;
   file = osConfig.beast.profile.apps.explorer;
-in
-{
+in {
   home.packages = with pkgs; [
     hyprpicker
 
@@ -61,25 +59,26 @@ in
         "QT_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
-      exec-once = [
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+      exec-once =
+        [
+          "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
-        "hyprlock"
+          "hyprlock"
 
-        "nm-applet &"
-        "poweralertd &"
+          "nm-applet &"
+          "poweralertd &"
 
-        "wl-clip-persist --clipboard both &"
-        "wl-paste --watch cliphist store &"
-        "hyprctl setcursor Bibata-Modern-Ice 24 &"
-        "kiwi &"
-        "[workspace 5 silent] blanket"
-        "sleep 1 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.5"
+          "wl-clip-persist --clipboard both &"
+          "wl-paste --watch cliphist store &"
+          "hyprctl setcursor Bibata-Modern-Ice 24 &"
+          "kiwi &"
+          "[workspace 5 silent] blanket"
+          "sleep 1 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.5"
 
-        "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
-      ]
-      ++ osConfig.beast.profile.startup;
+          "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
+        ]
+        ++ osConfig.beast.profile.startup;
 
       input = {
         kb_layout = "ch";
@@ -121,7 +120,6 @@ in
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
         use_active_for_splits = true;
-        pseudotile = "yes";
         preserve_split = "yes";
       };
 
@@ -149,7 +147,6 @@ in
         shadow = {
           enabled = true;
 
-          ignore_window = true;
           offset = "0 2";
           range = 20;
           render_power = 3;
@@ -272,97 +269,98 @@ in
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      windowrule = [
-        # center all floating windows by default
-        "match:class .*, match:float 1, center 1"
+      windowrule =
+        [
+          # center all floating windows by default
+          "match:class .*, match:float 1, center 1"
 
-        "match:class ^(peazip)$, float 1"
-        "match:class ^(nemo)$, float 1"
-        "match:class ^(vlc)$, float 1"
-        "match:class ^(org.gnome.NautilusPreviewer)$, float 1"
-        "match:class ^(vlc)$, float on, size 1280 720, center on"
-        "match:class ^(nwg-displays)$, fullscreen on"
-        "match:class ^(org.gnome.Evince)$, float 1"
-        "match:class ^(org.ksnip.ksnip)$, float 1"
-        "match:class ^(com.github.tenderowl.frog)$, float 1"
-        "match:class ^(org.gnome.Nautilus)$, float 1"
-        "match:class ^(nautilus)$, float 1"
-        "match:class ^(Viewnior)$, float 1"
-        "match:class ^(imv)$, float 1"
-        "match:class ^(mpv)$, float 1"
-        "match:class ^(Aseprite)$, tile 1"
-        "match:class ^(Audacious)$, float 1"
-        "match:class ^(rofi)$, pin 1"
-        "match:class ^(waypaper)$, pin 1"
+          "match:class ^(peazip)$, float 1"
+          "match:class ^(nemo)$, float 1"
+          "match:class ^(vlc)$, float 1"
+          "match:class ^(org.gnome.NautilusPreviewer)$, float 1"
+          "match:class ^(vlc)$, float on, size 1280 720, center on"
+          "match:class ^(nwg-displays)$, fullscreen on"
+          "match:class ^(org.gnome.Evince)$, float 1"
+          "match:class ^(org.ksnip.ksnip)$, float 1"
+          "match:class ^(com.github.tenderowl.frog)$, float 1"
+          "match:class ^(org.gnome.Nautilus)$, float 1"
+          "match:class ^(nautilus)$, float 1"
+          "match:class ^(Viewnior)$, float 1"
+          "match:class ^(imv)$, float 1"
+          "match:class ^(mpv)$, float 1"
+          "match:class ^(Aseprite)$, tile 1"
+          "match:class ^(Audacious)$, float 1"
+          "match:class ^(rofi)$, pin 1"
+          "match:class ^(waypaper)$, pin 1"
 
-        "match:title ^(Transmission)$, float 1"
-        "match:title ^(Volume Control)$, float 1"
-        "match:title ^(Firefox — Sharing Indicator)$, float 1"
-        "match:title ^(Firefox — Sharing Indicator)$, move 0 0"
-        "match:title ^(Volume Control)$, size 700 450"
-        "match:title ^(Volume Control)$, move 40 55%"
+          "match:title ^(Transmission)$, float 1"
+          "match:title ^(Volume Control)$, float 1"
+          "match:title ^(Firefox — Sharing Indicator)$, float 1"
+          "match:title ^(Firefox — Sharing Indicator)$, move 0 0"
+          "match:title ^(Volume Control)$, size 700 450"
+          "match:title ^(Volume Control)$, move 40 55%"
 
-        "match:title ^(Picture-in-Picture)$, float 1"
-        "match:title ^(Picture-in-Picture)$, opacity 1.0 override 1.0 override"
-        "match:title ^(Picture-in-Picture)$, pin 1"
-        "match:title ^(.*imv.*)$, opacity 1.0 override 1.0 override"
-        "match:title ^(.*mpv.*)$, opacity 1.0 override 1.0 override"
-        "match:class (Aseprite), opacity 1.0 override 1.0 override"
-        "match:class (Unity), opacity 1.0 override 1.0 override"
-        "match:class (zen), opacity 1.0 override 1.0 override"
-        "match:class (evince), opacity 1.0 override 1.0 override"
-        "match:class ^(${browser})$, workspace 1"
-        "match:class ^(evince)$, workspace 3"
-        "match:class ^(Gimp-2.10)$, workspace 4"
-        "match:class ^(Aseprite)$, workspace 4"
-        "match:class ^(Audacious)$, workspace 5"
-        "match:class ^(Spotify)$, workspace 5"
-        "match:class ^(com.obsproject.Studio)$, workspace 8"
-        "match:class ^(discord)$, workspace 10"
-        "match:class ^(WebCord)$, workspace 10"
+          "match:title ^(Picture-in-Picture)$, float 1"
+          "match:title ^(Picture-in-Picture)$, opacity 1.0 override 1.0 override"
+          "match:title ^(Picture-in-Picture)$, pin 1"
+          "match:title ^(.*imv.*)$, opacity 1.0 override 1.0 override"
+          "match:title ^(.*mpv.*)$, opacity 1.0 override 1.0 override"
+          "match:class (Aseprite), opacity 1.0 override 1.0 override"
+          "match:class (Unity), opacity 1.0 override 1.0 override"
+          "match:class (zen), opacity 1.0 override 1.0 override"
+          "match:class (evince), opacity 1.0 override 1.0 override"
+          "match:class ^(${browser})$, workspace 1"
+          "match:class ^(evince)$, workspace 3"
+          "match:class ^(Gimp-2.10)$, workspace 4"
+          "match:class ^(Aseprite)$, workspace 4"
+          "match:class ^(Audacious)$, workspace 5"
+          "match:class ^(Spotify)$, workspace 5"
+          "match:class ^(com.obsproject.Studio)$, workspace 8"
+          "match:class ^(discord)$, workspace 10"
+          "match:class ^(WebCord)$, workspace 10"
 
-        "match:class ^(org.gnome.Calculator)$, float 1"
-        "match:class ^(waypaper)$, float 1"
-        "match:class ^(zenity)$, float 1, center 1"
-        "match:class ^(zenity)$, size 850 500"
-        "match:class ^(SoundWireServer)$, size 725 330"
-        "match:class ^(org.gnome.FileRoller)$, float 1"
-        "match:class ^(org.pulseaudio.pavucontrol)$, float 1"
-        "match:class ^(SoundWireServer)$, float 1"
-        "match:class ^(.sameboy-wrapped)$, float 1"
-        "match:class ^(file_progress)$, float 1, center 1"
-        "match:class ^(confirm)$, float 1, center 1"
-        "match:class ^(dialog)$, float 1, center 1"
-        "match:class ^(download)$, float 1, center 1"
-        "match:class ^(notification)$, float 1"
-        "match:class ^(error)$, float 1, center 1"
-        "match:class ^(confirmreset)$, float 1, center 1"
-        "match:title ^(Open File)$, float 1, center 1"
-        "match:title ^(File Upload)$, float 1, center 1"
-        "match:title ^(branchdialog)$, float 1, center 1"
-        "match:title ^(Confirm to replace files)$, float 1, center 1"
-        "match:title ^(File Operation Progress)$, float 1, center 1"
-        "match:title ^(Bitwarden)$, float 1, center 1"
-        "match:class ^(xdg-desktop-portal-gtk)$, float 1, center 1"
-        "match:class ^(xdg-desktop-portal-gtk)$, size 850 500"
+          "match:class ^(org.gnome.Calculator)$, float 1"
+          "match:class ^(waypaper)$, float 1"
+          "match:class ^(zenity)$, float 1, center 1"
+          "match:class ^(zenity)$, size 850 500"
+          "match:class ^(SoundWireServer)$, size 725 330"
+          "match:class ^(org.gnome.FileRoller)$, float 1"
+          "match:class ^(org.pulseaudio.pavucontrol)$, float 1"
+          "match:class ^(SoundWireServer)$, float 1"
+          "match:class ^(.sameboy-wrapped)$, float 1"
+          "match:class ^(file_progress)$, float 1, center 1"
+          "match:class ^(confirm)$, float 1, center 1"
+          "match:class ^(dialog)$, float 1, center 1"
+          "match:class ^(download)$, float 1, center 1"
+          "match:class ^(notification)$, float 1"
+          "match:class ^(error)$, float 1, center 1"
+          "match:class ^(confirmreset)$, float 1, center 1"
+          "match:title ^(Open File)$, float 1, center 1"
+          "match:title ^(File Upload)$, float 1, center 1"
+          "match:title ^(branchdialog)$, float 1, center 1"
+          "match:title ^(Confirm to replace files)$, float 1, center 1"
+          "match:title ^(File Operation Progress)$, float 1, center 1"
+          "match:title ^(Bitwarden)$, float 1, center 1"
+          "match:class ^(xdg-desktop-portal-gtk)$, float 1, center 1"
+          "match:class ^(xdg-desktop-portal-gtk)$, size 850 500"
 
-        "match:class ^(xwaylandvideobridge)$, opacity 0.0 override"
-        "match:class ^(xwaylandvideobridge)$, no_anim 1"
-        "match:class ^(xwaylandvideobridge)$, no_initial_focus 1"
-        "match:class ^(xwaylandvideobridge)$, max_size 1 1"
-        "match:class ^(xwaylandvideobridge)$, no_blur 1"
+          "match:class ^(xwaylandvideobridge)$, opacity 0.0 override"
+          "match:class ^(xwaylandvideobridge)$, no_anim 1"
+          "match:class ^(xwaylandvideobridge)$, no_initial_focus 1"
+          "match:class ^(xwaylandvideobridge)$, max_size 1 1"
+          "match:class ^(xwaylandvideobridge)$, no_blur 1"
 
-        "match:class ^()$, match:title ^()$, opaque 1"
-        "match:class ^()$, match:title ^()$, no_shadow 1"
-        "match:class ^()$, match:title ^()$, no_blur 1"
+          "match:class ^()$, match:title ^()$, opaque 1"
+          "match:class ^()$, match:title ^()$, no_shadow 1"
+          "match:class ^()$, match:title ^()$, no_blur 1"
 
-        # "match:float 0, match:workspace w[tv1]s[false], border_size 0"
-        # "match:float 0, match:workspace w[tv1]s[false], rounding 0"
-        # "match:float 0, match:workspace f[1]s[false], border_size 0"
-        # "match:float 0, match:workspace f[1]s[false], rounding 0"
-        "match:title ^(tray\.scss - hyprland-widgets - VSCodium)$, opacity 0.8 override"
-      ]
-      ++ osConfig.beast.profile.windowrules;
+          # "match:float 0, match:workspace w[tv1]s[false], border_size 0"
+          # "match:float 0, match:workspace w[tv1]s[false], rounding 0"
+          # "match:float 0, match:workspace f[1]s[false], border_size 0"
+          # "match:float 0, match:workspace f[1]s[false], rounding 0"
+          "match:title ^(tray\.scss - hyprland-widgets - VSCodium)$, opacity 0.8 override"
+        ]
+        ++ osConfig.beast.profile.windowrules;
 
       # workspace = [
       #   "w[tv1]s[false], gapsout:0, gapsin:0"
