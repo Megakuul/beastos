@@ -21,8 +21,14 @@ local servers = {
   "buf_ls",
 }
 
+local custom_on_attach = function(client, bufnr)
+  nvlsp.on_attach(client, bufnr)
+
+  client.server_capabilities.semanticTokensProvider = nil
+end
+
 vim.lsp.config("*", {
-  on_attach = nvlsp.on_attach,
+  on_attach = custom_on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
 })
