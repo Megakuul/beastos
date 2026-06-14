@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     # lua
     lua
@@ -7,7 +10,7 @@
     lua-language-server
 
     # ui tools (html, tailwind, ts, ...)
-    nodejs-slim_25
+    nodejs-slim_26
     corepack
     (pkgs.writeShellScriptBin "npm" ''
       exec corepack npm "$@"

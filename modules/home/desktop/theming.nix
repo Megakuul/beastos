@@ -4,20 +4,18 @@
   inputs,
   lib,
   ...
-}:
-let
+}: let
   variant = "macchiato";
   accent = "lavender";
   kvantumThemePackage = pkgs.catppuccin-kvantum.override {
     inherit variant accent;
   };
-in
-{
+in {
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      sansSerif = [ "Quicksand" ];
-      monospace = [ "DejaVu Sans Mono" ];
+      sansSerif = ["Quicksand"];
+      monospace = ["DejaVu Sans Mono"];
     };
   };
   home.packages = with pkgs; [
@@ -67,19 +65,21 @@ in
               boldPanelIcons = true;
             };
           in
-          base.overrideAttrs (oldAttrs: {
-            version = "latest";
-            src = inputs.whitesur-src;
-            myCustomIcons = inputs.slimmer-icons;
-            dontCheckForBrokenSymlinks = true;
-            postInstall = (oldAttrs.postInstall or "") + ''
-              cp -rf ${inputs.slimmer-icons}/apps/* $out/share/icons/WhiteSur/apps/
+            base.overrideAttrs (oldAttrs: {
+              version = "latest";
+              src = inputs.whitesur-src;
+              myCustomIcons = inputs.slimmer-icons;
+              dontCheckForBrokenSymlinks = true;
+              postInstall =
+                (oldAttrs.postInstall or "")
+                + ''
+                  cp -rf ${inputs.slimmer-icons}/apps/* $out/share/icons/WhiteSur/apps/
 
-              if [ -d "${inputs.slimmer-icons}/apps@2x" ]; then
-                cp -rf ${inputs.slimmer-icons}/apps@2x/* $out/share/icons/WhiteSur/apps@2x/
-              fi
-            '';
-          })
+                  if [ -d "${inputs.slimmer-icons}/apps@2x" ]; then
+                    cp -rf ${inputs.slimmer-icons}/apps@2x/* $out/share/icons/WhiteSur/apps@2x/
+                  fi
+                '';
+            })
         );
     };
     cursorTheme = {
@@ -101,8 +101,7 @@ in
       theme=catppuccin-${variant}-${accent}
     '';
 
-    "Kvantum/catppuccin-${variant}-${accent}".source =
-      "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
+    "Kvantum/catppuccin-${variant}-${accent}".source = "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
   };
 
   home.pointerCursor = {

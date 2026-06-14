@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     putty
     # multimedia
@@ -30,8 +29,8 @@
     gnome-calculator
 
     # password
-    bitwarden-desktop
-    _1password-gui
+    # bitwarden-desktop
+    # _1password-gui
 
     # utility
     gnome-disk-utility

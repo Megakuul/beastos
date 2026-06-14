@@ -14,6 +14,18 @@ return {
   },
 
   {
+    "megakuul/slopxd",
+    ft = "nix",
+    config = function()
+      require("slopxd").setup {
+        completion = false, -- nvim-cmp handles the completion UI
+        keymaps = false, -- <C-Space> is already cmp.mapping.complete()
+        completeopt = false,
+      }
+    end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
     lazy = false,

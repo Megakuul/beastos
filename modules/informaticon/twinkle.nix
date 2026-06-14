@@ -23,10 +23,10 @@
       readline
       ucommon
       ccrtp
-      libsForQt5.qt5.qtbase
-      libsForQt5.qt5.qttools
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.wrapQtAppsHook
+      qt5.qtbase
+      qt5.qttools
+      qt5.qtquickcontrols2
+      qt5.wrapQtAppsHook
       alsa-lib
       speex
       ilbc

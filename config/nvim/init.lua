@@ -115,7 +115,7 @@ vim.keymap.set("n", "gri", ":Telescope lsp_implementations<CR>")
 
 vim.keymap.set("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>")
 
-require "sound"
+-- require "sound"
 
 vim.keymap.set("n", "ö", "v")
 

@@ -13,7 +13,6 @@ local servers = {
   "gopls",
   "clangd",
   "ocamllsp",
-  "nil_ls",
   "yamlls",
   "rust_analyzer",
   "pyright",
