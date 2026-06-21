@@ -38,7 +38,7 @@ in {
     enable = true;
     package = pkgs.hyprland;
     portalPackage = null;
-    configType = "hyprlang";
+    # configType = "hyprlang";
 
     xwayland = {
       enable = true;
