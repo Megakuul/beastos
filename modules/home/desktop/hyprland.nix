@@ -195,6 +195,7 @@ in {
         "$mainMod, B, exec, [workspace 1 silent] ${browser}"
         "$mainMod, C, killactive,"
         "$mainMod, F, fullscreen, 1"
+        "$mainMod, a, fullscreen, 0"
         "$mainMod, R, exec, rofi -show drun || pkill rofi"
         "$mainMod, W, exec, rofi -show window || pkill rofi"
         "$mainMod, S, exec, rofi -show ssh -terminal ${terminal} || pkill rofi"
