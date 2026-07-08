@@ -1,6 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services = {
+    nohang.enable = true;
     gvfs.enable = true;
     gnome = {
       tinysparql.enable = true;

@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = [
     pkgs.reaper
     pkgs.wineWow64Packages.staging

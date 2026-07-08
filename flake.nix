@@ -36,6 +36,11 @@
       url = "github:selimbucher/native-instruments";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vibe = {
+      url = "github:megakuul/vibe";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {...} @ inputs: let
