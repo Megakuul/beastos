@@ -204,7 +204,10 @@ in {
         "$mainMod, T, togglefloating"
         "$mainMod, E, exec, ${file}"
 
-        ",Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
+        ",Print, exec, peck --clipboard --temp --freeze"
+        "$mainMod SHIFT, S, exec, peck --clipboard --temp --freeze"
+        "$mainMod SHIFT, R, exec, peck --record --clipboard --temp"
+        "$mainMod SHIFT, G, exec, peck --record --clipboard --temp --format=gif"
 
         # switch focus
         "$mainMod, left,  movefocus, l"
