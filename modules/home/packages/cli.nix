@@ -34,7 +34,6 @@
     nmap
     vim
     mplayer
-    inputs.vibe.packages.${pkgs.system}.default
 
     # multimedia
     pamixer # pulseaudio command line mixer

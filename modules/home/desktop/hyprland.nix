@@ -196,18 +196,15 @@ in {
         "$mainMod, C, killactive,"
         "$mainMod, F, fullscreen, 1"
         "$mainMod, a, fullscreen, 0"
-        "$mainMod, R, exec, rofi -show drun || pkill rofi"
-        "$mainMod, W, exec, rofi -show window || pkill rofi"
-        "$mainMod, S, exec, rofi -show ssh -terminal ${terminal} || pkill rofi"
         "$mainMod, G, exec, hyprlock"
         "$mainMod, P, pseudo,"
         "$mainMod, T, togglefloating"
         "$mainMod, E, exec, ${file}"
 
-        ",Print, exec, peck --clipboard --temp --freeze"
-        "$mainMod SHIFT, S, exec, peck --clipboard --temp --freeze"
-        "$mainMod SHIFT, R, exec, peck --record --clipboard --temp"
-        "$mainMod SHIFT, G, exec, peck --record --clipboard --temp --format=gif"
+        # ",Print, exec, peck --clipboard --temp --freeze"
+        # "$mainMod SHIFT, S, exec, peck --clipboard --temp --freeze"
+        # "$mainMod SHIFT, R, exec, peck --record --clipboard --temp"
+        # "$mainMod SHIFT, G, exec, peck --record --clipboard --temp --format=gif"
 
         # switch focus
         "$mainMod, left,  movefocus, l"
@@ -254,9 +251,6 @@ in {
 
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
-
-        # clipboard manager
-        "$mainMod, M, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;} listview {columns: 1;}' | cliphist decode | wl-copy"
       ];
 
       bindl = [
