@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = [
     pkgs.awww
   ];
@@ -8,6 +7,7 @@
     settings = {
       primary_color = "rgb(226, 221, 235)";
       theme = "glass";
+      desktop_icons = true;
       bar_margin = 5;
       dock_margin = 5;
       dock_home = true;
