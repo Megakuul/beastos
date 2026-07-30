@@ -380,24 +380,6 @@ in {
 
       # selim said I have to put this here
       gesture = 3, horizontal, workspace,
-
-      submap = app_switcher
-
-      binde = ALT, TAB, exec, kiwictl apps open-next
-
-      bindrt = ALT, ALT_L, exec, kiwictl apps confirm
-      bindrt = ALT, ALT_L, submap, reset
-
-      bindr = , escape, exec, kiwictl apps close
-      bindr = , escape, submap, reset
-
-      bindr = ALT, escape, exec, kiwictl apps close
-      bindr = ALT, escape, submap, reset
-
-      submap = reset
-
-      bind = ALT, TAB, exec, kiwictl apps open-next
-      bind = ALT, TAB, submap, app_switcher
     ";
   };
 }
