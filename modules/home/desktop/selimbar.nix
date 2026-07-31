@@ -7,7 +7,7 @@
     settings = {
       primary_color = "rgb(226, 221, 235)";
       theme = "glass";
-      desktop_icons = true;
+      desktop_icons = false;
       bar_margin = 5;
       dock_margin = 5;
       dock_home = true;
