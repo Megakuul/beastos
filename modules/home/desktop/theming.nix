@@ -52,7 +52,6 @@ in {
     };
     theme = {
       name = "Dracula";
-      package = pkgs.dracula-theme;
     };
     iconTheme = {
       name = "WhiteSur";
