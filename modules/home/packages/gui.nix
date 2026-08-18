@@ -23,6 +23,7 @@
     code-nautilus
     zenity
     spotube
+    webcord
 
     # office
     libreoffice
