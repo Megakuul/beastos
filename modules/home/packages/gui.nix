@@ -24,6 +24,7 @@
     zenity
     spotube
     webcord
+    zapzap
 
     # office
     libreoffice
