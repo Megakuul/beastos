@@ -3,6 +3,5 @@
   imports = [
     ./nxbender.nix
     ./twinkle.nix
-    ./fleet.nix
   ];
 }

@@ -46,13 +46,13 @@ in {
     };
     systemd.enable = true;
     settings = {
-      layerrule = {
-        name = "glassify-selimbar";
-        blur = true;
-        blur_popups = true;
-        ignore_alpha = 0.1;
-        "match:namespace" = "gtk4-layer-shell";
-      };
+      # layerrule = {
+      #   name = "glassify-selimbar";
+      #   # blur = true;
+      #   # blur_popups = true;
+      #   ignore_alpha = 0.1;
+      #   "match:namespace" = "gtk4-layer-shell";
+      # };
       env = [
         "QT_AUTO_SCREEN_SCALE_FACTOR,0"
         "QT_QPA_PLATFORMTHEME,qt5ct"
@@ -135,15 +135,15 @@ in {
         inactive_opacity = 0.92;
         # fullscreen_opacity = 1.0;
 
-        blur = {
-          enabled = true;
-          size = 1;
-          passes = 2;
-          brightness = 1;
-          contrast = 1.4;
-          noise = 0;
-          new_optimizations = true;
-        };
+        # blur = {
+        #   enabled = true;
+        #   size = 1;
+        #   passes = 2;
+        #   brightness = 1;
+        #   contrast = 1.4;
+        #   noise = 0;
+        #   new_optimizations = true;
+        # };
 
         shadow = {
           enabled = true;

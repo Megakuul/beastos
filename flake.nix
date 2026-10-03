@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fleet-orbit = {
-      url = "github:adamcik/fleet-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -117,7 +112,6 @@
       imports = [
         inputs.home-manager.nixosModules.home-manager
         ./modules/core
-        inputs.fleet-orbit.nixosModules.fleet-nixos
         ./modules/informaticon
       ];
 

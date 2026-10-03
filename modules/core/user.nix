@@ -4,8 +4,7 @@
   theme,
   inputs,
   ...
-}:
-{
+}: {
   home-manager = {
     sharedModules = [
       inputs.selimbar.homeManagerModules.default
@@ -19,7 +18,7 @@
       osConfig = config;
     };
     users.${config.beast.profile.username} = {
-      imports = [ ./../home ];
+      imports = [./../home];
       home.username = "${config.beast.profile.username}";
       home.homeDirectory = "/home/${config.beast.profile.username}";
       home.stateVersion = "24.05";
@@ -35,7 +34,7 @@
       "wheel"
       "input"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
-  nix.settings.allowed-users = [ "${config.beast.profile.username}" ];
+  nix.settings.allowed-users = ["${config.beast.profile.username}"];
 }
