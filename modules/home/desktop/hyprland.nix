@@ -28,7 +28,6 @@ in {
     # monitor tooling
     nwg-look
     nwg-displays
-    blanket
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
@@ -74,8 +73,6 @@ in {
           "wl-paste --watch cliphist store &"
           "hyprctl setcursor Bibata-Modern-Ice 24 &"
           "kiwi &"
-          "[workspace 5 silent] blanket"
-          "sleep 1 && playerctl --player=Blanket play && playerctl --player=Blanket volume 0.5"
 
           "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
         ]

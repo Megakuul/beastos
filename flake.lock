@@ -65,26 +65,6 @@
         "type": "github"
       }
     },
-    "fleet-orbit": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1790453422,
-        "narHash": "sha256-OVVLcilL46/9z/VD7iEpXGHQ+dHOJCY+V60TQC4evc8=",
-        "owner": "adamcik",
-        "repo": "fleet-nixos",
-        "rev": "60be1a583b6f8011aea02d07c2eee0a96d6a256f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "adamcik",
-        "repo": "fleet-nixos",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -113,11 +93,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790360386,
-        "narHash": "sha256-HCpem3GEc33zt2WoKGwP8MArPuCMyxS8E+X9iTkZXoI=",
+        "lastModified": 1792542278,
+        "narHash": "sha256-xzXFpC5hhvDaw5gfeBg3SCQ5ZZj+VItVZxfVCWjRKtA=",
         "owner": "selimbucher",
         "repo": "kiwi-settings",
-        "rev": "4af1e4882c36695cc9364a07c28f8f699d0a3134",
+        "rev": "21a9db1b2483718311e470104996bb061eb67d60",
         "type": "github"
       },
       "original": {
@@ -184,7 +164,6 @@
     },
     "root": {
       "inputs": {
-        "fleet-orbit": "fleet-orbit",
         "home-manager": "home-manager",
         "native-instruments": "native-instruments",
         "nix-vscode-extensions": "nix-vscode-extensions",
@@ -204,11 +183,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790692868,
-        "narHash": "sha256-7mgiFnyOj0R3aPeAQXLL89LSJguvZc0ukGBJw6XgwS0=",
+        "lastModified": 1792542380,
+        "narHash": "sha256-Rf9k6yHyl1Ei8GBRHHC7t7SBNXBUxdFNy9CXowB/+44=",
         "owner": "selimbucher",
         "repo": "kiwi-shell",
-        "rev": "b1eb6d84f96a63f1c3518f318a9c52eb3a4e3456",
+        "rev": "87ca257c2f753aac0409b23c7f5b749e2d068f40",
         "type": "github"
       },
       "original": {
