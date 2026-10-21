@@ -13,12 +13,13 @@
       dock_home = true;
       dock_trash = true;
       dock = "auto-hide";
-      shortcuts = {
-        "launcher" = "Super";
-        "app_switcher" = "Alt+Tab";
-        "workspace_switcher" = "Super+minus";
-        "notification_center" = "";
-      };
+      shortcuts = null;
+      # shortcuts = {
+      #   "launcher" = "Super";
+      #   "app_switcher" = "Alt+Tab";
+      #   "workspace_switcher" = "Super+minus";
+      #   "notification_center" = "";
+      # };
       dock_apps = [
         "codium.desktop"
         "brave-browser.desktop"

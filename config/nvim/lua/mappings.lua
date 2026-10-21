@@ -10,3 +10,6 @@ map("t", "<ESC>", "<C-\\><C-n>")
 map("t", "jk", "<C-\\><C-n>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- Local, dependency-free conflict inbox; preserves any existing leader mapping.
+require("git_conflict_browser").setup()
