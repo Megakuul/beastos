@@ -17,7 +17,7 @@
         "launcher" = "Super";
         "app_switcher" = "Alt+Tab";
         "workspace_switcher" = "Super+Tab";
-        "mission_center" = "Super+minus";
+        "mission_control" = "Super+minus";
       };
       dock_apps = [
         "codium.desktop"
